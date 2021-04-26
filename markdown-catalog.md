@@ -155,6 +155,15 @@ text..
 <!-- --><br/>
 
 
+- To render a Task List (on GFM):
+
+```
+- [ ] text
+- [x] text
+```
+<!-- --><br/>
+
+
 
 Go back to [TABLE OF CONTENT](#table-of-content).
 <!-- --><br/>
@@ -502,7 +511,7 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 
 
-> ##### Examples
+> **Examples**
 >
 >> `code`
 >

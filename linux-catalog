@@ -32,7 +32,7 @@ $ man <command>
 
 ------------------------------------
 
-	MOINTOR SYSTEM
+	MONITOR SYSTEM
 
 - List running units, ordered by time took to initialize:
 $ systemd-analyze blame
@@ -368,5 +368,25 @@ L - move cursor to bottom of visible screen
 [ctrl] b - backward one screen
 [ctrl] u - up half screen
 [ctrl] d - down half screen
+
+------------------------------------
+
+### MISC
+
+- Convert Images to PDF:
+
+```shell
+convert <image>  <file-name>.pdf
+```
+
+> **Example:**
+>
+>> `convert page*.png  mydoc.pdf`
+>
+
+
+
+
+
 
 ------------------------------------

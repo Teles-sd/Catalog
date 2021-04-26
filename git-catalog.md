@@ -143,7 +143,7 @@ This is a guide for **git** commands.
 
 - **Remote** (aka. _Remote Repository_, _Upstream Repository_):  
   A Repository to track the project, but residing somewhere else.  
-  Might be on another on the machine or in another machine, locally or remotely.
+  Might be on another directory on the machine or in another machine, locally or remotely.
 <!-- --><br/>
 
 
@@ -201,8 +201,8 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 | Term/Expression | Meaning |
 | --------------: | :------ |
 | `<description>` | To replace, or that will be replaced, according to description. |
-| `...`           | Possible to repeated pattern. |
-| `$`             | Some command to be used on the Terminal (shell). |
+|           `...` | Possible to repeated pattern.                                   |
+|             `$` | Some command to be used on the Terminal (shell).                |
 <!-- --><br/>
 <!-- --><br/>
 
@@ -260,8 +260,8 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 [atlassian]:https://www.atlassian.com/git/tutorials "Atlassian Tutorials"
 [cheat]:https://ndpsoftware.com/git-cheatsheet.html#loc=index "Git Cheatsheet"
 [Merge Rebase]:https://www.atlassian.com/git/tutorials/merging-vs-rebasing "Merging vs. Rebasing"
-[commit1]:./misc/commits_horiz.png
-[commit2]:./misc/commits_vert.png
+[tree1]:./imgs/commits_horiz.png
+[tree2]:./imgs/commits_vert.png
 
 ------------------------------------
 
@@ -784,7 +784,7 @@ Go back to [TABLE OF CONTENT](#table-of-content).
     > but NOT `<commit>^3`.
     <!-- --><br/>
 
-> ##### Example
+> **Example**
 >
 > Consider this Branch described and drawn below:
 >> 1. Commit `F` recieves a Commit and becomes `E`.
@@ -793,7 +793,7 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 >
 >> | From Left to Right | From bottom to top |
 >> | :----------------: | :----------------: |
->> |    ![][commit1]    |    ![][commit2]    |
+>> |    ![][tree1]    |    ![][tree2]    |
 >
 > In this case:
 > 
@@ -1102,14 +1102,14 @@ $ `git rebase <commit>`
   :warning: Be careful not to erase a Commit. Erased Commits will be **lost**.  
   Every Commit needs a command to be specified:
 
-|   Command   | What it does |
-| :---------: | :----------- |
-|   pick      |    Use commit as it is.    |
-|   reword    |    Use commit, but edit the commit message.    |
-|   edit      |    Use commit, but stop for manual amending.    |
-|   squash    |    Use commit, but combine into previous commit. Saves both messages.    |
-|   fixup     |    Same as squash, except this Commit´s message is ignored.    |
-|   drop      |    Remove commit.    |
+| Command | What it does                                                       |
+| :-----: | :----------------------------------------------------------------- |
+|  pick   | Use commit as it is.                                               |
+| reword  | Use commit, but edit the commit message.                           |
+|  edit   | Use commit, but stop for manual amending.                          |
+| squash  | Use commit, but combine into previous commit. Saves both messages. |
+|  fixup  | Same as squash, except this Commit´s message is ignored.           |
+|  drop   | Remove commit.                                                     |
 
 - Save and close.  
   ONLY after this make the desired changes.

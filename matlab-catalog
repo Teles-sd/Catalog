@@ -683,7 +683,7 @@ color=
 - Training Input.
 - An Matrix with size 'NxV', where:
 	- the number N of lines is number of Neurons on the input layer.
-	- the number V of columns is the number of inputs (train samlpe).
+	- the number V of columns is the number of inputs (train sample).
 	- the values on each line are the inputs for each Neuron.
 - Training Output.
 - An Array with size 'OxV', containing the desired output for each input, where:

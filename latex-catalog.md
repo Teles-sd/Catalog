@@ -16,41 +16,44 @@ This is a guide for ![][latex] commands.
 
 ### TABLE OF CONTENT
 
-+ [TERMINOLOGY](#terminology)
-+ [PACKAGES](#packages)
-+ [REFERENCES](#references)
-+ [BASICS](#basics)
-+ [USE PACKAGES](#use-packages)
-+ [CONFIGURATIONS](#configurations)
-	* [NUMBERING](#numbering)
-	* [HYPHENATION](#hyphenation)
-+ [ALL CLASSES](#all-classes)
-	* [SECTIONING](#sectioning)
-	* [PARAGRAPH INDENTATION](#paragraph-indentation)
-+ [TITLE & TABLE OF CONTENTS](#title--table-of-contents)
-+ [LISTS](#lists)
-+ [SYMBOLS](#symbols)
-+ [BASIC FORMATING](#basic-formating)
-	* [FONTS](#fonts)
-	* [ALIGN](#align)
-+ [MATH](#math)
-	* [EQUATIONS DELIMITERS](#equations-delimiters)
-	* [TEXT WITHIN EQUATIONS](#text-within-equations)
-	* [SUB/SUPERSCRIP & FRACTIONS](#subsuperscrip--fractions)
-	* [CALCULUS](#calculus)
-	* [HATS AND ACCENTS](#hats-and-accents)
-	* [MULTIPLE EQUATIONS](#multiple-equations)
-	* [CASES { DEFINITION](#cases--definition)
-	* [CROSSED REFERENCE](#crossed-reference)
-	* [MATH FONTS](#math-fonts)
-	* [OPERATORS](#operators)
-	* [SYMBOLS](#symbols-1)
-+ [LINKS](#links)
-+ [ARTICLE CLASS](#article-class)
-+ [BOOK CLASS](#book-class)
-+ [HOMEWORK CLASS](#homework-class)
-	* [QUESTIONS](#questions)
-	* [QUESTION COUNTER](#question-counter)
+- [LaTeX](#latex)
+    - [TABLE OF CONTENT](#table-of-content)
+    - [TERMINOLOGY](#terminology)
+    - [PACKAGES](#packages)
+    - [REFERENCES](#references)
+    - [BASICS](#basics)
+    - [USE PACKAGES](#use-packages)
+    - [CONFIGURATIONS](#configurations)
+        - [NUMBERING](#numbering)
+        - [HYPHENATION](#hyphenation)
+    - [ALL CLASSES](#all-classes)
+        - [SECTIONING](#sectioning)
+        - [PARAGRAPH INDENTATION](#paragraph-indentation)
+    - [TITLE & TABLE OF CONTENTS](#title--table-of-contents)
+    - [BIBLIOGRAPHIC REFERENCES](#bibliographic-references)
+    - [LISTS](#lists)
+    - [SYMBOLS](#symbols)
+    - [BASIC FORMATING](#basic-formating)
+        - [FONTS](#fonts)
+        - [ALIGN](#align)
+    - [MATH](#math)
+        - [EQUATIONS DELIMITERS](#equations-delimiters)
+        - [TEXT WITHIN EQUATIONS](#text-within-equations)
+        - [SUB/SUPERSCRIP & FRACTIONS](#subsuperscrip--fractions)
+        - [CALCULUS](#calculus)
+        - [HATS AND ACCENTS](#hats-and-accents)
+        - [MULTIPLE EQUATIONS](#multiple-equations)
+        - [CASES { DEFINITION](#cases--definition)
+        - [CROSSED REFERENCE](#crossed-reference)
+        - [MATH FONTS](#math-fonts)
+        - [OPERATORS](#operators)
+        - [SYMBOLS](#symbols-1)
+    - [LINKS](#links)
+    - [ARTICLE CLASS](#article-class)
+    - [BOOK CLASS](#book-class)
+    - [HOMEWORK CLASS](#homework-class)
+        - [QUESTIONS](#questions)
+        - [QUESTION COUNTER](#question-counter)
 <!-- --><br/>
 
 
@@ -60,11 +63,11 @@ This is a guide for ![][latex] commands.
 ### TERMINOLOGY
 
 
-| Term/Expression | Meaning |
-| --------------: | :------ |
+| Term/Expression | Meaning                                                         |
+| --------------: | :-------------------------------------------------------------- |
 | `<description>` | To replace, or that will be replaced, according to description. |
-| `...`           | Possible to repeated pattern. |
-| `$`             | Some command to be used on the Terminal (shell). |
+|           `...` | Possible to repeated pattern.                                   |
+|             `$` | Some command to be used on the Terminal (shell).                |
 <!-- --><br/>
 <!-- --><br/>
 
@@ -81,10 +84,11 @@ This is a guide for ![][latex] commands.
 
 The packages **I** use.
 
-| Source |    Package   | Description |
-| :----: | -----------: | ----------- |
-| pacman | texlive-most | (package group) |
-| pacman |         kile | A user friendly TeX/LaTeX frontend for KDE. |
+| Source |              Package | Description                    |
+| :----: | -------------------: | ------------------------------ |
+| pacman |         texlive-most | (package group)                |
+| pacman |                 kile | A user friendly TeX/LaTeX frontend for KDE.|
+| pacman |              kbibtex | A BibTeX editor for KDE.       |
 | online | [Overleaf][overleaf] | An online LaTeX editor that's easy to use.<br/>No installation, real-time collaboration, version control, hundreds of LaTeX templates, and more. |
 <!-- --><br/>
 <!-- --><br/>
@@ -121,7 +125,7 @@ The packages **I** use.
 
 <!-- --><br/>
 
-- [ABNTEX2][abnt2]
+- [ABsurd Norms for TeX (abnTeX2)][abnt2]
 
   - [Por onde começar?][onde]
 
@@ -163,8 +167,8 @@ The packages **I** use.
 
 To make comments use `%`.
 
-| Tool      | Shortcut         | Action |
-| :-------- | :--------------: | ------ |
+| Tool      |     Shortcut     | Action                             |
+| :-------- | :--------------: | ---------------------------------- |
 | Kile      | [`CTRL`] + [`/`] | Comment current or selected lines. |
 | TexStudio | [`CTRL`] + [`T`] | Comment current or selected lines. |
 <!-- --><br/>
@@ -189,22 +193,23 @@ Different Classes of Documents have different commands and properties.
   - ...
 
 - _Some_ Options:
-| Options          | Description |
-| :--------------: | :---------- |
-| `<number>p`      | Font size (default= 10). |
-| `onecolumn`      | One column each page (default). |
-| `twocolumn`      | Two column each page. |
-| `oneside`        | On printing uses only one side of the page.<br/>Default for ´article´ and ´report´. |
-| `twoside`      | On printing uses the two sides of the page.<br/>Default for ´book´. |
-| `titlepage`      | Has a page for the Title.<br/>Default for ´book´ and ´report´. |
-| `notitlepage`    | Doesn´t has a page for the Title.<br/>Default for ´article´. |
-| `openright`      | A new Chapter starts on a new right-page.<br/>Default for ´book´. |
-| `openany`        | A new Chapter starts on any new page.<br/>Default for ´report´. |
-| `letterpaper`    | Type of paper. (default) |
-| `a4paper`        | Type of paper. |
-| `a5paper`        | Type of paper. |
-| `b5paper`        | Type of paper. |
-| `executivepaper` | Type of paper. |
+
+|     Options      | Description                                                                         |
+| :--------------: | :---------------------------------------------------------------------------------- |
+|   `<number>p`    | Font size (default= 10).                                                            |
+|   `onecolumn`    | One column each page (default).                                                     |
+|   `twocolumn`    | Two column each page.                                                               |
+|    `oneside`     | On printing uses only one side of the page.<br/>Default for ´article´ and ´report´. |
+|    `twoside`     | On printing uses the two sides of the page.<br/>Default for ´book´.                 |
+|   `titlepage`    | Has a page for the Title.<br/>Default for ´book´ and ´report´.                      |
+|  `notitlepage`   | Doesn´t has a page for the Title.<br/>Default for ´article´.                        |
+|   `openright`    | A new Chapter starts on a new right-page.<br/>Default for ´book´.                   |
+|    `openany`     | A new Chapter starts on any new page.<br/>Default for ´report´.                     |
+|  `letterpaper`   | Type of paper. (default)                                                            |
+|    `a4paper`     | Type of paper.                                                                      |
+|    `a5paper`     | Type of paper.                                                                      |
+|    `b5paper`     | Type of paper.                                                                      |
+| `executivepaper` | Type of paper.                                                                      |
 <!-- --><br/>
 
 
@@ -366,14 +371,14 @@ Commands have main parameters in braces ´{ }´ and optional parameters in brack
 ```latex
 \setcounter{tocdepth}{<depth>}
 ```
-| depth | description |
-| :---: | ----------- |
-| 0     | Numbering until Chapter |
-| 1     | Numbering until Section |
-| 2     | Numbering until Subsection (default) |
-| 3     | Numbering until Subsubsection |
-| 4     | Numbering until Paragraph |
-| 5     | Numbering until Subparagraph |
+| depth | description                          |
+| :---: | ------------------------------------ |
+|   0   | Numbering until Chapter              |
+|   1   | Numbering until Section              |
+|   2   | Numbering until Subsection (default) |
+|   3   | Numbering until Subsubsection        |
+|   4   | Numbering until Paragraph            |
+|   5   | Numbering until Subparagraph         |
 <!-- --><br/>
 
 
@@ -515,7 +520,24 @@ For LaTeX to identify paragraphs, it is needed an empty line between then.
 ```latex
 \author{<name>}
 ```
+
 <!-- --><br/>
+
+- Define Multiple Authors:
+
+```latex
+\author{
+    <name_1> \\
+    \texttt{<email_1>}
+    \and
+    <name_2> \\
+    \texttt{<email_2>}
+    \and
+    ...
+}
+```
+
+<!-- -->
 
 
 - Define Title of the Document:
@@ -553,8 +575,89 @@ For LaTeX to identify paragraphs, it is needed an empty line between then.
 ```latex
 \tableofcontents
 ```
+
+<!-- --><br/>
+
+
+- Make TOC clickable:
+
+```latex
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,     % ´all´ for both sections and subsections linked
+    linkcolor=blue
+}
+```
+
 <!-- --><br/>
 <!-- --><br/>
+
+
+
+- Go back to [TABLE OF CONTENT](#table-of-content).
+<!-- --><br/>
+
+
+
+------------------------------------
+
+### BIBLIOGRAPHIC REFERENCES
+
+- Use a ´.bib´ file to add Bibliography.  
+  For that a BibTeX editor, like _KBibTex_, can be very useful.
+<!-- --><br/>
+
+
+- Use package ´cite´ to make Citations.
+
+```latex
+\usepackage{cite}
+```
+<!-- --><br/>
+
+
+- Define the Bibliography Style:
+
+```latex
+\bibliographystyle{<style>}
+```
+
+|  Styles  | Decription                                                         |
+| :------: | :----------------------------------------------------------------- |
+| `ieeetr` | _IEEE Transactions_ BibTeX style                                   |
+|  `abntex2-num`  | Estilo de Bibliografia da Associação Brasileira de Normas Técnicas |
+|  `abntex2-alf`  | Estilo de Bibliografia da Associação Brasileira de Normas Técnicas |
+<!-- --><br/>
+
+
+- The Reference to each Bibliography is defineded in the ´.bib´ file.
+
+- Cite a Reference:
+
+```latex
+\cite{<reference>}
+```
+<!-- --><br/>
+
+
+- Render Bibliography from a ´.bib´ file (write without the extension):
+
+```latex
+\bibliography{<file>}
+```
+
+<!-- --><br/>
+
+
+- Make Bibliography appear on TOC:
+
+```latex
+\addcontentsline{toc}{section}{<title>}
+\bibliography{<file>}
+```
+
+<!-- --><br/><!-- --><br/>
 
 
 
@@ -650,11 +753,11 @@ $, &, #, _, {, }, %
 
 - Type of dashes:
 
-|  Code  | Rendered Symbol Description  |
-| :----: | :-------------- |
-| `-`    | Hyphen |
-| `--`   | Simple dash |
-| `---`  | Indent |
+| Code  | Rendered Symbol Description |
+| :---: | :-------------------------- |
+|  `-`  | Hyphen                      |
+| `--`  | Simple dash                 |
+| `---` | Indent                      |
 <!-- --><br/>
 <!-- --><br/>
 
@@ -705,10 +808,10 @@ $, &, #, _, {, }, %
 ```
 <!-- --><br/>
 
-| Tool      | Shortcut for **Bold** |
-| :-------: | :-------------------: |
-| Kile      | [`ALT`] + [`SHIFT`] + [`B`] |
-| TexStudio | [`CTRL`] + [`B`] |
+|   Tool    |    Shortcut for **Bold**    |
+| :-------: | :-------------------------: |
+|   Kile    | [`ALT`] + [`SHIFT`] + [`B`] |
+| TexStudio |      [`CTRL`] + [`B`]       |
 <!-- --><br/>
 
 
@@ -722,10 +825,10 @@ $, &, #, _, {, }, %
 ```
 <!-- --><br/>
 
-| Tool      | Shortcut for _Italic_ |
-| :-------: | :-------------------: |
-| Kile      | [`ALT`] + [`SHIFT`] + [`I`] |
-| TexStudio | [`CTRL`] + [`I`] |
+|   Tool    |    Shortcut for _Italic_    |
+| :-------: | :-------------------------: |
+|   Kile    | [`ALT`] + [`SHIFT`] + [`I`] |
+| TexStudio |      [`CTRL`] + [`I`]       |
 <!-- --><br/>
 
 
@@ -903,17 +1006,17 @@ $, &, #, _, {, }, %
 
 - Parentheses and brackets on Equations can be directly typed.  
   Pipes ´| |´ can also be typed directly.  
-  Double pipes ´||   ||´ and Braces ´{ }´ need to be escaped.  
+  Double pipes ´||   ||´ and Braces ´{ }´ need to be escaped with `\`.  
   Fot angle brackets ´⟨ ⟩´ use the command ´langle´.
 
-| Code                 | Rendered Symbol |
-| :------------------: | :---: |
-| `(    )`             | (    )  |
-| `[    ]`             | [    ]  |
-| `|    |`             | \|    \|  |
-| `\|    \| `          | \|\|   \|\|  |
-| `\{    \}`           | {    }  |
-| `\langle    \langle` | ⟨    ⟩  |
+|         Code         | Rendered Symbol |
+| :------------------: | :-------------: |
+|       `(    )`       |     (    )      |
+|       `[    ]`       |     [    ]      |
+|      `\|    \|`      |    \|    \|     |
+|    `\\|    \\| `     |  \|\|    \|\|   |
+|      `\{    \}`      |     {    }      |
+| `\langle    \langle` |     ⟨    ⟩      |
 <!-- --><br/>
 
 
@@ -928,7 +1031,7 @@ $, &, #, _, {, }, %
 <!-- --><br/>
 
 
-- To add parentheses and brackets resized dynamically look [here](https://www.overleaf.com/learn/latex/Brackets_and_Parentheses#Reference_guide) ~~cause I´m lazy~~.
+- To add parentheses and brackets resized dynamically look [here](https://www.overleaf.com/learn/latex/Brackets_and_Parentheses#Reference_guide) ~~´cause I´m lazy~~.
 <!-- --><br/>
 <!-- --><br/>
 
@@ -958,15 +1061,15 @@ $, &, #, _, {, }, %
 
 - To add space inside a Equation (ascending order):
 
-| Code     | Rendered Symbol Description |
-| :------: | :--- |
-| `\!`     | Less than the default. |
-| `\,`     ||
-| `\:`     ||
-| `\;`     ||
-| `\ `     | Equal to space in normal text.<br/>(space after the backslash!) |
-| `\quad`  | Equal the space of the current font size. |
-| `\qquad` | Twice of `\quad`. |
+|   Code   | Rendered Symbol Description                                     |
+| :------: | :-------------------------------------------------------------- |
+|   `\!`   | Less than the default.                                          |
+|   `\,`   |                                                                 |
+|   `\:`   |                                                                 |
+|   `\;`   |                                                                 |
+|   `\ `   | Equal to space in normal text.<br/>(space after the backslash!) |
+| `\quad`  | Equal the space of the current font size.                       |
+| `\qquad` | Twice of `\quad`.                                               |
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1086,20 +1189,20 @@ $, &, #, _, {, }, %
 
 - To add a hat to a letter **in math-mode** (equation):
 
-| Code                   | Rendered Symbol |
-| :--------------------: | :-------------: |
-| `\hat{x}`              | ![](https://latex.codecogs.com/gif.latex?\hat{x}) |
-| `\widehat{xxx}`        | ![](https://latex.codecogs.com/gif.latex?\widehat{xxx}) |
-| `\vec{x}`              | ![](https://latex.codecogs.com/gif.latex?\vec{x}) |
+|          Code          |                        Rendered Symbol                         |
+| :--------------------: | :------------------------------------------------------------: |
+|       `\hat{x}`        |       ![](https://latex.codecogs.com/gif.latex?\hat{x})        |
+|    `\widehat{xxx}`     |    ![](https://latex.codecogs.com/gif.latex?\widehat{xxx})     |
+|       `\vec{x}`        |       ![](https://latex.codecogs.com/gif.latex?\vec{x})        |
 | `\overrightarrow{xxx}` | ![](https://latex.codecogs.com/gif.latex?\overrightarrow{xxx}) |
-| `\dot{x}`              | ![](https://latex.codecogs.com/gif.latex?\dot{x}) |
-| `\ddot{x}`             | ![](https://latex.codecogs.com/gif.latex?\ddot{x}) |
-| `\acute{x}`            | ![](https://latex.codecogs.com/gif.latex?\acute{x}) |
-| `\grave{x}`            | ![](https://latex.codecogs.com/gif.latex?\grave{x}) |
-| `\bar{x}`              | ![](https://latex.codecogs.com/gif.latex?\bar{x}) |
-| `\tilde{x}`            | ![](https://latex.codecogs.com/gif.latex?\tilde{x}) |
-| `\check{x}`            | ![](https://latex.codecogs.com/gif.latex?\check{x}) |
-| `\breve{x}`            | ![](https://latex.codecogs.com/gif.latex?\breve{x}) |
+|       `\dot{x}`        |       ![](https://latex.codecogs.com/gif.latex?\dot{x})        |
+|       `\ddot{x}`       |       ![](https://latex.codecogs.com/gif.latex?\ddot{x})       |
+|      `\acute{x}`       |      ![](https://latex.codecogs.com/gif.latex?\acute{x})       |
+|      `\grave{x}`       |      ![](https://latex.codecogs.com/gif.latex?\grave{x})       |
+|       `\bar{x}`        |       ![](https://latex.codecogs.com/gif.latex?\bar{x})        |
+|      `\tilde{x}`       |      ![](https://latex.codecogs.com/gif.latex?\tilde{x})       |
+|      `\check{x}`       |      ![](https://latex.codecogs.com/gif.latex?\check{x})       |
+|      `\breve{x}`       |      ![](https://latex.codecogs.com/gif.latex?\breve{x})       |
 <!-- --><br/>
 
 
@@ -1305,21 +1408,21 @@ $, &, #, _, {, }, %
 
 - List of Greek Letters:
 
-|     Code      | Symbol |      |   Code    | Symbol |      |    Code    | Symbol |
-| :-----------: | :----: | ---- | :-------: | :----: | ---- | :--------: | :----: |
-|   `\alpha`    |   α    |      | `\kappa`  |   κ    |      |   `\tau`   |   τ    |
-|    `\beta`    |   β    |      | `\lambda` |   λ    |      | `\upsilon` |   υ    |
-|   `\gamma`    |   γ    |      | `\Lambda` |   Λ    |      | `\Upsilon` |   ϒ    |
-|   `\Gamma`    |   Γ    |      |   `\mu`   |   μ    |      |   `\phi`   |   ϕ    |
-|   `\delta`    |   δ    |      |   `\nu`   |   ν    |      | `\varphi`  |   φ    |
-|   `\Delta`    |   Δ    |      |   `\xi`   |   ξ    |      |   `\Phi`   |   Φ    |
-|  `\epsilon`   |   ϵ    |      |   `\Xi`   |   Ξ    |      |   `\chi`   |   χ    |
-| `\varepsilon` |   ε    |      |   `\pi`   |   π    |      |   `\psi`   |   ψ    |
-|    `\zeta`    |   ζ    |      |   `\Pi`   |   Π    |      |   `\Psi`   |   Ψ    |
-|    `\eta`     |   η    |      |  `\rho`   |   ρ    |      |  `\omega`  |   ω    |
-|   `\theta`    |   θ    |      | `\sigma`  |   σ    |      |  `\Omega`  |   Ω    |
-|   `\Theta`    |   Θ    |      | `\Sigma`  |   Σ    |      |    `  `    |        |
-|    `\iota`    |   ι    |      |   `  `    |        |      |    `  `    |        |
+|     Code      | Symbol |     |   Code    | Symbol |     |    Code    | Symbol |
+| :-----------: | :----: | --- | :-------: | :----: | --- | :--------: | :----: |
+|   `\alpha`    |   α    |     | `\kappa`  |   κ    |     |   `\tau`   |   τ    |
+|    `\beta`    |   β    |     | `\lambda` |   λ    |     | `\upsilon` |   υ    |
+|   `\gamma`    |   γ    |     | `\Lambda` |   Λ    |     | `\Upsilon` |   ϒ    |
+|   `\Gamma`    |   Γ    |     |   `\mu`   |   μ    |     |   `\phi`   |   ϕ    |
+|   `\delta`    |   δ    |     |   `\nu`   |   ν    |     | `\varphi`  |   φ    |
+|   `\Delta`    |   Δ    |     |   `\xi`   |   ξ    |     |   `\Phi`   |   Φ    |
+|  `\epsilon`   |   ϵ    |     |   `\Xi`   |   Ξ    |     |   `\chi`   |   χ    |
+| `\varepsilon` |   ε    |     |   `\pi`   |   π    |     |   `\psi`   |   ψ    |
+|    `\zeta`    |   ζ    |     |   `\Pi`   |   Π    |     |   `\Psi`   |   Ψ    |
+|    `\eta`     |   η    |     |  `\rho`   |   ρ    |     |  `\omega`  |   ω    |
+|   `\theta`    |   θ    |     | `\sigma`  |   σ    |     |  `\Omega`  |   Ω    |
+|   `\Theta`    |   Θ    |     | `\Sigma`  |   Σ    |     |    `  `    |        |
+|    `\iota`    |   ι    |     |   `  `    |        |     |    `  `    |        |
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1327,16 +1430,16 @@ $, &, #, _, {, }, %
 
 - List of Common Symbols:
 
-|   Code    | Symbol |      |    Code    | Symbol |      |     Code     | Symbol |
-| :-------: | :----: | ---- | :--------: | :----: | ---- | :----------: | :----: |
-|   `\pm`   |   ±    |      | `\forall`  |   ∀    |      | `\therefore` |   ∴    |
-| `\times`  |   x    |      |  `\infty`  |   ∞    |      |    `\neq`    |   ≠    |
-|  `\div`   |   ÷    |      |   `\in`    |   ∈    |      |  `\approx`   |   ≈    |
-|   `\%`    |   %    |      |  `\notin`  |   ∉    |      |   `\simeq`   |   ≃    |
-|  `\leq`   |   ≤    |      | `\partial` |   ∂    |      |   `\cong`    |   ≅    |
-|  `\geq`   |   ≥    |      |  `\nabla`  |   ∇    |      |    `\sim`    |   ∼    |
-| `\sqrt{}` |   √    |      | `\exists`  |   ∃    |      |   `\cdot`    |   ⋅    |
-|  `\circ`  |   ○    |      | `\nexists` |   ∄    |      |   `\cdots`   |   ⋯    |
+|   Code    | Symbol |     |    Code    | Symbol |     |     Code     | Symbol |
+| :-------: | :----: | --- | :--------: | :----: | --- | :----------: | :----: |
+|   `\pm`   |   ±    |     | `\forall`  |   ∀    |     | `\therefore` |   ∴    |
+| `\times`  |   x    |     |  `\infty`  |   ∞    |     |    `\neq`    |   ≠    |
+|  `\div`   |   ÷    |     |   `\in`    |   ∈    |     |  `\approx`   |   ≈    |
+|   `\%`    |   %    |     |  `\notin`  |   ∉    |     |   `\simeq`   |   ≃    |
+|  `\leq`   |   ≤    |     | `\partial` |   ∂    |     |   `\cong`    |   ≅    |
+|  `\geq`   |   ≥    |     |  `\nabla`  |   ∇    |     |    `\sim`    |   ∼    |
+| `\sqrt{}` |   √    |     | `\exists`  |   ∃    |     |   `\cdot`    |   ⋅    |
+|  `\circ`  |   ○    |     | `\nexists` |   ∄    |     |   `\cdots`   |   ⋯    |
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1395,23 +1498,23 @@ $, &, #, _, {, }, %
 
 - Create a URL link:
 
-  ```latex
+```latex
 \url{ <url> }
-  ```
-  ```latex
+```
+```latex
 \href{ <url> }{ <text> }
-  ```
+```
 <!-- --><br/>
 
 
 - Create a link to a file:
 
-  ```latex
+```latex
 \href{ file:<path> }{ <text> }
-  ```
-  ```latex
+```
+```latex
 \href{ file:./<relative-path> }{ <text> }
-  ```
+```
 <!-- --><br/>
 
 
