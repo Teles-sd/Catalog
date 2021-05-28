@@ -6,7 +6,7 @@ Currently:
 - [Python](./python-catalog)
 - [Python Modules](./python-modules/):
   - [Numpy](./python-modules/python-numpy-catalog)
-  - [Pandas](./python-modules/python-pandas-catalog)
+  - [Pandas](./python-modules/python-pandas-catalog.md)
   - [Matplotlib](./python-modules/python-matplotlib-catalog)
   - [Seaborn](./python-modules/python-seaborn-catalog)
   - [Plotly](./python-modules/python-plotly-catalog)

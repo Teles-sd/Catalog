@@ -522,6 +522,9 @@ url: (https://cran.r-project.org/web/packages/matlib/vignettes/linear-equations.
 
 	CODE FLOW CONTROL STRUCTURES
 
+
+ifelse (<logical>, <instruction>, <instruction>)
+
 for (<index> in <vec>){
 	<instructions>
 }
@@ -646,7 +649,7 @@ LABELS
 
 - Set Legend on a x and y position:
 > legend(<x>, <y>, legend=<vec>)
-> legend(<position>, inset=<va>, legend=<vec>)
+> legend(<position>, inset=<val>, legend=<vec>)
 
 position= 
 			"bottomright"

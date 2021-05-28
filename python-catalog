@@ -864,9 +864,14 @@ METHODS
 >>> 	<instructions>
 
 
->>> <element/instruction> if <boolean> else <element/instruction>
+```python
+<element/instruction> if <boolean> else <element/instruction>
+```
 
 
+```python
+<element/instruction> if <boolean> else <element/instruction> if <boolean> else <element/instruction>
+```
 
 
 
@@ -1300,10 +1305,10 @@ ARGS & KWARGS
 
 >>> class <Class>:
 >>> 	
->>> 	<attributes>
+>>> 	<attributes_1>
 >>> 	
 >>> 	def __init__(self, <parameters>, ...):
->>> 		self.<property> = <parameter>
+>>> 		self.<attributes_2> = <parameter>
 >>> 	
 >>> 	def <methods>(self, <parameters>, ...):
 >>> 		<instructions>
@@ -1341,12 +1346,12 @@ INHERITANCE
 >>> 	
 >>> 	# Overwriting a parent method:
 >>> 	
->>> 	def <parente-method>(self, <parameters>, ...):
+>>> 	def <parent-method>(self, <parameters>, ...):
 >>> 		<new-instructions>
 >>> 	
 >>> 	# Using a overwriten parent method:
 >>> 	
->>> 	<parent-Class>.<parente-method>()
+>>> 	<parent-Class>.<parent-method>()
 
 
 
@@ -2172,7 +2177,7 @@ NAMEDTUPLE
 
 
 - Import:
->>> import datetime
+>>> from datetime import datetime
 
 - Create a Time Stamp with time info:
 >>> <time-stamp> = datetime.time(<hour>,<minute>,<second>)

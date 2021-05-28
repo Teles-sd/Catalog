@@ -14,7 +14,6 @@ This is a guide for **git** commands.
 >> See the [Glossary](#glossary) for any terms you don´t understand.  
 >> 
 >> Or go to the [TABLE OF CONTENT](#table-of-content) for more topics.
->>
 
 <!-- --><br/>
 
@@ -57,7 +56,7 @@ This is a guide for **git** commands.
 	* [TOOLS CONFIG](#tools-config)
 	* [SAVE CREDENTIALS](#save-credentials)
 	* [CREDENTIALS CACHE](#credentials-cache)
-<!-- --><br/>
+	<!-- --><br/>
 
 
 
@@ -67,18 +66,18 @@ This is a guide for **git** commands.
 
 - **Repository** (aka. _Local Repository_):  
   A Git Repository is the '.git/' directory inside a project, containing all the necessary repository files.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Work-tree** (aka. _Working-tree_, _Workspace_, _Working Directory_):  
   Place where the files of a project's Repository are.  
   It is the directory where you put all the files and subdirectories of your project.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Path component**:  
   Directories and subdirectories inside the Work-tree that lead to a file.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Path-name**:  
@@ -86,12 +85,12 @@ This is a guide for **git** commands.
   The Path name is all the Path components from the Top level to where this file is in the Work-tree.  
   :warning: Never start with slash.  
   Write as: `path/to/file`.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Top level**:  
   The path to the Work-tree on the machine.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Index** (aka. _Staging Area_):  
@@ -101,7 +100,7 @@ This is a guide for **git** commands.
   "_Tracked Files_" were once Staged, but have had changes to it.  
   "_Untracked Files_" are the ones not added to the Index.  
   Files can be added and removed from Index at will, before committing.  
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Commit** (aka. _Revision_):  
@@ -109,68 +108,68 @@ This is a guide for **git** commands.
   Commits usually contain a brief message/description.  
   Each Commit creates an _hash_ (aka. _SHA_ or _ID_) to keep record of what changed, when and by who.  
   "Commit" may also be referring to the _act_ of making a Commit.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Refname**  (aka. _Refspec_, or just _Commit_):  
   Reference to a specific Commit.  
   Another way of referencing a Commit, rather than by it´s _hash_.  
   See the [Spell Commits](#spell-commits) Section.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Branch**:  
   A succession of Commits on the project.  
   Or an active Line of development.  
   A Git Repository can have any number of Branches.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **HEAD** (aka. _tip of that Branch_):  
   Points to the last Commit to the current Branch.  
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Clean Work-tree**:  
   When the Working-tree is identical to the current HEAD, _i.e._ all it's modifications have been committed to the current Branch.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Dirty Work-tree**:  
   When a Work-tree contains modifications which have not been committed to the current Branch.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Remote** (aka. _Remote Repository_, _Upstream Repository_):  
   A Repository to track the project, but residing somewhere else.  
   Might be on another directory on the machine or in another machine, locally or remotely.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Fetch**:  
   Get a Branches’ HEAD ref from a Remote repository.  
   This fetched HEAD will be referred to as "_FETCH_HEAD_".  
   Needed to find out which objects from the local Repository are missing on the Remote.
-<!-- --><br/>
+  <!-- --><br/>
 
 - **Push**:  
   Updating a Remote Branch with a local Branch's content.  
   If the Remote HEAD is not ancestor to the local HEAD, the push fails.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Merge**:  
   Incorporate, on current Branch, changes from other Branch's Commits since the time their histories diverged.
   Records all the results in a new Commit.  
   For a more in depth explanation go [here][Merge Rebase].
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Rebase**:  
   Incorporate on current Branch changes from other Branch's commit by rewriting the Commit history.
   Takes each Commit of the rebased Branch and produces a linear succession of new Commits.  
   For a more in depth explanation go [here][Merge Rebase].
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Nested repository**:  
@@ -178,13 +177,13 @@ This is a guide for **git** commands.
   Git do not store files or directories with a `.git/` Path component.  
   Thus, a Repository don't store another Repositories within it.  
   You can create a Git Repository within the Work-tree of another Git repository, but you can't add and commit one to the other.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - **Submodules**:  
   A Git Repository that is referred to in another Git Repository.
-<!-- --><br/>
-<!-- --><br/>
+  <!-- --><br/>
+  <!-- --><br/>
 
 
 
@@ -260,8 +259,8 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 [atlassian]:https://www.atlassian.com/git/tutorials "Atlassian Tutorials"
 [cheat]:https://ndpsoftware.com/git-cheatsheet.html#loc=index "Git Cheatsheet"
 [Merge Rebase]:https://www.atlassian.com/git/tutorials/merging-vs-rebasing "Merging vs. Rebasing"
-[tree1]:./imgs/commits_horiz.png
-[tree2]:./imgs/commits_vert.png
+[tree1]:./imgs/git_commits_horiz.png
+[tree2]:./imgs/git_commits_vert.png
 
 ------------------------------------
 
@@ -299,8 +298,8 @@ $ `git help gitrevisions`
 
 - REALLY good tutorials:  
   [Atlassian Tutorials][atlassian]
-<!-- --><br/>
-<!-- --><br/>
+  <!-- --><br/>
+  <!-- --><br/>
 
 
 
@@ -414,7 +413,7 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 ### WORK-TREE, INDEX & COMMITS
 <!-- --><br/>
 
-##### WORK-TREE -> INDEX
+##### Work-Tree -> Index
 
 - Display current Branch's Index (staged and untracked files):
 
@@ -465,11 +464,12 @@ $ `git mv <file> <destination>`
 
 
 
-##### INDEX -> REVISION
+##### Index -> Revision
 
 > **Tip:**
->> It is a good practice ~~(that I do not have :smile: )~~ to not mix different topics in the same commit.
-<!-- --><br/>
+>
+> > It is a good practice ~~(that I do not have :smile: )~~ to not mix different topics in the same commit.
+> <!-- --><br/>
 
 
 - Commit contents of Index to current Branch, with a log message:
@@ -532,7 +532,7 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 ### LOGS & REFLOG
 <!-- --><br/>
 
-##### LOG
+##### Log
 
 **Follows _chronological_ order.**
 <!-- --><br/>
@@ -569,7 +569,7 @@ $ `git log --pretty="format:%h %ar %s"`
 
 
 
-##### LOG GRAPH
+##### Log Graph
 
 **Follows _topological_ ordering, not chronological order.**
 <!-- --><br/>
@@ -588,7 +588,7 @@ $ `git log --graph --oneline --all`
 
 
 
-##### REFLOG
+##### Reflog
 
 **Reflog records changes on the HEAD pointer.**  
 That is, records updates to the tip of the Branch: switches, amends, resets...
@@ -699,6 +699,18 @@ $ `git branch -D <branch>`
 <!-- --><br/>
 
 
+- Delete remote Branch from local Repo:
+
+$ `git branch -rd <branch>`
+<!-- --><br/>
+
+
+- Delete remote Branch from remote Repo:
+
+$ `git push <remote> --delete <branch>`
+<!-- --><br/>
+
+
 - Recover a deleted branch (search it on the Reflog):
 
 $ `git reflog`
@@ -787,8 +799,8 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 > **Example**
 >
 > Consider this Branch described and drawn below:
->> 1. Commit `F` recieves a Commit and becomes `E`.
->> 1. Commit `E` recieves a Commit and becomes `B`.
+>> 1. Commit `F` receives a Commit and becomes `E`.
+>> 1. Commit `E` receives a Commit and becomes `B`.
 >> 1. Commit `B` merges `C` and `D`; and becomes `A`.
 >
 >> | From Left to Right | From bottom to top |
@@ -935,6 +947,14 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 ### DIFFS
 
+- Almost all those commands can be used with a external tool intead of `diff`.  
+  See [Tools Configuration](#tools-config) section to see how to define a `difftool`.
+
+$ `git difftool`
+<!-- --><br/>
+<!-- --><br/>
+
+
 - Get an an idea of the amount of work done:
 
 $ `git diff --stat`
@@ -998,16 +1018,6 @@ $ `git diff FETCH_HEAD`
 
 
 
-- Almost all those commands can be used with a external tool intead of `diff`.  
-  See [Tools Configuration](#tools-config) section to see how to define a `difftool`.
-  
-
-$ `git difftool`
-<!-- --><br/>
-<!-- --><br/>
-
-
-
 Go back to [TABLE OF CONTENT](#table-of-content).
 <!-- --><br/>
 
@@ -1030,7 +1040,7 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 
 
-##### MERGE
+##### Merge
 
 Incorporates, on current Branch, changes from other Branch's commit.  
 Records the result in a new commit.  
@@ -1069,7 +1079,7 @@ $ `git merge --quit`
 
 
 
-##### REBASE
+##### Rebase
 
 Incorporates on current Branch changes from other Branch's commit.  
 Does this by **rewriting the Commit history**.  
@@ -1113,7 +1123,7 @@ $ `git rebase <commit>`
 
 - Save and close.  
   ONLY after this make the desired changes.
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - Interactive Rebase current Branch starting on a previous Commit:
@@ -1147,7 +1157,7 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 <!-- --><br/>
 
 
-##### AMEND
+##### Amend
 
 Only used for changes on the very last Commit.
 
@@ -1204,7 +1214,7 @@ $ `git commit --amend --reset-author`
 
 
 
-##### STASH
+##### Stash
 
 Hides modifications (making the Work-Tree clean) to work on something else.
 After saving the Stash, [Resets](#reset-index) Work-Tree and Index.
@@ -1215,7 +1225,7 @@ After saving the Stash, [Resets](#reset-index) Work-Tree and Index.
 
 $ `git stash`
 
-$ `git stash <log-message>`
+$ `git stash -m <log-message>`
 <!-- --><br/>
 
 
@@ -1283,7 +1293,7 @@ $ `git stash create`
 
 
 
-##### RESTORE (FILES)
+##### Restore (files)
 
 Restores the previous state of a file.
 Can restore deleted files.
@@ -1339,7 +1349,7 @@ $ `git restore --source <commit> <file>`
 
 
 
-##### RESET (INDEX)
+##### Reset (index)
 
 > :warning: **WARNING:**
 >> When Reseting to a Commit older than HEAD, it deletes Commits after it.
@@ -1374,7 +1384,7 @@ $ `git reset --soft <commit>`
 
 
 
-##### REVERT (COMMITS)
+##### Revert (commits)
 
 - Creates a new Commit that Reverts changes of a previous Commit without deleting it.
 - Requieres Clean Work-Tree.
@@ -1386,7 +1396,7 @@ $ `git revert <commit>`
 
 
 
-##### EXAMPLE CASES
+##### Example cases
 
 - Moving Commits from current Branch to a NEW Branch:
 
@@ -1397,7 +1407,7 @@ $ `reset --hard <commmit>~1`
 <!-- --><br/>
 
 
-- Moving `n` Commits from current Branch to an existing Branch:
+- Moving `n` previous Commits from current Branch to an existing Branch:
 
 $ `git reset --soft HEAD~<n>`  
 $ `git stash`
@@ -1465,7 +1475,7 @@ $ `git config --unset-all <config>`
 
 
 
-##### IDENTITY
+##### Identity
 
 The author of the commits.
 <!-- --><br/>
@@ -1507,7 +1517,7 @@ $ `git commit --amend --reset-author`
 
 
 
-##### TOOLS CONFIG
+##### Tools config
 
 > **Note:**
 >> Other editors than Vim, Nano, Emacs..., might need other configurations.
@@ -1553,7 +1563,7 @@ $ `git config --global mergetool.prompt false`
 
 
 
-##### SAVE CREDENTIALS
+##### Save credentials
 
 - Using the package 'libsecret' to store credentials:
   - On Arch:  
@@ -1570,8 +1580,8 @@ $ `git config --global mergetool.prompt false`
   $ `cd /usr/share/git/credential/libsecret`  
   $ `sudo make`  
   $ `git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret`
-<!-- --><br/>
-<!-- --><br/>
+  <!-- --><br/>
+  <!-- --><br/>
 
 
 - To make it so the keyring-daemon starts on login (**for SDDM**) make sure the following lines are on `/etc/pam.d/sddm` (at the end of the ´auth´, ´session´ and ´password´ sections):
@@ -1585,7 +1595,7 @@ password   optional     pam_gnome_keyring.so use_authtok
 
 
 
-##### CREDENTIALS CACHE
+##### Credentials cache
 
 - Store password on cache (default: 15 min):
 

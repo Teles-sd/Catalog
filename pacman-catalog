@@ -200,7 +200,11 @@ OTHERS
 $ pacman -T
 $ pacman --deptest
 
+- Look for packages owning certain files:
 
+```shell
+$ pacman -F <file>
+```
 
 
 __________________________________
@@ -270,7 +274,62 @@ $ paccache -rvk <num>
 
 __________________________________
 
-	YAY
+### AUR
+
+- The tools from ´base-devel´ group are needed.  
+  If not installed use:
+
+```shell
+$ pacman -S --needed base-devel
+```
+<!-- --><\br>
+
+
+- Locate the package at [AUR home page][aur].  
+  Enter a _build directory_ (`~/Coding/AUR/`) and clone the package:
+
+```shell
+$ git clone https://aur.archlinux.org/package_name.git
+```
+[aur]:https://aur.archlinux.org/
+<!-- --><\br>
+
+
+:warning:
+- Verify that the PKGBUILD and accompanying files are not malicious or untrustworthy.
+<!-- --><\br>
+
+
+- In the directory where the files are saved, run ([build]):
+
+```shell
+$ makepkg -rcs
+```
+[build]:https://wiki.archlinux.org/title/Arch_User_Repository#Build_the_package
+<!-- --><\br>
+
+
+- Install:
+
+```shell
+# pacman -U <package_file.pkg.tar.zst>
+```
+<!-- --><\br>
+
+
+- Upgrading:
+
+```shell
+$ git pull
+$ makepkg -rc
+# pacman -U <package_file.pkg.tar.zst>
+```
+<!-- --><\br>
+
+
+
+
+##### YAY
 
 - Managing the AUR.
 
@@ -290,7 +349,7 @@ INSTALLATION
 $ cd ~/Coding/AUR/
 $ git clone https://aur.archlinux.org/yay.git
 $ cd yay
-$ makepkg -si
+$ makepkg -rcsi
 
 (Manjaro)
 # pacman -Syu yay

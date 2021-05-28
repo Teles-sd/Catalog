@@ -371,22 +371,376 @@ L - move cursor to bottom of visible screen
 
 ------------------------------------
 
-### MISC
+### PIPE
 
-- Convert Images to PDF:
+- Pipe the stdout of a command to the sdin of another:
 
 ```shell
-convert <image>  <file-name>.pdf
+$ <command> | <command>
 ```
-
-> **Example:**
->
->> `convert page*.png  mydoc.pdf`
->
+<!-- --><br/>
 
 
+- Use the output of a command as argument of other:
+
+```shell
+$ <command> $(<command>)
+```
+<!-- --><br/>
+
+
+- Pipe the stdout of a command to a file (**overwite**):
+
+```shell
+$ <command>  >  <file>
+```
+<!-- --><br/>
+
+
+- Pipe the stdout of a command to a file (_append_):
+
+```shell
+$ <command>  >>  <file>
+```
+<!-- --><br/>
+
+
+- Pipe the stderr of a command to a file (**overwite**):
+
+```shell
+$ <command>  2>  <file>
+```
+<!-- --><br/>
+
+
+- Pipe the stdout and stderr of a command to files (**overwite**):
+
+```shell
+$ <command>  >  <file>  2>  <file>
+```
+<!-- --><br/>
 
 
 
 
 ------------------------------------
+
+### MISC
+
+- Convert Images to PDF:
+
+```shell
+$ convert <image>  <file-name>.pdf
+```
+<!-- --><br/>
+
+> **Example:**
+>
+>> `$ convert page*.png  mydoc.pdf`
+>
+
+
+------------------------------------
+
+### WINE
+
+> :warning: **Warning:**
+>
+> **Never** use _wine_ with _sudo_ or as _root_.
+>
+<!-- --><br/>
+
+
+
+##### Packages
+
+| Source |  Package   | Description |
+| :----: | :--------: | ----------- |
+| pacman | wine       | A compatibility layer for running Windows programs. |
+| pacman | winetricks | Script to install various redistributable runtime libraries in Wine. |
+| pacman | wine-gecko | Wine's built-in replacement for Microsoft's Internet Explorer. |
+| pacman | wine-mono  | Wine's built-in replacement for Microsoft's .NET Framework. |
+| ------ | ---------  | ------ |
+| pacman | lib32-mesa         | An open-source implementation of the OpenGL specification (32-bit). |
+| pacman | lib32-alsa-lib     | An alternative implementation of Linux sound support (32 bit). |
+| pacman | lib32-alsa-plugins | Additional ALSA plugins (32-bit). |
+| pacman | samba              | SMB Fileserver and AD Domain server. |
+| pacman | unixodbc           | ODBC is an open specification for providing application developers with a predictable API with which to access Data Sources. |
+| pacman | perl-ntlm          | Perl/CPAN module NTLM. |
+| pacman | apparmor           | Mandatory Access Control (MAC) using Linux Security Module (LSM). |
+<!-- --><br/>
+
+
+
+##### WineTricks
+
+
+**Tips:**
+
+- Select the default wine prefix  
+  Install DLL or components.  
+  Start a fresh bottle, launch the program, than see what you need.  
+  Or, go in the application's website and see what the requirements are.
+
+- Tips (common installs, NOT always needed):
+  - d3dx9 (common) / d3dx10 / d3dx11
+  - dotnet35, dotnet452 
+  - dxvk (instead of dxv10 dxv11)
+  - gdiplus
+  - vc... (visual c++) (dont use two versions on the same bottle, DLLs mach, check what you need)
+  - xinput (for xbox controllers, not need most times)
+  - xact
+<!-- --><br/>
+
+
+- Install a font.  
+  Try to use CLI for that, GUI has too much interaction, annoying.  
+  Almost always use `corefonts` and `tahoma`.  
+  Run winecfg (it's an option on winetricks).  
+  Try first on windows7 (best compatibility).
+  Ok. Cancel. Cancel.
+
+- Put files on drive_c directory
+
+
+- Create a directory for wine bottles.  
+  If not create and specify as <prefix>, the default is `~/.wine`.
+
+- Architecture for the bottle:
+  - Usually for games (default):
+  ```shell
+  WINEARCH=win64  <command>
+  ```
+  - Usually for applications:
+  ```shell
+  WINEARCH=win32  <command>
+  ```
+<!-- --><br/>
+
+
+- Create a bottle:
+
+```shell
+$ winetricks
+```
+```shell
+$ WINEARCH=<arch> WINEPREFIX=<prefix> winetricks
+```
+<!-- --><br/>
+
+
+- No ´link´ bullshit:
+
+```shell
+$ winetricks sandbox
+```
+<!-- --><br/>
+
+
+- Install packages through winetricks CLI:
+
+```shell
+$ winetricks <package>
+```
+```shell
+$ winetricks <packages> ... <packages>
+```
+<!-- --><br/>
+
+
+- Remove a package with the ´uninstaller´:
+
+```shell
+$ wine uninstaller
+```
+```shell
+$ wine64 uninstaller
+```
+<!-- --><br/>
+
+
+- Configurations and switch Windows Version:
+
+```shell
+$ winecfg
+```
+<!-- --><br/>
+
+
+- Run application:
+
+```shell
+$ wine <path-to-app>
+```
+```shell
+$ WINEARCH=<arch> WINEPREFIX=<prefix> wine <path-to-app>
+```
+<!-- --><br/>
+
+
+- Kill any wine process:
+
+```shell
+$ wineserver -k
+```
+```shell
+$ WINEARCH=<arch> WINEPREFIX=<prefix> wineserver -k
+```
+<!-- --><br/>
+
+
+- Turn reporting off:
+
+```shell
+$ winetricks --optout
+```
+<!-- --><br/>
+
+
+
+
+##### Vegas 15
+
+- Vegas is 64 bits (at least since it was gotten for MAGIX).  
+  VEGAS Pro 15 requires .NET Framework 4.0 / 4.7.2.
+<!-- --><br/>
+
+
+- No ´link´ bullshit:
+
+```shell
+$ winetricks sandbox
+```
+<!-- --><br/>
+
+
+- Remove `mono` with the ´uninstaller´:
+
+```shell
+$ wine uninstaller
+```
+```shell
+$ wine64 uninstaller
+```
+<!-- --><br/>
+
+
+- Switch to Win XP with winecfg:
+
+```shell
+$ winecfg
+```
+<!-- --><br/>
+
+
+- Install .NET 4.0 :
+
+```shell
+$ winetricks dotnet40
+```
+<!-- --><br/>
+
+
+- Stop any wine shit:
+
+```shell
+$ wineserver -k
+```
+<!-- --><br/>
+
+
+- Switch back to Win 7  and go Libraries, DLL  overwite:
+  - `mscoree` (native)
+  - `msvcr140` (native, builtin)
+
+```shell
+$ winecfg
+```
+<!-- --><br/>
+
+
+- Install .NET 4.7.2 (takes so much tiiiime):
+
+```shell
+$ winetricks dotnet472
+```
+<!-- --><br/>
+
+
+- Install through winetricks CLI:
+
+```shell
+$ winetricks corefonts d3dx10 d3dx11_42 d3dx11_43 d3dx9 msxml3 msxml6 vcrun2015
+```
+<!-- --><br/>
+
+
+- Switch back to Win 7:
+
+```shell
+$ winecfg
+```
+<!-- --><br/>
+
+
+
+- Stop wine shit again.
+
+```shell
+$ wineserver -k
+```
+<!-- --><br/>
+
+- Instal Vegas:
+
+```shell
+$ wine <wine-bottle>/drive_c/users/teles/Downloads/vegaspro15edit_dlm.exe &
+```
+<!-- --><br/>
+
+
+- Run Vegas:
+
+```shell
+$ wine <wine-bottle>/drive_c/Program\ Files/VEGAS/VEGAS\ Pro\ 15.0/vegas150.exe &
+```
+<!-- --><br/>
+
+
+- "SECUR32_initNTLMSP ntlm_auth was not found or is outdated. Make sure that ntlm_auth >= 3.0.25 is in your path. Usually, you can find it in the winbind package of your distribution.":
+
+```shell
+# pacman -S samba
+```
+<!-- --><br/>
+
+
+
+------------------------------------
+
+
+
+------------------------------------
+
+
+
+------------------------------------
+
+
+
+------------------------------------
+
+
+
+------------------------------------
+
+
+
+------------------------------------
+
+
+
+------------------------------------
+
+
+

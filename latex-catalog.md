@@ -7,7 +7,6 @@ This is a guide for ![][latex] commands.
 > **Notes:**
 >
 >> You can start at [Basics](#basics).
->>
 
 <!-- --><br/>
 
@@ -22,39 +21,41 @@ This is a guide for ![][latex] commands.
     - [PACKAGES](#packages)
     - [REFERENCES](#references)
     - [BASICS](#basics)
+    - [TITLE, AUTHOR & TABLE OF CONTENTS](#title-author--table-of-contents)
+    - [BIBLIOGRAPHIC REFERENCES](#bibliographic-references)
     - [USE PACKAGES](#use-packages)
     - [CONFIGURATIONS](#configurations)
-        - [NUMBERING](#numbering)
-        - [HYPHENATION](#hyphenation)
+        - [Page Numbering](#page-numbering)
+        - [Hyphenation](#hyphenation)
     - [ALL CLASSES](#all-classes)
-        - [SECTIONING](#sectioning)
-        - [PARAGRAPH INDENTATION](#paragraph-indentation)
-    - [TITLE & TABLE OF CONTENTS](#title--table-of-contents)
-    - [BIBLIOGRAPHIC REFERENCES](#bibliographic-references)
+        - [Sectioning](#sectioning)
+        - [Paragraph Indentation](#paragraph-indentation)
     - [LISTS](#lists)
     - [SYMBOLS](#symbols)
     - [BASIC FORMATING](#basic-formating)
-        - [FONTS](#fonts)
-        - [ALIGN](#align)
+        - [Fonts](#fonts)
+        - [Align](#align)
     - [MATH](#math)
-        - [EQUATIONS DELIMITERS](#equations-delimiters)
-        - [TEXT WITHIN EQUATIONS](#text-within-equations)
-        - [SUB/SUPERSCRIP & FRACTIONS](#subsuperscrip--fractions)
-        - [CALCULUS](#calculus)
-        - [HATS AND ACCENTS](#hats-and-accents)
-        - [MULTIPLE EQUATIONS](#multiple-equations)
-        - [CASES { DEFINITION](#cases--definition)
-        - [CROSSED REFERENCE](#crossed-reference)
-        - [MATH FONTS](#math-fonts)
-        - [OPERATORS](#operators)
-        - [SYMBOLS](#symbols-1)
+        - [Equations Delimiters](#equations-delimiters)
+        - [Text within Equations](#text-within-equations)
+        - [Sub/Superscrip & Fractions](#subsuperscrip--fractions)
+        - [Calculus](#calculus)
+        - [Hats and Accents](#hats-and-accents)
+        - [Multiple Equations](#multiple-equations)
+        - [Cases { Definition](#cases--definition)
+        - [Crossed Reference](#crossed-reference)
+        - [Math Fonts](#math-fonts)
+        - [Operators](#operators)
+        - [Greek and Common Symbols](#greek-and-common-symbols)
     - [LINKS](#links)
+    - [IMAGES](#images)
+        - [Figure Environment](#figure-environment)
     - [ARTICLE CLASS](#article-class)
     - [BOOK CLASS](#book-class)
     - [HOMEWORK CLASS](#homework-class)
-        - [QUESTIONS](#questions)
-        - [QUESTION COUNTER](#question-counter)
-<!-- --><br/>
+        - [Questions](#questions)
+        - [Question Counter](#question-counter)
+        <!-- --><br/>
 
 
 
@@ -152,6 +153,7 @@ The packages **I** use.
 [templates]:https://www.overleaf.com/latex/templates
 [math-symb]:https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols
 [hyperlinks]:https://pt.overleaf.com/learn/latex/Hyperlinks
+[imgs]:https://www.overleaf.com/learn/latex/Inserting_Images
 
 
 [abnt2]:https://www.abntex.net.br/
@@ -251,6 +253,161 @@ To do that, use the ´document´ _environment_.
 
 ------------------------------------
 
+### TITLE, AUTHOR & TABLE OF CONTENTS
+
+
+- Define Title of the Document:
+
+```latex
+\title{<title>}
+```
+<!-- --><br/>
+
+
+- Define Author:
+
+```latex
+\author{<name>}
+```
+
+<!-- --><br/>
+
+- Define Multiple Authors:
+
+```latex
+\author{
+    <name_1> \\
+    \texttt{<email_1>}
+    \and
+    <name_2> \\
+    \texttt{<email_2>}
+    \and
+    ...
+}
+```
+<!-- -->
+
+
+- Define the Date:
+
+```latex
+\date{<text>}
+```
+```latex
+\date{\today}
+```
+```latex
+\date{}
+```
+<!-- --><br/>
+
+
+- Generate Title:
+
+```latex
+\maketitle
+```
+<!-- --><br/>
+
+
+- Generate Table of Contents:
+
+```latex
+\tableofcontents
+```
+
+<!-- --><br/>
+
+
+- Make TOC clickable:
+
+```latex
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,     % ´all´ for both sections and subsections linked
+    linkcolor=blue
+}
+```
+
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+- Go back to [TABLE OF CONTENT](#table-of-content).
+<!-- --><br/>
+
+
+
+------------------------------------
+
+### BIBLIOGRAPHIC REFERENCES
+
+- Use a ´.bib´ file to add Bibliography.  
+  For that a BibTeX editor, like _KBibTex_, can be very useful.
+  <!-- --><br/>
+
+
+- Use package ´cite´ to make Citations.
+
+```latex
+\usepackage{cite}
+```
+<!-- --><br/>
+
+
+- Define the Bibliography Style:
+
+```latex
+\bibliographystyle{<style>}
+```
+
+|  Styles  | Decription                                                         |
+| :------: | :----------------------------------------------------------------- |
+| `ieeetr` | _IEEE Transactions_ BibTeX style                                   |
+|  `abntex2-num`  | Estilo de Bibliografia da Associação Brasileira de Normas Técnicas |
+|  `abntex2-alf`  | Estilo de Bibliografia da Associação Brasileira de Normas Técnicas |
+<!-- --><br/>
+
+
+- The Reference to each Bibliography is defineded in the ´.bib´ file.
+
+- Cite a Reference:
+
+```latex
+\cite{<reference>}
+```
+<!-- --><br/>
+
+
+- Render Bibliography from a ´.bib´ file (write without the extension):
+
+```latex
+\bibliography{<file>}
+```
+
+<!-- --><br/>
+
+
+- Make Bibliography appear on TOC:
+
+```latex
+\addcontentsline{toc}{section}{<title>}
+\bibliography{<file>}
+```
+
+<!-- --><br/><!-- --><br/>
+
+
+
+- Go back to [TABLE OF CONTENT](#table-of-content).
+<!-- --><br/>
+
+
+
+------------------------------------
+
 ### USE PACKAGES
 
 
@@ -283,8 +440,8 @@ To do that, use the ´document´ _environment_.
   ```latex
   \usepackage{lmodern}
   ```
-<!-- --><br/>
-<!-- --><br/>
+  <!-- --><br/>
+  <!-- --><br/>
 
 
 
@@ -320,7 +477,7 @@ Commands have main parameters in braces ´{ }´ and optional parameters in brack
 
 
 
-##### NUMBERING
+##### Page Numbering
 
 
 - To suppress page numbering:
@@ -385,7 +542,7 @@ Commands have main parameters in braces ´{ }´ and optional parameters in brack
 
 
 
-##### HYPHENATION
+##### Hyphenation
 
 - Teach LaTeX how to hyphenate a word or to never hyphenate it:
 
@@ -415,7 +572,7 @@ Commands have main parameters in braces ´{ }´ and optional parameters in brack
 These are commands available on any Class.
 <!-- --><br/>
 
-##### SECTIONING
+##### Sectioning
 
 LaTeX numbers Sections, Subsections, Chapters, Parts, etc, automatically.
 <!-- --><br/>
@@ -461,7 +618,7 @@ LaTeX numbers Sections, Subsections, Chapters, Parts, etc, automatically.
 
 
 
-##### PARAGRAPH INDENTATION
+##### Paragraph Indentation
 
 For LaTeX to identify paragraphs, it is needed an empty line between then.
 <!-- --><br/>
@@ -508,161 +665,6 @@ For LaTeX to identify paragraphs, it is needed an empty line between then.
 - Go back to [TABLE OF CONTENT](#table-of-content).
 <!-- --><br/>
 
-
-
-
-------------------------------------
-
-### TITLE & TABLE OF CONTENTS
-
-- Define Author:
-
-```latex
-\author{<name>}
-```
-
-<!-- --><br/>
-
-- Define Multiple Authors:
-
-```latex
-\author{
-    <name_1> \\
-    \texttt{<email_1>}
-    \and
-    <name_2> \\
-    \texttt{<email_2>}
-    \and
-    ...
-}
-```
-
-<!-- -->
-
-
-- Define Title of the Document:
-
-```latex
-\title{<title>}
-```
-<!-- --><br/>
-
-
-- Define the Date:
-
-```latex
-\date{<text>}
-```
-```latex
-\date{\today}
-```
-```latex
-\date{}
-```
-<!-- --><br/>
-
-
-- Generate Title:
-
-```latex
-\maketitle
-```
-<!-- --><br/>
-
-
-- Generate Table of Contents:
-
-```latex
-\tableofcontents
-```
-
-<!-- --><br/>
-
-
-- Make TOC clickable:
-
-```latex
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linktoc=all,     % ´all´ for both sections and subsections linked
-    linkcolor=blue
-}
-```
-
-<!-- --><br/>
-<!-- --><br/>
-
-
-
-- Go back to [TABLE OF CONTENT](#table-of-content).
-<!-- --><br/>
-
-
-
-------------------------------------
-
-### BIBLIOGRAPHIC REFERENCES
-
-- Use a ´.bib´ file to add Bibliography.  
-  For that a BibTeX editor, like _KBibTex_, can be very useful.
-<!-- --><br/>
-
-
-- Use package ´cite´ to make Citations.
-
-```latex
-\usepackage{cite}
-```
-<!-- --><br/>
-
-
-- Define the Bibliography Style:
-
-```latex
-\bibliographystyle{<style>}
-```
-
-|  Styles  | Decription                                                         |
-| :------: | :----------------------------------------------------------------- |
-| `ieeetr` | _IEEE Transactions_ BibTeX style                                   |
-|  `abntex2-num`  | Estilo de Bibliografia da Associação Brasileira de Normas Técnicas |
-|  `abntex2-alf`  | Estilo de Bibliografia da Associação Brasileira de Normas Técnicas |
-<!-- --><br/>
-
-
-- The Reference to each Bibliography is defineded in the ´.bib´ file.
-
-- Cite a Reference:
-
-```latex
-\cite{<reference>}
-```
-<!-- --><br/>
-
-
-- Render Bibliography from a ´.bib´ file (write without the extension):
-
-```latex
-\bibliography{<file>}
-```
-
-<!-- --><br/>
-
-
-- Make Bibliography appear on TOC:
-
-```latex
-\addcontentsline{toc}{section}{<title>}
-\bibliography{<file>}
-```
-
-<!-- --><br/><!-- --><br/>
-
-
-
-- Go back to [TABLE OF CONTENT](#table-of-content).
-<!-- --><br/>
 
 
 
@@ -746,8 +748,8 @@ $, &, #, _, {, }, %
 
 - To open quotes use backtick accents ``` ` ```  or ``` `` ```.  
   To close quotes use apostrophe `'` or `''`.
-<!-- --><br/>
-<!-- --><br/>
+  <!-- --><br/>
+  <!-- --><br/>
 
 
 
@@ -801,7 +803,7 @@ $, &, #, _, {, }, %
 ### BASIC FORMATING
 
 
-- Bold:
+- Bold (**Strong Emphasis**):
 
 ```latex
 \textbf{<text>}
@@ -832,6 +834,15 @@ $, &, #, _, {, }, %
 <!-- --><br/>
 
 
+- Strike-through (~~Scratch~~):
+
+```latex
+\usepackage{soul}
+\st{Hellow world}
+```
+<!-- --><br/>
+
+
 - Underline:
 
 ```latex
@@ -842,7 +853,7 @@ $, &, #, _, {, }, %
 
 
 
-##### FONTS
+##### Fonts
 
 - Some Fonts:
   - Romman Font:
@@ -861,7 +872,7 @@ $, &, #, _, {, }, %
   ```latex
   \textsc{<text>}
   ```
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - Font sizes:
@@ -901,7 +912,7 @@ $, &, #, _, {, }, %
 
 
 
-##### ALIGN
+##### Align
 
 - Align left (default):
 
@@ -958,7 +969,7 @@ $, &, #, _, {, }, %
 
 
 
-##### EQUATIONS DELIMITERS
+##### Equations Delimiters
 
 - The way Equations are displayed depends on the delimiters.  
   Delimiters are not rendered.  
@@ -1001,7 +1012,7 @@ $, &, #, _, {, }, %
       <equation>
   \end{equation*}
   ```
-<!-- --><br/>
+  <!-- --><br/>
 
 
 - Parentheses and brackets on Equations can be directly typed.  
@@ -1037,7 +1048,7 @@ $, &, #, _, {, }, %
 
 
 
-##### TEXT WITHIN EQUATIONS
+##### Text within Equations
 
 - To add a text inside a equation:
 
@@ -1075,7 +1086,7 @@ $, &, #, _, {, }, %
 
 
 
-##### SUB/SUPERSCRIP & FRACTIONS
+##### Sub/Superscrip & Fractions
 
 - To write SubScript:
 
@@ -1121,7 +1132,7 @@ $, &, #, _, {, }, %
 
 
 
-##### CALCULUS
+##### Calculus
 
 - To write a Integral:
 
@@ -1177,7 +1188,7 @@ $, &, #, _, {, }, %
 
 
 
-##### HATS AND ACCENTS
+##### Hats and Accents
 
 - To add a hat to a letter **in text-mode**:
 
@@ -1216,7 +1227,7 @@ $, &, #, _, {, }, %
 
 
 
-##### MULTIPLE EQUATIONS
+##### Multiple Equations
 
 - To align parts of different Equations use the package ´amsmath´:
 
@@ -1311,7 +1322,7 @@ $, &, #, _, {, }, %
 
 
 
-##### CASES { DEFINITION
+##### Cases { Definition
 
 ```latex
 \begin{equation}
@@ -1329,7 +1340,7 @@ $, &, #, _, {, }, %
 
 
 
-##### CROSSED REFERENCE
+##### Crossed Reference
 
 - Create a Label that can be referenced.  
   Place it inside Displayed Numbered Equations.
@@ -1345,14 +1356,14 @@ $, &, #, _, {, }, %
 - Reference the Section number:
 
 ```latex
-\ref{ <label> }
+\eqref{ <label> }
 ```
 <!-- --><br/>
 <!-- --><br/>
 
 
 
-##### MATH FONTS
+##### Math Fonts
 
 - Package ´amssymb´ or ´amsfonts´:
 
@@ -1387,12 +1398,12 @@ $, &, #, _, {, }, %
   ```latex
   \mathbb{ <letters> }
   ```
-<!-- --><br/>
-<!-- --><br/>
+  <!-- --><br/>
+  <!-- --><br/>
 
 
 
-##### OPERATORS
+##### Operators
 
 |        |        |         |           |        |        |
 | :----: | :----: | :-----: | :-------: | :----: | :----: |
@@ -1404,7 +1415,7 @@ $, &, #, _, {, }, %
 
 
 
-##### SYMBOLS
+##### Greek and Common Symbols
 
 - List of Greek Letters:
 
@@ -1430,16 +1441,17 @@ $, &, #, _, {, }, %
 
 - List of Common Symbols:
 
-|   Code    | Symbol |     |    Code    | Symbol |     |     Code     | Symbol |
-| :-------: | :----: | --- | :--------: | :----: | --- | :----------: | :----: |
-|   `\pm`   |   ±    |     | `\forall`  |   ∀    |     | `\therefore` |   ∴    |
-| `\times`  |   x    |     |  `\infty`  |   ∞    |     |    `\neq`    |   ≠    |
-|  `\div`   |   ÷    |     |   `\in`    |   ∈    |     |  `\approx`   |   ≈    |
-|   `\%`    |   %    |     |  `\notin`  |   ∉    |     |   `\simeq`   |   ≃    |
-|  `\leq`   |   ≤    |     | `\partial` |   ∂    |     |   `\cong`    |   ≅    |
-|  `\geq`   |   ≥    |     |  `\nabla`  |   ∇    |     |    `\sim`    |   ∼    |
-| `\sqrt{}` |   √    |     | `\exists`  |   ∃    |     |   `\cdot`    |   ⋅    |
-|  `\circ`  |   ○    |     | `\nexists` |   ∄    |     |   `\cdots`   |   ⋯    |
+|   Code    | Symbol |      |    Code    | Symbol |      |     Code     | Symbol  |
+| :-------: | :----: | ---- | :--------: | :----: | ---- | :----------: | :-----: |
+|   `\pm`   |   ±    |      | `\forall`  |   ∀    |      | `\therefore` |    ∴    |
+| `\times`  |   x    |      |  `\infty`  |   ∞    |      |    `\neq`    |    ≠    |
+|  `\div`   |   ÷    |      |   `\in`    |   ∈    |      |  `\approx`   |    ≈    |
+|   `\%`    |   %    |      |  `\notin`  |   ∉    |      |   `\simeq`   |    ≃    |
+|  `\leq`   |   ≤    |      | `\partial` |   ∂    |      |   `\cong`    |    ≅    |
+|  `\geq`   |   ≥    |      |  `\nabla`  |   ∇    |      |    `\sim`    |    ∼    |
+| `\sqrt{}` |   √    |      | `\exists`  |   ∃    |      |   `\cdot`    |    ⋅    |
+|  `\circ`  |   ○    |      | `\nexists` |   ∄    |      |   `\cdots`   | ⋯ |
+|           |        |      |            |        |      |   `\equiv` | ≡ |
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1464,25 +1476,35 @@ $, &, #, _, {, }, %
 ```latex
 \usepackage{hyperref}
 ```
-```latex
-\usepackage[colorlinks=true]{hyperref}
-```
-```latex
-\usepackage[colorlinks=true, <color-parameters> ]{hyperref}
-```
 <!-- --><br/>
 
 
-- Optional color parameters for the ´hyperref´ package:
-  - `linkcolor`
-  - `anchorcolor`
-  - `citecolor`
-  - `filecolor`
-  - `menucolor`
-  - `runcolor`
-  - `urlcolor`
-  - `allcolors`
-  - ...
+- Configure the ´hyperref´ package.  
+  Not all parameters are required to be defined.
+```latex
+\hypersetup{
+    colorlinks=true,
+    
+    % (table of contents)
+    linktoc=all,
+    
+    % (internal links)
+    linkcolor= <color>
+    
+    % (citations)
+    citecolor= <color>
+    
+    % (hyperlinks)
+    urlcolor= <color>
+    
+    % (others)
+    anchorcolor= <color>
+    filecolor= <color>
+    menucolor= <color>
+    runcolor= <color>
+    allcolors= <color>
+}
+```
 <!-- --><br/>
 
 |     Color     |      Default for ...      |
@@ -1532,9 +1554,162 @@ $, &, #, _, {, }, %
 
 ------------------------------------
 
+### IMAGES
+
+- Use package ´graphicx´:
+
+```latex
+\usepackage{graphicx}
+```
+<!-- --><br/>
+
+
+- Define the path(s) where the images are stored:
+
+```latex
+\graphicspath{ {<path>/} }
+```
+```latex
+\graphicspath{ {./<path>/} }
+```
+```latex
+\graphicspath{ {<path_1>/}{<path_2>/} }
+```
+<!-- --><br/>
+
+
+- Add image (do not include the extension):
+
+```latex
+\includegraphics{<file>}
+```
+<!-- --><br/>
+
+
+- Optional color parameters for the ´includegraphics´ command:
+  - `scale=<value>`
+  - `height=<valuer>cm`
+  - `width=<valuer>cm`
+    - If only the _width_ parameter is passed, the height will be scaled to keep the aspect ratio.
+    - `width=\textwidth`
+    - `width=\columnsep`
+    - `width=\linewidth`
+    - `width=\textheight`
+    - `width=\paperheight`
+  - `angle=<value>`
+  - 
+  - ...
+  <!-- --><br/>
+  <!-- --><br/>
+
+
+
+##### Figure Environment
+
+- Create a Figure Environment.  
+  If no parameter is given, Latex will position it in a such way that it fits the flow of the document.
+
+```latex
+\begin{figure}[<parameter>]
+    \includegraphics[<options>]{<file>}
+\end{figure}
+```
+<!-- --><br/>
+
+|   Parameter   |     Position              |
+| :-----------: | :-----------------------: |
+|      `h`      | _Here_. |
+|      `t`      | Top of the page. |
+|      `b`      | Bottom of the page. |
+|      `p`      | Put on a special page for _floats_ only. |
+|      `!`      | Override internal parameters LaTeX uses for determining "good" float positions. |
+<!-- --><br/>
+
+
+- Centre the picture (default alignment: left):
+
+```latex
+\begin{figure}[<parameter>]
+    \centering
+    \includegraphics[<options>]{<file>}
+\end{figure}
+```
+<!-- --><br/>
+
+
+- To wrap the text around a figure use the ´wrapfigure´ environment:
+
+```latex
+\usepackage{wrapfig}
+```
+<!-- --><br/>
+```latex
+\begin{wrapfigure}{r}{<ratio>\textwidth}
+    \centering
+    \includegraphics[width=<ratio>\textwidth]{<file>}
+\end{wrapfigure}
+```
+```latex
+\begin{wrapfigure}{l}{<ratio>\textwidth}
+    \centering
+    \includegraphics[width=<ratio>\textwidth]{<file>}
+\end{wrapfigure}
+```
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+- [More info on Images][imgs].
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+- Go back to [TABLE OF CONTENT](#table-of-content).
+<!-- --><br/>
+
+
+
+
+------------------------------------
+
 ### ARTICLE CLASS
 
--
+- Define the Abstract of the Article:
+
+```latex
+\begin{abstract}
+    <text>
+\end{abstract}
+```
+<!-- --><br/>
+
+
+- Para definir Resume e Abstract:
+
+```latex
+\usepackage[english, brazil]{babel}
+
+\begin{document}
+    {\selectlanguage{english}
+    \begin{abstract}
+        <text>
+    \end{abstract}
+    }
+
+    \begin{abstract}
+        <text>
+    \end{abstract}
+\end{document}
+```
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+- Go back to [TABLE OF CONTENT](#table-of-content).
+<!-- --><br/>
 
 
 
@@ -1546,9 +1721,17 @@ $, &, #, _, {, }, %
 - Define Class Book:
 
 ```latex
-\documentclass[10p]{book}
+\documentclass[a4paper,10pt]{book}
 ```
 <!-- --><br/>
+
+- Set no tittle page::
+
+```latex
+\documentclass[a4paper,10pt, notitlepage]{book}
+```
+<!-- --><br/>
+
 
 - Create new Part:
 
@@ -1562,6 +1745,15 @@ $, &, #, _, {, }, %
 
 ```latex
 \chapter{<title>}
+```
+<!-- --><br/>
+
+
+- Reset chapter numbering by part:
+
+```latex
+\usepackage{chngcntr}
+\counterwithin*{chapter}{part}
 ```
 <!-- --><br/>
 <!-- --><br/>
@@ -1607,7 +1799,7 @@ $ git pull upstream master
 
 
 
-##### QUESTIONS
+##### Questions
 
 - Create new automatically numbered Question:
 
@@ -1652,7 +1844,7 @@ $ git pull upstream master
 
 
 
-##### QUESTION COUNTER
+##### Question Counter
 
 - Questions can be devided in Parts.  
   Question Part numbers are auto-incremented.  

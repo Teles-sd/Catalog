@@ -8,9 +8,9 @@ This is a guide for **conda** commands.
 >
 >> No installation instructions are given here.
 >> For that, see the official [Installation][install] Guide.
->>
 
 <!-- --><br/>
+
 ------------------------------------
 
 ### TABLE OF CONTENT
@@ -52,26 +52,47 @@ This is a guide for **conda** commands.
 
 - [Installation][install]
 
+- [Moving Anaconda from one directory to another][moving]
 
 - [Documentation][conda]
 
-
 - [Conda Forge][conda]
+
 <!-- --><br/>
 
 
 
 [install]:https://docs.anaconda.com/anaconda/install/ "Anaconda/Conda Installation"
+[moving]:https://docs.anaconda.com/anaconda/user-guide/tasks/move-directory/
 [conda]:https://docs.conda.io/projects/conda/en/latest/index.html "Conda Documentation"
 [conda-forge]:https://conda-forge.org/feedstock-outputs/ "Packages on Conda Forge"
 [non-conda-forge]:https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#installing-non-conda-packages "Installing non-conda packages"
+
 ------------------------------------
 
 ### HELP
 
 - Help on a command:
 
-$ `conda <command> --help`
+```shell
+$ conda <command> --help
+```
+<!-- --><br/>
+
+
+- Info:
+
+```shell
+$ conda info
+```
+<!-- --><br/>
+
+
+- Open Anaconda Navigator:
+
+```shell
+$ anaconda-navigator
+```
 <!-- --><br/>
 
 
@@ -80,47 +101,82 @@ $ `conda <command> --help`
 
 ### ENVIRONMENTS
 
-- List enviroments:
+- List environments:
 
-$ `conda env list`
-
-$ `conda info --envs`
+```shell
+$ conda env list
+```
+```shell
+$ conda info --envs
+```
 <!-- --><br/>
 
 
-- Activate/deactivate enviroment (conda>=4.6):
+- Activate/deactivate environment (conda>=4.6):
 
-$ `conda activate <enviroment>`
-
-(`<env>`)$ `conda deactivate <enviroment>`
+```shell
+$ conda activate <environment>
+```
+```shell
+(<env>)$ conda deactivate <environment>
+```
 <!-- --><br/>
 
 
-- Create enviroment:
+- Create environment:
 
-$ `conda create --name <env-name>`
-
-$ `conda create -n <env-name> python=<version>`
+```shell
+$ conda create --name <env-name>
+```
+```shell
+$ conda create -n <env-name> python=<version>
+```
 <!-- --><br/>
 
 
-- Create enviroment with specific package:
+- Create environment with specific package:
 
-$ `conda create -n <env-name> <package>`
+```shell
+$ conda create -n <env-name> <package>
+```
+```shell
+$ conda create -n <env-name> <package>=<pack-version>
+```
+<!-- --><br/>
 
-$ `conda create -n <env-name> <package>=<pack-version>`
+
+- Cloning a environment:
+
+```shell
+$ conda create -n <new-env> --clone <old-env> 
+```
+```shell
+$ conda create -n <new-env> --clone <old-env> --offline
+```
+<!-- --><br/>
+
+
+- Removing a environment:
+
+```shell
+$ conda env remove --name <env-name>
+```
 <!-- --><br/>
 
 
 - Exporting environment.yml:
 
-(`<env>`)$ `conda env export > environment.yml`
+```shell
+(<env>)$ conda env export > environment.yml
+```
 <!-- --><br/>
 
 
 - Creating an environment from a environment.yml:
 
-$ `conda env create -f environment.yml`
+```shell
+$ conda env create -f environment.yml
+```
 <!-- --><br/>
 
 
@@ -134,12 +190,12 @@ $ `conda env create -f environment.yml`
 >> DO NOT run `pip install <module>` on TERMINAL.
 >> You should never make any changes to `/usr`, except through `pacman`.
 >> If a package isn´t available by conda, try [Conda Forge][conda-forge] before even thinking on pip.
->> If you need to install with `pip` do it in a Virtual Enviroment.
+>> If you need to install with `pip` do it in a Virtual environment.
 >> For more info see [this][non-conda-forge].
 >
 > **TL;DR :**
 >> Basically, never use `pip`.
->> Use `conda` on Virtual Enviroment.
+>> Use `conda` on Virtual environment.
 >> Use `pacman` (or your package manager) on the system.
 >
 <!-- --><br/>
@@ -147,57 +203,79 @@ $ `conda env create -f environment.yml`
 
 - Install packages on current env:
 
-(`<env>`)$ `conda install <package>`
-
-(`<env>`)$ `conda install <package>=<version>`
+```shell
+(<env>)$ conda install <package>
+```
+```shell
+(<env>)$ conda install <package>=<version>
+```
 <!-- --><br/>
 
 
 - Install packages on other env:
 
-$ `conda install <package> -n <env>`
+```shell
+$ conda install <package> -n <env>
+```
 <!-- --><br/>
 
 
 - Remove a packages:
 
-(`<env>`)$ `conda remove <package>`
-
-$ `conda remove <package> -n <env>`
+```shell
+(<env>)$ conda remove <package>
+```
+```shell
+$ conda remove <package> -n <env>
+```
 <!-- --><br/>
 
 
 - Search package:
 
-$ `conda search <package>`
+```shell
+$ conda search <package>
+```
 <!-- --><br/>
 
 
 - Search package info:
 
-$ `conda search <package> --info`
+```shell
+$ conda search <package> --info
+```
 <!-- --><br/>
 
 
 - Search package on the channel conda-forge:
 
-$ `conda search <package> --channel conda-forge`
+```shell
+$ conda search <package> --channel conda-forge
+```
 
-$ `conda search <package> -c conda-forge`
+```shell
+$ conda search <package> -c conda-forge
+```
 <!-- --><br/>
 
 
 - Install packages from the channel conda-forge:
 
-(`<env>`)$ `conda install <package> -c conda-forge`
+```shell
+(<env>)$ conda install <package> -c conda-forge
+```
 <!-- --><br/>
 
 
 - List installed package:
 
-(`<env>`)$ `conda list`
+```shell
+(<env>)$ conda list
+```
 
-(`<env>`)$ `conda list <package>`
+```shell
+(<env>)$ conda list <package>
+```
 <!-- --><br/>
 
 
@@ -208,25 +286,34 @@ $ `conda search <package> -c conda-forge`
 
 - Check available updates:
 
-$ `conda update`
+```shell
+$ conda update
+```
 <!-- --><br/>
 
 
 - Update a package:
 
-$ `conda update <package>`
-
-$ `conda update python`
-
-$ `conda update conda`
-
-$ `conda update anaconda`
+```shell
+$ conda update <package>
+```
+```shell
+$ conda update python
+```
+```shell
+$ conda update conda
+```
+```shell
+$ conda update anaconda
+```
 <!-- --><br/>
 
 
-- Update all packages on enviroment:
+- Update all packages on environment:
 
-(`<env>`)$ `conda update --all`
+```shell
+(<env>)$ conda update --all
+```
 <!-- --><br/>
 
 
@@ -237,27 +324,37 @@ $ `conda update anaconda`
 
 - Open jupyter:
 
-(`<env>`)$ `jupyter notebook`
-
-(`<env>`)$ `jupyter notebook <file.ipynb>`
-
-(`<env>`)$ `jupyper lab`
-
-(`<env>`)$ `jupyper lab <file.ipynb>`
+```shell
+(<env>)$ jupyter notebook
+```
+```shell
+(<env>)$ jupyter notebook <file.ipynb>
+```
+```shell
+(<env>)$ jupyper lab
+```
+```shell
+(<env>)$ jupyper lab <file.ipynb>
+```
 <!-- --><br/>
 
 
 - List running Jupyter servers:
 
-(`<env>`)$ `jupyter notebook list`
+```shell
+(<env>)$ jupyter notebook list
+```
 <!-- --><br/>
 
 
 - Terminate Jupyter server:
 
-(`<env>`)$ `jupyter notebook stop`
-
-(`<env>`)$ `jupyter notebook stop <port>`
+```shell
+(<env>)$ jupyter notebook stop
+```
+```shell
+(<env>)$ jupyter notebook stop <port>
+```
 <!-- --><br/>
 
 
@@ -266,7 +363,7 @@ $ `conda update anaconda`
 | ShortCut | Meaning |
 | :---: | :--- |
 | [shift] + [Enter] | Run cell & go to the next |
-| [ctrl] + [Enter]  | Run cell & DON'T go next |
+| [ctrl] + [Enter]  | Run cell & DON´T go next |
 | [alt] + [Enter]   | Run cell, add new cell under & go to it |
 | [d] + [d]         | Delete selected cell |
 <!-- --><br/>
@@ -279,13 +376,17 @@ $ `conda update anaconda`
 
 - Finding anaconda's install directory:
 
-$ `which conda`
+```shell
+$ which conda
+```
 <!-- --><br/>
 
 
-- Finding the anaconda's python interpreter (environmental):
+- Finding the anaconda´s python interpreter (environmental):
 
-(`<env>`)$ `which python`
+```shell
+(<env>)$ which python
+```
 <!-- --><br/>
 
 

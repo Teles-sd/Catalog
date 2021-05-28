@@ -153,16 +153,36 @@ SOLVE LINEAR SYSTEM
 
 ----------------------------------
 
-	RANDOM
+### RANDOM
 
 - Create an Array with a number of random Integers:
->>> np.random.randint(<min>, <max>, <number>)
 
-- Create Array populated with random samples from a Uniform Distribution (same probability) from 0 to 1:
->>> np.random.rand(<size>, ..., <size>)
+```python
+np.random.randint(<min>, <max>, <number>)
+```
 
-- Create Array populated with random samples from a "Standard Normal" distribution (mean 0, standard deviation 1):
+- Create Array with random samples from a Uniform Distribution (same probability) from 0 to 1:
+
+```python
+np.random.rand(<size>, ..., <size>)
+```
+
+- Create Array with random samples from a "Standard Normal" distribution (mean 0, standard deviation 1):
 >>> np.random.randn(<size>, ..., <size>)
+
+
+
+- Get a Random Sample of some size from a iterable:
+
+```python
+np.random.choice(<iterable>, <size>)
+```
+
+> **Example:**
+>> ```python
+>> np.random.choice(range(20), 10)
+>> ```
+
 
 
 
@@ -306,10 +326,20 @@ SOLVE LINEAR SYSTEM
 	np.e			Euler's Constant
 
 
->>> np.sqrt(<array>)		# x^(1/2)
->>> np.exp(<array>)			# e^x
->>> np.sin(<array>)			# sin(x)
->>> np.cos(<array>)			# cos(x)
+np.sqrt(<array>)        # x^(1/2)
+np.exp(<array>)         # e^x
+
+np.sin(<array>)         # sin(x)
+np.cos(<array>)         # cos(x)
+np.tan(<array>)         # tan(x)
+
+np.arcsin(<array>)
+np.arccos(<array>)
+np.arctan(<array>)
+
+np.sinh(<array>)
+np.cosh(<array>)
+np.tanh(<array>)
 
 
 ------------------------------------
