@@ -1,5 +1,5 @@
 
-# GIT
+# GIT <!-- omit in toc -->
 
 
 This is a guide for **git** commands.
@@ -21,41 +21,40 @@ This is a guide for **git** commands.
 
 ------------------------------------
 
-### TABLE OF CONTENT
+### TABLE OF CONTENT <!-- omit in toc -->
 
-+ [GLOSSARY](#glossary)
-+ [TERMINOLOGY](#terminology)
-+ [PACKAGES](#packages)
-+ [REFERENCE](#reference)
-+ [HELP](#help)
-<!-- --><br/>
-+ [QUICK START (BASICS)](#quick-start-basics)
-+ [WORK-TREE, INDEX & COMMITS](#work-tree-index--commits)
-	* [WORK-TREE -> INDEX](#work-tree---index)
-	* [INDEX -> REVISION](#index---revision)
-+ [LOGS & REFLOG](#logs--reflog)
-	* [LOG](#log)
-	* [LOG GRAPH](#log-graph)
-	* [REFLOG](#reflog)
-+ [BRANCHES](#branches)
-+ [SPELL COMMITS](#spell-commits)
-+ [REMOTES](#remotes)
-+ [DIFFS](#diffs)
-+ [MERGE & REBASE](#merge--rebase)
-	* [MERGE](#merge)
-	* [REBASE](#rebase)
-+ [UNDO MISTAKES](#undo-mistakes)
-	* [AMEND](#amend)
-	* [STASH](#stash)
-	* [RESTORE (FILES)](#restore-files)
-	* [RESET (INDEX)](#reset-index)
-	* [REVERT (COMMITS)](#revert-commits)
-	* [EXAMPLE CASES](#example-cases)
-+ [CONFIGS](#configs)
-	* [IDENTITY](#identity)
-	* [TOOLS CONFIG](#tools-config)
-	* [SAVE CREDENTIALS](#save-credentials)
-	* [CREDENTIALS CACHE](#credentials-cache)
+- [GLOSSARY](#glossary)
+- [TERMINOLOGY](#terminology)
+- [PACKAGES](#packages)
+- [REFERENCES](#references)
+- [HELP](#help)
+- [QUICK START (BASICS)](#quick-start-basics)
+- [WORK-TREE, INDEX & COMMITS](#work-tree-index--commits)
+  - [Work-Tree -> Index](#work-tree---index)
+  - [Index -> Revision](#index---revision)
+- [LOGS & REFLOG](#logs--reflog)
+  - [Log](#log)
+  - [Log Graph](#log-graph)
+  - [Reflog](#reflog)
+- [BRANCHES](#branches)
+- [SPELL COMMITS](#spell-commits)
+- [REMOTES](#remotes)
+- [DIFFS](#diffs)
+- [MERGE & REBASE](#merge--rebase)
+  - [Merge](#merge)
+  - [Rebase](#rebase)
+- [UNDO MISTAKES](#undo-mistakes)
+  - [Amend](#amend)
+  - [Stash](#stash)
+  - [Restore (files)](#restore-files)
+  - [Reset (index)](#reset-index)
+  - [Revert (commits)](#revert-commits)
+  - [Example cases](#example-cases)
+- [CONFIGS](#configs)
+  - [Identity](#identity)
+  - [Tools config](#tools-config)
+  - [Save credentials](#save-credentials)
+  - [Credentials cache](#credentials-cache)
 	<!-- --><br/>
 
 
@@ -244,6 +243,12 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 
 - [Git Cheatsheet][cheat]
+
+
+- [Github Guides][guides]
+
+
+- [Mastering Issues - Github Guides][issues]
 <!-- --><br/>
 <!-- --><br/>
 
@@ -256,9 +261,14 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 [git]:https://git-scm.com/ "Git Home Page"
 [doc]:https://git-scm.com/doc "Git Documentation"
+
 [atlassian]:https://www.atlassian.com/git/tutorials "Atlassian Tutorials"
 [cheat]:https://ndpsoftware.com/git-cheatsheet.html#loc=index "Git Cheatsheet"
+[guides]:https://guides.github.com/ "Github Guides"
+[issues]:https://guides.github.com/features/issues/ "Mastering Issues"
+
 [Merge Rebase]:https://www.atlassian.com/git/tutorials/merging-vs-rebasing "Merging vs. Rebasing"
+
 [tree1]:./imgs/git_commits_horiz.png
 [tree2]:./imgs/git_commits_vert.png
 
@@ -315,12 +325,16 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 <!-- --><br/>
 
 > **Note:**
->> This is a "TL;DR section" for starting a Repository right away.
->> For more details see the other sections.
->> 
->**Hint:**
->> See [Identity](#identity) section for how to configure identity.
-><!-- --><br/>
+> 
+> This is a "TL;DR section" for starting a Repository right away.
+> For more details see the other sections.
+> 
+> **Tip:**
+> 
+> See [Identity](#identity) section for how to configure identity.
+>
+
+<!-- --><br/>
 
 
 
@@ -413,7 +427,7 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 ### WORK-TREE, INDEX & COMMITS
 <!-- --><br/>
 
-##### Work-Tree -> Index
+#### Work-Tree -> Index
 
 - Display current Branch's Index (staged and untracked files):
 
@@ -464,17 +478,27 @@ $ `git mv <file> <destination>`
 
 
 
-##### Index -> Revision
+#### Index -> Revision
 
 > **Tip:**
 >
-> > It is a good practice ~~(that I do not have :smile: )~~ to not mix different topics in the same commit.
-> <!-- --><br/>
+> It is a good practice ~~(that I do not have :smile: )~~ to not mix different topics in the same commit.
+>
+
+<!-- --><br/>
 
 
 - Commit contents of Index to current Branch, with a log message:
 
 $ `git commit -m '<log-message>'`
+
+> **Tip:**
+>
+> By prefacing the Commit message with “Fixes”, “Fixed”, “Fix”, “Closes”, “Closed”, or “Close” followed by "#`<github-issue>`", when the commit is merged into main, it will also automatically close the issue.
+> 
+> See more on [Mastering Issues - Github Guides][issues].
+> 
+
 <!-- --><br/>
 
 
@@ -532,7 +556,7 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 ### LOGS & REFLOG
 <!-- --><br/>
 
-##### Log
+#### Log
 
 **Follows _chronological_ order.**
 <!-- --><br/>
@@ -569,7 +593,7 @@ $ `git log --pretty="format:%h %ar %s"`
 
 
 
-##### Log Graph
+#### Log Graph
 
 **Follows _topological_ ordering, not chronological order.**
 <!-- --><br/>
@@ -588,7 +612,7 @@ $ `git log --graph --oneline --all`
 
 
 
-##### Reflog
+#### Reflog
 
 **Reflog records changes on the HEAD pointer.**  
 That is, records updates to the tip of the Branch: switches, amends, resets...
@@ -971,6 +995,14 @@ $ `git diff`
 <!-- --><br/>
 
 
+- To examine the Staged changes:
+
+$ `git diff --cached`
+
+$ `git diff <commit> --cached `
+<!-- --><br/>
+
+
 - View only the name of the files that have changes:
 
 $ `git diff --name-only <commit>`
@@ -1040,7 +1072,7 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 
 
-##### Merge
+#### Merge
 
 Incorporates, on current Branch, changes from other Branch's commit.  
 Records the result in a new commit.  
@@ -1064,6 +1096,20 @@ $ `git merge <commit> -m '<log-message>'`
 <!-- --><br/>
 
 
+- Perform the Merge but stop just before creating a merge commit.  
+  Give the user a chance to inspect and further tweak the merge result before committing.  
+  Also, to ensure your branch is not changed or updated by the merge command, use `--no-ff` to avoid fast-forward updates.
+
+$ `git merge --no-commit --no-ff <branch>`
+<!-- --><br/>
+
+
+- To examine the staged changes:
+
+$ `git diff --cached`
+<!-- --><br/>
+
+
 - If (and only if) the merge has resulted in conflicts, the following commands are available.  
   See [Tools Configuration](#tools-config) section to see how to define a `mergetool`.
 
@@ -1079,7 +1125,7 @@ $ `git merge --quit`
 
 
 
-##### Rebase
+#### Rebase
 
 Incorporates on current Branch changes from other Branch's commit.  
 Does this by **rewriting the Commit history**.  
@@ -1157,7 +1203,7 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 <!-- --><br/>
 
 
-##### Amend
+#### Amend
 
 Only used for changes on the very last Commit.
 
@@ -1214,7 +1260,7 @@ $ `git commit --amend --reset-author`
 
 
 
-##### Stash
+#### Stash
 
 Hides modifications (making the Work-Tree clean) to work on something else.
 After saving the Stash, [Resets](#reset-index) Work-Tree and Index.
@@ -1293,7 +1339,7 @@ $ `git stash create`
 
 
 
-##### Restore (files)
+#### Restore (files)
 
 Restores the previous state of a file.
 Can restore deleted files.
@@ -1349,7 +1395,7 @@ $ `git restore --source <commit> <file>`
 
 
 
-##### Reset (index)
+#### Reset (index)
 
 > :warning: **WARNING:**
 >> When Reseting to a Commit older than HEAD, it deletes Commits after it.
@@ -1384,7 +1430,7 @@ $ `git reset --soft <commit>`
 
 
 
-##### Revert (commits)
+#### Revert (commits)
 
 - Creates a new Commit that Reverts changes of a previous Commit without deleting it.
 - Requieres Clean Work-Tree.
@@ -1396,7 +1442,7 @@ $ `git revert <commit>`
 
 
 
-##### Example cases
+#### Example cases
 
 - Moving Commits from current Branch to a NEW Branch:
 
@@ -1475,7 +1521,7 @@ $ `git config --unset-all <config>`
 
 
 
-##### Identity
+#### Identity
 
 The author of the commits.
 <!-- --><br/>
@@ -1517,7 +1563,7 @@ $ `git commit --amend --reset-author`
 
 
 
-##### Tools config
+#### Tools config
 
 > **Note:**
 >> Other editors than Vim, Nano, Emacs..., might need other configurations.
@@ -1563,7 +1609,7 @@ $ `git config --global mergetool.prompt false`
 
 
 
-##### Save credentials
+#### Save credentials
 
 - Using the package 'libsecret' to store credentials:
   - On Arch:  
@@ -1595,7 +1641,7 @@ password   optional     pam_gnome_keyring.so use_authtok
 
 
 
-##### Credentials cache
+#### Credentials cache
 
 - Store password on cache (default: 15 min):
 

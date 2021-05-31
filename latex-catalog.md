@@ -1,5 +1,5 @@
 
-# LaTeX
+# LaTeX <!-- omit in toc -->
 
 This is a guide for ![][latex] commands.
 <!-- --><br/>
@@ -13,48 +13,47 @@ This is a guide for ![][latex] commands.
 
 ------------------------------------
 
-### TABLE OF CONTENT
+### TABLE OF CONTENT <!-- omit in toc -->
 
-- [LaTeX](#latex)
-    - [TABLE OF CONTENT](#table-of-content)
-    - [TERMINOLOGY](#terminology)
-    - [PACKAGES](#packages)
-    - [REFERENCES](#references)
-    - [BASICS](#basics)
-    - [TITLE, AUTHOR & TABLE OF CONTENTS](#title-author--table-of-contents)
-    - [BIBLIOGRAPHIC REFERENCES](#bibliographic-references)
-    - [USE PACKAGES](#use-packages)
-    - [CONFIGURATIONS](#configurations)
-        - [Page Numbering](#page-numbering)
-        - [Hyphenation](#hyphenation)
-    - [ALL CLASSES](#all-classes)
-        - [Sectioning](#sectioning)
-        - [Paragraph Indentation](#paragraph-indentation)
-    - [LISTS](#lists)
-    - [SYMBOLS](#symbols)
-    - [BASIC FORMATING](#basic-formating)
-        - [Fonts](#fonts)
-        - [Align](#align)
-    - [MATH](#math)
-        - [Equations Delimiters](#equations-delimiters)
-        - [Text within Equations](#text-within-equations)
-        - [Sub/Superscrip & Fractions](#subsuperscrip--fractions)
-        - [Calculus](#calculus)
-        - [Hats and Accents](#hats-and-accents)
-        - [Multiple Equations](#multiple-equations)
-        - [Cases { Definition](#cases--definition)
-        - [Crossed Reference](#crossed-reference)
-        - [Math Fonts](#math-fonts)
-        - [Operators](#operators)
-        - [Greek and Common Symbols](#greek-and-common-symbols)
-    - [LINKS](#links)
-    - [IMAGES](#images)
-        - [Figure Environment](#figure-environment)
-    - [ARTICLE CLASS](#article-class)
-    - [BOOK CLASS](#book-class)
-    - [HOMEWORK CLASS](#homework-class)
-        - [Questions](#questions)
-        - [Question Counter](#question-counter)
+- [TERMINOLOGY](#terminology)
+- [PACKAGES](#packages)
+- [REFERENCES](#references)
+- [BASICS](#basics)
+- [TITLE, AUTHOR & TABLE OF CONTENTS](#title-author--table-of-contents)
+- [BIBLIOGRAPHIC REFERENCES](#bibliographic-references)
+- [USE PACKAGES](#use-packages)
+- [CONFIGURATIONS](#configurations)
+  - [Page Numbering](#page-numbering)
+  - [Hyphenation](#hyphenation)
+- [SECTIONS (ALL CLASSES)](#sections-all-classes)
+  - [Sectioning](#sectioning)
+  - [Paragraph Indentation](#paragraph-indentation)
+- [LISTS](#lists)
+- [SYMBOLS](#symbols)
+- [BASIC FORMATING](#basic-formating)
+  - [Fonts](#fonts)
+  - [Align](#align)
+- [MATH](#math)
+  - [Equations Delimiters](#equations-delimiters)
+  - [Text within Equations](#text-within-equations)
+  - [Sub/Superscrip & Fractions](#subsuperscrip--fractions)
+  - [Calculus](#calculus)
+  - [Hats and Accents](#hats-and-accents)
+  - [Multiple Equations](#multiple-equations)
+  - [Cases { Definition](#cases--definition)
+  - [Crossed Reference](#crossed-reference)
+  - [Math Fonts](#math-fonts)
+  - [Operators](#operators)
+  - [Greek and Common Symbols](#greek-and-common-symbols)
+- [LINKS](#links)
+- [IMAGES](#images)
+  - [Figure Environment](#figure-environment)
+- [ARTICLE CLASS](#article-class)
+- [BOOK CLASS](#book-class)
+- [NEW CLASSES & PACKAGES](#new-classes--packages)
+- [HOMEWORK CLASS](#homework-class)
+  - [Questions](#questions)
+  - [Question Counter](#question-counter)
         <!-- --><br/>
 
 
@@ -193,7 +192,9 @@ Different Classes of Documents have different commands and properties.
   - Report
   - Letter
   - ...
-
+  - [Add New Classes](#new-classes--packages)
+  - [Homework Class](#homework-class)
+  
 - _Some_ Options:
 
 |     Options      | Description                                                                         |
@@ -477,7 +478,7 @@ Commands have main parameters in braces ´{ }´ and optional parameters in brack
 
 
 
-##### Page Numbering
+#### Page Numbering
 
 
 - To suppress page numbering:
@@ -542,7 +543,7 @@ Commands have main parameters in braces ´{ }´ and optional parameters in brack
 
 
 
-##### Hyphenation
+#### Hyphenation
 
 - Teach LaTeX how to hyphenate a word or to never hyphenate it:
 
@@ -567,12 +568,12 @@ Commands have main parameters in braces ´{ }´ and optional parameters in brack
 
 ------------------------------------
 
-### ALL CLASSES
+### SECTIONS (ALL CLASSES)
 
 These are commands available on any Class.
 <!-- --><br/>
 
-##### Sectioning
+#### Sectioning
 
 LaTeX numbers Sections, Subsections, Chapters, Parts, etc, automatically.
 <!-- --><br/>
@@ -618,7 +619,7 @@ LaTeX numbers Sections, Subsections, Chapters, Parts, etc, automatically.
 
 
 
-##### Paragraph Indentation
+#### Paragraph Indentation
 
 For LaTeX to identify paragraphs, it is needed an empty line between then.
 <!-- --><br/>
@@ -853,7 +854,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Fonts
+#### Fonts
 
 - Some Fonts:
   - Romman Font:
@@ -912,7 +913,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Align
+#### Align
 
 - Align left (default):
 
@@ -969,7 +970,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Equations Delimiters
+#### Equations Delimiters
 
 - The way Equations are displayed depends on the delimiters.  
   Delimiters are not rendered.  
@@ -1048,7 +1049,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Text within Equations
+#### Text within Equations
 
 - To add a text inside a equation:
 
@@ -1086,7 +1087,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Sub/Superscrip & Fractions
+#### Sub/Superscrip & Fractions
 
 - To write SubScript:
 
@@ -1132,7 +1133,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Calculus
+#### Calculus
 
 - To write a Integral:
 
@@ -1188,7 +1189,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Hats and Accents
+#### Hats and Accents
 
 - To add a hat to a letter **in text-mode**:
 
@@ -1227,7 +1228,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Multiple Equations
+#### Multiple Equations
 
 - To align parts of different Equations use the package ´amsmath´:
 
@@ -1322,7 +1323,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Cases { Definition
+#### Cases { Definition
 
 ```latex
 \begin{equation}
@@ -1340,7 +1341,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Crossed Reference
+#### Crossed Reference
 
 - Create a Label that can be referenced.  
   Place it inside Displayed Numbered Equations.
@@ -1363,7 +1364,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Math Fonts
+#### Math Fonts
 
 - Package ´amssymb´ or ´amsfonts´:
 
@@ -1403,7 +1404,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Operators
+#### Operators
 
 |        |        |         |           |        |        |
 | :----: | :----: | :-----: | :-------: | :----: | :----: |
@@ -1415,7 +1416,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Greek and Common Symbols
+#### Greek and Common Symbols
 
 - List of Greek Letters:
 
@@ -1604,7 +1605,7 @@ $, &, #, _, {, }, %
 
 
 
-##### Figure Environment
+#### Figure Environment
 
 - Create a Figure Environment.  
   If no parameter is given, Latex will position it in a such way that it fits the flow of the document.
@@ -1767,6 +1768,56 @@ $, &, #, _, {, }, %
 
 ------------------------------------
 
+### NEW CLASSES & PACKAGES
+
+- The TeX home directory is saved on the variable `TEXMFHOME`.  
+  To see where it is use:
+
+```shell
+$ kpsewhich --var-value=TEXMFHOME
+```
+<!-- --><br/>
+
+
+- To add a new Class (`.cls` file) to Latex, place the file under the following path.  
+  It is not necessary to update the package database.  
+  The same works with new packages (`.sty` files).
+
+```
+<TEXMFHOME>/tex/latex/commonstuff/
+```
+<!-- --><br/>
+
+
+- To verify it is working use (will display where the file is seen by Latex):
+
+```shell
+kpsewhich <new-class>.cls
+```
+```shell
+kpsewhich <new-package>.sty
+```
+<!-- --><br/>
+
+
+- To change the location of `TEXMFHOME`, find the `texmf.cnf` file with:
+
+```shell
+$ kpsewhich texmf.cnf
+```
+
+- Then edit this file and alter the `TEXMFHOME` value to the desired path.
+
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+- Go back to [TABLE OF CONTENT](#table-of-content).
+<!-- --><br/>
+
+------------------------------------
+
 ### HOMEWORK CLASS
 
 - Custom Class.  
@@ -1799,7 +1850,7 @@ $ git pull upstream master
 
 
 
-##### Questions
+#### Questions
 
 - Create new automatically numbered Question:
 
@@ -1844,7 +1895,7 @@ $ git pull upstream master
 
 
 
-##### Question Counter
+#### Question Counter
 
 - Questions can be devided in Parts.  
   Question Part numbers are auto-incremented.  

@@ -1,5 +1,5 @@
 
-# CONDA
+# CONDA <!-- omit in toc -->
 
 This is a guide for **conda** commands.
 <!-- --><br/>
@@ -13,16 +13,16 @@ This is a guide for **conda** commands.
 
 ------------------------------------
 
-### TABLE OF CONTENT
+### TABLE OF CONTENT <!-- omit in toc -->
 
-+ [TERMINOLOGY](#terminology)
-+ [REFERENCE](#reference)
-+ [HELP](#help)
-+ [ENVIRONMENTS](#environments)
-+ [PACKAGES](#packages)
-+ [UPDATES](#updates)
-+ [JUPYTER](#jupyter)
-+ [MISC](#misc)
+- [TERMINOLOGY](#terminology)
+- [REFERENCE](#reference)
+- [HELP](#help)
+- [ENVIRONMENTS](#environments)
+- [PACKAGES](#packages)
+- [UPDATES](#updates)
+- [JUPYTER](#jupyter)
+- [MISC](#misc)
 
 <!-- --><br/>
 
@@ -176,6 +176,9 @@ $ conda env remove --name <env-name>
 
 ```shell
 $ conda env create -f environment.yml
+```
+```shell
+$ conda env create -f environment.yml -n <env-name>
 ```
 <!-- --><br/>
 

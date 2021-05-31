@@ -1,18 +1,18 @@
 
-# MARKDOWN
+# MARKDOWN <!-- omit in toc -->
 
 ------------------------------------
 
-### TABLE OF CONTENT
+### TABLE OF CONTENT <!-- omit in toc -->
 
-+ [REFERENCE](#reference)
-+ [HEADERS](#headers)
-+ [LISTS & PARAGRAPHS](#lists--paragraphs)
-+ [CODE](#code)
-+ [LINKS](#links)
-+ [EMPHASIS](#emphasis)
-+ [BLOCK-QUOTES](#block-quotes)
-+ [TABLES](#tables)
+- [REFERENCES](#references)
+- [HEADERS](#headers)
+- [LISTS & PARAGRAPHS](#lists--paragraphs)
+- [CODE](#code)
+- [LINKS](#links)
+- [EMPHASIS](#emphasis)
+- [BLOCK-QUOTES](#block-quotes)
+- [TABLES](#tables)
 
 <!-- --><br/>
 
@@ -478,51 +478,6 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 ------------------------------------
 
-### TOPIC
-
-> :warning: **WARNING :**
->
->> Warning
->
-<!-- --><br/>
-
-
-- Command Explanation:
-
-`command`
-
-`alternative command`
-<!-- --><br/>
-
-
-- Command Explanation:
-
-`command`
-<!-- --><br/>
-
-
-
-##### SUBTOPIC
-
-- Command Explanation:
-
-`command`
-<!-- --><br/>
-
-
-
-> **Examples**
->
->> `code`
->
->
-<!-- --><br/>
-
-
-
-- Go back to [TABLE OF CONTENT](#table-of-content).
-<!-- --><br/>
-
 
 
 ------------------------------------
@@ -542,9 +497,3 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 
 ------------------------------------
-
-
-
-------------------------------------
-
-[Table of Content]: 
