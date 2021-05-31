@@ -1,8 +1,8 @@
 
-# GIT <!-- omit in toc -->
+# GIT
 
 
-This is a guide for **git** commands.
+This is a guide for **git** commands and the Github CLI **gh**.
 <!-- --><br/>
 
 > **Notes:**
@@ -23,38 +23,41 @@ This is a guide for **git** commands.
 
 ### TABLE OF CONTENT <!-- omit in toc -->
 
-- [GLOSSARY](#glossary)
-- [TERMINOLOGY](#terminology)
-- [PACKAGES](#packages)
-- [REFERENCES](#references)
-- [HELP](#help)
-- [QUICK START (BASICS)](#quick-start-basics)
-- [WORK-TREE, INDEX & COMMITS](#work-tree-index--commits)
-  - [Work-Tree -> Index](#work-tree---index)
-  - [Index -> Revision](#index---revision)
-- [LOGS & REFLOG](#logs--reflog)
-  - [Log](#log)
-  - [Log Graph](#log-graph)
-  - [Reflog](#reflog)
-- [BRANCHES](#branches)
-- [SPELL COMMITS](#spell-commits)
-- [REMOTES](#remotes)
-- [DIFFS](#diffs)
-- [MERGE & REBASE](#merge--rebase)
-  - [Merge](#merge)
-  - [Rebase](#rebase)
-- [UNDO MISTAKES](#undo-mistakes)
-  - [Amend](#amend)
-  - [Stash](#stash)
-  - [Restore (files)](#restore-files)
-  - [Reset (index)](#reset-index)
-  - [Revert (commits)](#revert-commits)
-  - [Example cases](#example-cases)
-- [CONFIGS](#configs)
-  - [Identity](#identity)
-  - [Tools config](#tools-config)
-  - [Save credentials](#save-credentials)
-  - [Credentials cache](#credentials-cache)
+- [GIT](#git)
+    - [GLOSSARY](#glossary)
+    - [TERMINOLOGY](#terminology)
+    - [PACKAGES](#packages)
+    - [REFERENCES](#references)
+    - [HELP](#help)
+    - [QUICK START (BASICS)](#quick-start-basics)
+    - [WORK-TREE, INDEX & COMMITS](#work-tree-index--commits)
+      - [Work-Tree -> Index](#work-tree---index)
+      - [Index -> Revision](#index---revision)
+    - [LOGS & REFLOG](#logs--reflog)
+      - [Log](#log)
+      - [Log Graph](#log-graph)
+      - [Reflog](#reflog)
+    - [BRANCHES](#branches)
+    - [SPELL COMMITS](#spell-commits)
+    - [REMOTES](#remotes)
+    - [DIFFS](#diffs)
+    - [MERGE & REBASE](#merge--rebase)
+      - [Merge](#merge)
+      - [Rebase](#rebase)
+    - [UNDO MISTAKES](#undo-mistakes)
+      - [Amend](#amend)
+      - [Stash](#stash)
+      - [Restore (files)](#restore-files)
+      - [Reset (index)](#reset-index)
+      - [Revert (commits)](#revert-commits)
+      - [Example cases](#example-cases)
+    - [CONFIGS](#configs)
+      - [Identity](#identity)
+      - [Tools config](#tools-config)
+      - [Save credentials](#save-credentials)
+      - [Credentials cache](#credentials-cache)
+- [GITHUB COMMAND-LINE INTERFACE](#github-command-line-interface)
+    - [ISSUES](#issues)
 	<!-- --><br/>
 
 
@@ -216,9 +219,10 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 ### PACKAGES
 
 
-| Source | Package | Description |
-| :----: | :-----: | ----------- |
-| pacman | git     | The fast distributed version control system. (pacman) <br/> The stupid content tracker. (man-page) |
+| Source |    Package    | Description |
+| :----: | :-----------: | ----------- |
+| pacman | git           | The fast distributed version control system. (pacman) <br/> The stupid content tracker. (man-page) |
+| pacman | gigithub-clit | The GitHub CLI |
 <!-- --><br/>
 <!-- --><br/>
 
@@ -249,6 +253,9 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 
 - [Mastering Issues - Github Guides][issues]
+
+
+- [Github CLI][gh]
 <!-- --><br/>
 <!-- --><br/>
 
@@ -264,10 +271,13 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 [atlassian]:https://www.atlassian.com/git/tutorials "Atlassian Tutorials"
 [cheat]:https://ndpsoftware.com/git-cheatsheet.html#loc=index "Git Cheatsheet"
+
 [guides]:https://guides.github.com/ "Github Guides"
 [issues]:https://guides.github.com/features/issues/ "Mastering Issues"
+[gh]:https://cli.github.com/ "Github CLI"
 
 [Merge Rebase]:https://www.atlassian.com/git/tutorials/merging-vs-rebasing "Merging vs. Rebasing"
+[gpg-signature]:https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification "GPG commit signature verification"
 
 [tree1]:./imgs/git_commits_horiz.png
 [tree2]:./imgs/git_commits_vert.png
@@ -278,31 +288,45 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 - Help:
 
-$ `git help`
+```shell
+$ git help
+```
 <!-- --><br/>
 
 
 - Manuals about specific Git´s commands:
 
-$ `git help <command>`
+```shell
+$ git help <command>
+```
 
-$ `man git-<command>`
+```shell
+$ man git-<command>
+```
 <!-- --><br/>
 
 
 - Official Glossary (confusing a.f.):
 
-$ `man gitglossary`
+```shell
+$ man gitglossary
+```
 
-$ `git help gitglossary`
+```shell
+$ git help gitglossary
+```
 <!-- --><br/>
 
 
 - More info on spell Commits:
 
-$ `man gitrevisions`
+```shell
+$ man gitrevisions
+```
 
-$ `git help gitrevisions`
+```shell
+$ git help gitrevisions
+```
 <!-- --><br/>
 
 
@@ -340,58 +364,79 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 - Create a local Repository:
 
-$ `cd <path>`
+```shell
+$ cd <path>
+```
 
-$ `git init`
+```shell
+$ git init
+```
 <!-- --><br/>
 
 
 - Add a Remote (previously created on the Github or other website):
 
-$ `git remote add <name> <url>`  
+```shell
+$ git remote add <name> <url>`  
 Eg.:  
-$ `git remote add origin https://github.com/<user>/<repo>`
+```shell
+$ git remote add origin https://github.com/<user>/<repo>
+```
 <!-- --><br/>
 
 
 - Display Remotes:
 
-$ `git remote -v`
+```shell
+$ git remote -v
+```
 <!-- --><br/>
 
 
 - Fetch and Merge Branch from a Remote.  
   Not needed if the Remote is empty.
 
-$ `git pull <remote> <branch>`  
+```shell
+$ git pull <remote> <branch>`  
 Eg.:  
-$ `git pull origin master`
+```shell
+$ git pull origin master
+```
 <!-- --><br/>
 
 
 - Add all files from the Work-tree to Index:
 
-$ `git add .`
+```shell
+$ git add .
+```
 <!-- --><br/>
 
 
 - Display updates to the Index:
 
-$ `git status`
+```shell
+$ git status
+```
 <!-- --><br/>
 
 
 - Commit contents of Index to current Branch, with a log message:
 
-$ `git commit -m '<log-message>'`
+```shell
+$ git commit -m '<log-message>'
+```
 <!-- --><br/>
 
 
 - Update a Remote Branch with the current Branch's contents (Branches with same name):
 
-$ `git push <remote> <branch>`  
+```shell
+$ git push <remote> <branch>`  
 Eg.:  
-$ `git push origin master`
+```shell
+$ git push origin master
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -399,19 +444,25 @@ $ `git push origin master`
 
 - List local Branches in Repository:
 
-$ `git branch`
+```shell
+$ git branch
+```
 <!-- --><br/>
 
 
 - List Remote Branches:
 
-$ `git branch -r`
+```shell
+$ git branch -r
+```
 <!-- --><br/>
 
 
 - List all Branches:
 
-$ `git branch -a`
+```shell
+$ git branch -a
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -431,47 +482,65 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 - Display current Branch's Index (staged and untracked files):
 
-$ `git status`
+```shell
+$ git status
+```
 <!-- --><br/>
 
 
 - List all file from Index AND Work-tree:
 
-$ `git ls-files`
+```shell
+$ git ls-files
+```
 <!-- --><br/>
 
 
 - Add specific file (or files) from the Work-tree to Index:
 
-$ `git add <file>`
+```shell
+$ git add <file>
+```
 
-$ `git add <file> ... <file>`
+```shell
+$ git add <file> ... <file>
+```
 <!-- --><br/>
 
 
 - Add all files from the Work-tree to Index:
 
-$ `git add .`
+```shell
+$ git add .
+```
 <!-- --><br/>
 
 
 - Updated Tracked (in Index) files from Working-tree to Index:
 
-$ `git add -u`
+```shell
+$ git add -u
+```
 
-$ `git add --update`
+```shell
+$ git add --update
+```
 <!-- --><br/>
 
 
 - Remove file from Index and **Work-tree**:
 
-$ `git rm <file>`
+```shell
+$ git rm <file>
+```
 <!-- --><br/>
 
 
 - Move file on Work-tree and Index:
 
-$ `git mv <file> <destination>`
+```shell
+$ git mv <file> <destination>
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -490,7 +559,9 @@ $ `git mv <file> <destination>`
 
 - Commit contents of Index to current Branch, with a log message:
 
-$ `git commit -m '<log-message>'`
+```shell
+$ git commit -m '<log-message>'
+```
 
 > **Tip:**
 >
@@ -504,43 +575,57 @@ $ `git commit -m '<log-message>'`
 
 - Automatically add Staged files to Commit:
 
-$ `git commit -a`
+```shell
+$ git commit -a
+```
 
-$ `git commit --all`
+```shell
+$ git commit --all
+```
 <!-- --><br/>
 
 
 - Show summary of what's included on next commit.  
   DOES NOT Commit.
 
-$ `git commit --dry-run`
+```shell
+$ git commit --dry-run
+```
 <!-- --><br/>
 
 
 - Commit only changes made on a specific Path-name (ignore Index):
 
-$ `git commit <path-name>`
+```shell
+$ git commit <path-name>
+```
 <!-- --><br/>
 
 
 - Update the last commit by adding the currently staged changes:  
   :warning: **WARNING:** This command rewrites history. Never rewrite history of Remotes that other people work on.
 
-$ `git commit --amend`
+```shell
+$ git commit --amend
+```
 <!-- --><br/>
 
 
 - Amend HEAD and suppress Editor´s opening:  
   :warning: **WARNING:** This command rewrites history. Never rewrite history of Remotes that other people work on.
 
-$ `git commit --amend --no-edit`
+```shell
+$ git commit --amend --no-edit
+```
 <!-- --><br/>
 
 
 - Amend HEAD and further edit the message (opens Editor):  
   :warning: **WARNING:** This command rewrites history. Never rewrite history of Remotes that other people work on.
 
-$ `git commit -m '<log-message>' --edit`
+```shell
+$ git commit -m '<log-message>' --edit
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -563,31 +648,45 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 - Display Commit history from current Branch:
 
-$ `git log`
+```shell
+$ git log
+```
 
-$ `git log --oneline`
+```shell
+$ git log --oneline
+```
 <!-- --><br/>
 
 
 - Limit the number of commits to output:
 
-$ `git log -<number>`
+```shell
+$ git log -<number>
+```
 
-$ `git log -n <number>`
+```shell
+$ git log -n <number>
+```
 
-$ `git log --max-count=<number>`
+```shell
+$ git log --max-count=<number>
+```
 <!-- --><br/>
 
 
 - Show only Commits done on the current Branch (excluding Commits done on other Branches before Merging):
 
-$ `git log --first-parent`
+```shell
+$ git log --first-parent
+```
 <!-- --><br/>
 
 
 - "Pretty" Log:
 
-$ `git log --pretty="format:%h %ar %s"`
+```shell
+$ git log --pretty="format:%h %ar %s"
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -600,13 +699,17 @@ $ `git log --pretty="format:%h %ar %s"`
 
 - Display a log graph for the Commits and Merges:
 
-$ `git log --graph`
+```shell
+$ git log --graph
+```
 <!-- --><br/>
 
 
 - Display compact graph of all Branches:
 
-$ `git log --graph --oneline --all`
+```shell
+$ git log --graph --oneline --all
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -620,7 +723,9 @@ That is, records updates to the tip of the Branch: switches, amends, resets...
 
 - Display Reflog:
 
-$ `git reflog`
+```shell
+$ git reflog
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -638,12 +743,16 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 - Create a new Branch starting from current HEAD:
 
-$ `git branch <name>`
+```shell
+$ git branch <name>
+```
 
 
 - Create a new Branch starting from a previous commit:
 
-$ `git branch <name> <commit>`
+```shell
+$ git branch <name> <commit>
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -651,33 +760,53 @@ $ `git branch <name> <commit>`
 
 - List local Branches in Repository:
 
-$ `git branch`
+```shell
+$ git branch
+```
 
-$ `git branch -l`
+```shell
+$ git branch -l
+```
 
-$ `git branch -l '<pattern>'`
+```shell
+$ git branch -l '<pattern>'
+```
 
-$ `git branch --list`
+```shell
+$ git branch --list
+```
 <!-- --><br/>
 
 
 - List Remote Branches:
 
-$ `git branch -r`
+```shell
+$ git branch -r
+```
 
-$ `git branch -rl '<pattern>'`
+```shell
+$ git branch -rl '<pattern>'
+```
 
-$ `git branch --remotes`
+```shell
+$ git branch --remotes
+```
 <!-- --><br/>
 
 
 - List all Branches:
 
-$ `git branch -a`
+```shell
+$ git branch -a
+```
 
-$ `git branch -al '<pattern>'`
+```shell
+$ git branch -al '<pattern>'
+```
 
-$ `git branch --all`
+```shell
+$ git branch --all
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -685,9 +814,13 @@ $ `git branch --all`
 
 - Rename Branch:
 
-$ `git branch -m <branch> <new-name>`
+```shell
+$ git branch -m <branch> <new-name>
+```
 
-$ `git branch --move <branch> <new-name>`
+```shell
+$ git branch --move <branch> <new-name>
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -699,13 +832,17 @@ $ `git branch --move <branch> <new-name>`
   But it is recommended Commit or Stash before switching.
   The operation is aborted if leads to loss of local changes.  
 
-$ `git switch <branch>`
+```shell
+$ git switch <branch>
+```
 <!-- --><br/>
 
 
 - Switch to last Branch:
 
-$ `git switch -`
+```shell
+$ git switch -
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -713,33 +850,45 @@ $ `git switch -`
 
 - Delete Branch:
 
-$ `git branch -d <branch>`
+```shell
+$ git branch -d <branch>
+```
 <!-- --><br/>
 
 
 - Delete Branch even if current Branch doesn't have all commits from it:
 
-$ `git branch -D <branch>`
+```shell
+$ git branch -D <branch>
+```
 <!-- --><br/>
 
 
 - Delete remote Branch from local Repo:
 
-$ `git branch -rd <branch>`
+```shell
+$ git branch -rd <branch>
+```
 <!-- --><br/>
 
 
 - Delete remote Branch from remote Repo:
 
-$ `git push <remote> --delete <branch>`
+```shell
+$ git push <remote> --delete <branch>
+```
 <!-- --><br/>
 
 
 - Recover a deleted branch (search it on the Reflog):
 
-$ `git reflog`
+```shell
+$ git reflog
+```
 
-$ `git branch <name> <commit>`
+```shell
+$ git branch <name> <commit>
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -765,10 +914,14 @@ Go back to [TABLE OF CONTENT](#table-of-content).
   It can be referred to by it's short version (a leading substring that is unique within the Repository).
   
     - See it's short version with:  
-      $ `git log --oneline`
+      ```shell
+      $ git log --oneline
+      ```
     
     - Or, it's full version with:  
-      $ `git log`
+      ```shell
+      $ git log
+      ```
       <!-- --><br/>
 
 
@@ -823,13 +976,13 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 > **Example**
 >
 > Consider this Branch described and drawn below:
->> 1. Commit `F` receives a Commit and becomes `E`.
->> 1. Commit `E` receives a Commit and becomes `B`.
->> 1. Commit `B` merges `C` and `D`; and becomes `A`.
+> 1. Commit `F` receives a Commit and becomes `E`.
+> 1. Commit `E` receives a Commit and becomes `B`.
+> 1. Commit `B` merges `C` and `D`; and becomes `A`.
 >
->> | From Left to Right | From bottom to top |
->> | :----------------: | :----------------: |
->> |    ![][tree1]    |    ![][tree2]    |
+> | From Left to Right | From bottom to top |
+> | :----------------: | :----------------: |
+> |    ![][tree1]    |    ![][tree2]    |
 >
 > In this case:
 > 
@@ -846,9 +999,13 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 - More info on spell Commits:
 
-$ `man gitrevisions`
+```shell
+$ man gitrevisions
+```
 
-$ `git help gitrevisions`
+```shell
+$ git help gitrevisions
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -872,65 +1029,91 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 - Add a Remote to Local Repository:
 
-$ `git remote add <name> <url>`
+```shell
+$ git remote add <name> <url>
+```
 Eg.:  
-$ `git remote add origin https://github.com/<user>/<repo>`
+```shell
+$ git remote add origin https://github.com/<user>/<repo>
+```
 <!-- --><br/>
 
 
 - Display Remotes:
 
-$ `git remote`
+```shell
+$ git remote
+```
 
-$ `git remote -v`
+```shell
+$ git remote -v
+```
 <!-- --><br/>
 
 
 - Rename a Remote:
 
-$ `git remote rename <remote> <new-name>`
+```shell
+$ git remote rename <remote> <new-name>
+```
 <!-- --><br/>
 
 
 - Remove a Remote:
 
-$ `git remote rm <remote>`
+```shell
+$ git remote rm <remote>
+```
 
-$ `git remote remove <remote>`
+```shell
+$ git remote remove <remote>
+```
 <!-- --><br/>
 <!-- --><br/>
 
 
 - Delete an Upstream Branch:
 
-$ `git branch -rd <remote>/<branch>`
+```shell
+$ git branch -rd <remote>/<branch>
+```
 <!-- --><br/>
 <!-- --><br/>
 
 
 - Update Branches seen from Remote:
 
-$ `git fetch <remote> <branch>`
+```shell
+$ git fetch <remote> <branch>
+```
 <!-- --><br/>
 
 
 - Fetch and Merge Branch from Remote Branch:
 
-$ `git pull <remote> <branch>`
+```shell
+$ git pull <remote> <branch>
+```
 Eg.:  
-$ `git pull origin master`
+```shell
+$ git pull origin master
+```
 <!-- --><br/>
 
 
 - Download Repository a Remote (master branch):
 
-$ `git clone <url>`
+```shell
+$ git clone <url>
+```
 <!-- --><br/>
 
 
 - Download a specific Branch from a Remote:
 
-$ `git clone -b <branch> <url>`
+```shell
+$ git clone -b <branch> <url>
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -938,12 +1121,16 @@ $ `git clone -b <branch> <url>`
 
 - Push to a Remote Branch (Branches must have same name):
 
-$ `git push <remote> <branch>`
+```shell
+$ git push <remote> <branch>
+```
 <!-- --><br/>
 
 - Push from a Branch to Another Branch:
 
-$ `git push <remote> <source_branch>:<destine_branch>`
+```shell
+$ git push <remote> <source_branch>:<destine_branch>
+```
 <!-- --><br/>
 
 
@@ -956,7 +1143,9 @@ $ `git push <remote> <source_branch>:<destine_branch>`
 
 - Force Push to Remote Branch:
 
-$ `git push <remote> <branch> --force`
+```shell
+$ git push <remote> <branch> --force
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -974,14 +1163,18 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 - Almost all those commands can be used with a external tool intead of `diff`.  
   See [Tools Configuration](#tools-config) section to see how to define a `difftool`.
 
-$ `git difftool`
+```shell
+$ git difftool
+```
 <!-- --><br/>
 <!-- --><br/>
 
 
 - Get an an idea of the amount of work done:
 
-$ `git diff --stat`
+```shell
+$ git diff --stat
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -989,54 +1182,80 @@ $ `git diff --stat`
 
 - View changes in Work-tree, relative to a Commit (default=HEAD):
 
-$ `git diff <commit>`
+```shell
+$ git diff <commit>
+```
 
-$ `git diff`
+```shell
+$ git diff
+```
 <!-- --><br/>
 
 
 - To examine the Staged changes:
 
-$ `git diff --cached`
+```shell
+$ git diff --cached
+```
 
-$ `git diff <commit> --cached `
+```shell
+$ git diff <commit> --cached 
+```
 <!-- --><br/>
 
 
 - View only the name of the files that have changes:
 
-$ `git diff --name-only <commit>`
+```shell
+$ git diff --name-only <commit>
+```
 
-$ `git diff --name-only`
+```shell
+$ git diff --name-only
+```
 <!-- --><br/>
 
 
 - View changes Between Commits:
 
-$ `git diff <commit>..<commit>`
+```shell
+$ git diff <commit>..<commit>
+```
 
-$ `git diff --name-only <commit>..<commit>`
+```shell
+$ git diff --name-only <commit>..<commit>
+```
 <!-- --><br/>
 
 
 - View changes in a specific file, relative to a Commit:
 
-$ `git diff <commit> <file>`
+```shell
+$ git diff <commit> <file>
+```
 
-$ `git diff <file>`
+```shell
+$ git diff <file>
+```
 <!-- --><br/>
 
 
 - View changes in Work-tree relative to the tip of another Branch:
 
-$ `git diff <branch>`
+```shell
+$ git diff <branch>
+```
 <!-- --><br/>
 
 
 - View changes in Work-tree relative to the tip of Remote Branch:
 
-$ `git fetch <remote> <branch>`  
-$ `git diff FETCH_HEAD`
+```shell
+$ git fetch <remote> <branch>
+```
+```shell
+$ git diff FETCH_HEAD
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1044,7 +1263,9 @@ $ `git diff FETCH_HEAD`
 
 - View changes Between Commits on Github:
 
-`https://github.com/<user>/<repo>/compare/<commit>..<commit>`
+```
+https://github.com/<user>/<repo>/compare/<commit>..<commit>
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1061,12 +1282,14 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 > :warning: **WARNING:**
 > 
->> Running `git merge` or `git rebase` with uncommitted changes (Dirty Work-tree) is highly discouraged.
+> Running `git merge` or `git rebase` with uncommitted changes (Dirty Work-tree) is highly discouraged.
 
 > :warning: **WARNING:**
 > 
->> Never `git rebase` a public Branch.
->> Also, avoid rebasing the master Branch.
+> Never `git rebase` a public Branch.
+> Also, avoid rebasing the master Branch.
+> 
+
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1082,17 +1305,25 @@ For a more in depth explanation go [here][Merge Rebase].
 
 - Merge other Branch's HEAD into current Branch:
 
-$ `git merge <branch>`
+```shell
+$ git merge <branch>
+```
 
-$ `git merge <branch> -m '<log-message>'`
+```shell
+$ git merge <branch> -m '<log-message>'
+```
 <!-- --><br/>
 
 
 - Merge other Branch's commit into current Branch:
 
-$ `git merge <commit>`
+```shell
+$ git merge <commit>
+```
 
-$ `git merge <commit> -m '<log-message>'`
+```shell
+$ git merge <commit> -m '<log-message>'
+```
 <!-- --><br/>
 
 
@@ -1100,26 +1331,38 @@ $ `git merge <commit> -m '<log-message>'`
   Give the user a chance to inspect and further tweak the merge result before committing.  
   Also, to ensure your branch is not changed or updated by the merge command, use `--no-ff` to avoid fast-forward updates.
 
-$ `git merge --no-commit --no-ff <branch>`
+```shell
+$ git merge --no-commit --no-ff <branch>
+```
 <!-- --><br/>
 
 
 - To examine the staged changes:
 
-$ `git diff --cached`
+```shell
+$ git diff --cached
+```
 <!-- --><br/>
 
 
 - If (and only if) the merge has resulted in conflicts, the following commands are available.  
   See [Tools Configuration](#tools-config) section to see how to define a `mergetool`.
 
-$ `git mergetool`
+```shell
+$ git mergetool
+```
 
-$ `git merge --continue`
+```shell
+$ git merge --continue
+```
 
-$ `git merge --abort`
+```shell
+$ git merge --abort
+```
 
-$ `git merge --quit`
+```shell
+$ git merge --quit
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1139,15 +1382,21 @@ For a more in depth explanation go [here][Merge Rebase].
 
 - Rebase current Branch starting on other Branch´s HEAD:
 
-$ `git rebase <branch>`
+```shell
+$ git rebase <branch>
+```
 
-$ `git rebase -i <branch>`
+```shell
+$ git rebase -i <branch>
+```
 <!-- --><br/>
 
 
 - Rebase current Branch starting on a previous Commit:
 
-$ `git rebase <commit>`
+```shell
+$ git rebase <commit>
+```
 <!-- --><br/>
 
 
@@ -1174,20 +1423,28 @@ $ `git rebase <commit>`
 
 - Interactive Rebase current Branch starting on a previous Commit:
 
-$ `git rebase -i <commit>`
+```shell
+$ git rebase -i <commit>
+```
 <!-- --><br/>
 
 
 - If you use the ´edit´ command, after you´re done, use:
 
-$ `git rebase --continue`
+```shell
+$ git rebase --continue
+```
 <!-- --><br/>
 
 
 - Add change to old Commits:
 
-$ `git commit --fixup <wrong-commit>`  
-$ `git rebase -i --autosquash <wrong-commit>~1`
+```shell
+$ git commit --fixup <wrong-commit>
+```
+```shell
+$ git rebase -i --autosquash <wrong-commit>~1
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1215,46 +1472,62 @@ Only used for changes on the very last Commit.
 
 - Replace the HEAD by creating a new commit adding the current Index:
 
-$ `git commit --amend`
+```shell
+$ git commit --amend
+```
 <!-- --><br/>
 
 
 - Amend HEAD with new message:
 
-$ `git commit --amend -m "<log-message>"`
+```shell
+$ git commit --amend -m "<log-message>"
+```
 <!-- --><br/>
 
 
 - Amend HEAD, suppress Editor´s opening:
 
-$ `git commit --amend --no-edit`
+```shell
+$ git commit --amend --no-edit
+```
 <!-- --><br/>
 
 
 - Amend HEAD and further edit the message (opens Editor):
 
-$ `git commit -m '<log-message>' --edit`
+```shell
+$ git commit -m '<log-message>' --edit
+```
 <!-- --><br/>
 
 
 - Automatically add Staged files:
 
-$ `git commit --amend -a`
+```shell
+$ git commit --amend -a
+```
 
-$ `git commit --amend --all`
+```shell
+$ git commit --amend --all
+```
 <!-- --><br/>
 
 
 - Get a summary without committing:
 
-$ `git commit --amend --dry-run`
+```shell
+$ git commit --amend --dry-run
+```
 <!-- --><br/>
 
 
 - Fix identity of previous commit.  
   See [Identity](#identity) section for how to configure identity.
 
-$ `git commit --amend --reset-author`
+```shell
+$ git commit --amend --reset-author
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1269,43 +1542,65 @@ After saving the Stash, [Resets](#reset-index) Work-Tree and Index.
 
 - Save local modifications to a new Stash:
 
-$ `git stash`
+```shell
+$ git stash
+```
 
-$ `git stash -m <log-message>`
+```shell
+$ git stash -m <log-message>
+```
 <!-- --><br/>
 
 
 - List the saved Stashes:
 
-$ `git stash list`
+```shell
+$ git stash list
+```
 
-$ `git stash list --oneline`
+```shell
+$ git stash list --oneline
+```
 <!-- --><br/>
 
 
 - Show changes between Stash and it´s parent:
 
-$ `git stash show`
+```shell
+$ git stash show
+```
 
-$ `git stash show --name-only`
+```shell
+$ git stash show --name-only
+```
 
-$ `git stash show <stash>`
+```shell
+$ git stash show <stash>
+```
 <!-- --><br/>
 
 
 - Apply Stash (default: last one) on top of current Work-Tree, and delete it:
 
-$ `git stash pop`
+```shell
+$ git stash pop
+```
 
-$ `git stash pop <stash>`
+```shell
+$ git stash pop <stash>
+```
 <!-- --><br/>
 
 
 - Apply last Stash on top of current Work-Tree, without deleting the Stash:
 
-$ `git stash apply`
+```shell
+$ git stash apply
+```
 
-$ `git stash apply <stash>`
+```shell
+$ git stash apply <stash>
+```
 <!-- --><br/>
 
 
@@ -1313,27 +1608,37 @@ $ `git stash apply <stash>`
   You can make use of a external merge tool.
   See [Tools Configuration](#tools-config) section to see how to define a `mergetool`.
 
-$ `git mergetool`
+```shell
+$ git mergetool
+```
 <!-- --><br/>
 
 
 - Remove a Stash from the Stash-list:
 
-$ `git stash drop`
+```shell
+$ git stash drop
+```
 
-$ `git stash drop <stash>`
+```shell
+$ git stash drop <stash>
+```
 <!-- --><br/>
 
 
 - Remova ALL Stashes from the Stash-list:
 
-$ `git stash clear`
+```shell
+$ git stash clear
+```
 <!-- --><br/>
 
 
 - Create a Stash entry and return its object name, without storing it (only useful for scripts):
 
-$ `git stash create`
+```shell
+$ git stash create
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1351,45 +1656,65 @@ Can restore deleted files.
 
 - Restore a File from Index (default) to Work-tree (default):
 
-$ `git restore <file>`
+```shell
+$ git restore <file>
+```
 
-$ `git restore -W <file>`
+```shell
+$ git restore -W <file>
+```
 
-$ `git restore --worktree <file>`
+```shell
+$ git restore --worktree <file>
+```
 <!-- --><br/>
 
 
 - Restore just a hunk of changes in a file (interactive):
 
-$ `git restore -p <file>`
+```shell
+$ git restore -p <file>
+```
 
-$ `git restore --patch <file>`
+```shell
+$ git restore --patch <file>
+```
 <!-- --><br/>
 
 
 - Restore **whole** Work-Tree to match the Index (discarts ALL local Not Staged changes, leaves Work-Tree clean):
 
-$ `git restore .`
+```shell
+$ git restore .
+```
 <!-- --><br/>
 
 
 - Restore a File from HEAD to the Index:
 
-$ `git restore -S <file>`
+```shell
+$ git restore -S <file>
+```
 
-$ `git restore --staged <file>`
+```shell
+$ git restore --staged <file>
+```
 <!-- --><br/>
 
 
 - Restore a File from HEAD to Index and Work-tree:
 
-$ `git restore -SW <file>`
+```shell
+$ git restore -SW <file>
+```
 <!-- --><br/>
 
 
 - Restore to from a previous Commit:
 
-$ `git restore --source <commit> <file>`
+```shell
+$ git restore --source <commit> <file>
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1405,25 +1730,37 @@ $ `git restore --source <commit> <file>`
 
 - Reset only Index (default) to a previous Commit (default=HEAD):
 
-$ `git reset`
+```shell
+$ git reset
+```
 
-$ `git reset <commit>`
+```shell
+$ git reset <commit>
+```
 
-$ `git reset --mixed`
+```shell
+$ git reset --mixed
+```
 <!-- --><br/>
 
 
 - Reset Index AND Work-tree to a previous Commit (default=HEAD):
 
-$ `git reset --hard`
+```shell
+$ git reset --hard
+```
 
-$ `git reset --hard <commit>`
+```shell
+$ git reset --hard <commit>
+```
 <!-- --><br/>
 
 
 - Reset current HEAD (not Index, nor Working-tree) to a previous Commit:
 
-$ `git reset --soft <commit>`
+```shell
+$ git reset --soft <commit>
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1436,7 +1773,9 @@ $ `git reset --soft <commit>`
 - Requieres Clean Work-Tree.
 
 - Reverting the HEAD to a previous Commit:
-$ `git revert <commit>`
+```shell
+$ git revert <commit>
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1446,29 +1785,35 @@ $ `git revert <commit>`
 
 - Moving Commits from current Branch to a NEW Branch:
 
-$ `git reflog`                          # write the hash of the one you wanna remove  
-$ `git branch <branch> <commmit>`  
-$ `reset --hard <commmit>~1`
+```shell
+$ git reflog                      # write the hash of the one you wanna remove
+$ git branch <branch> <commmit>
+$ reset --hard <commmit>~1
+```
 <!-- --><br/>
 <!-- --><br/>
 
 
 - Moving `n` previous Commits from current Branch to an existing Branch:
 
-$ `git reset --soft HEAD~<n>`  
-$ `git stash`
-$ `git switch <branch>`  
-$ `git stash pop`
-$ `git add .`  
-$ `git status`  
-$ `git commit -m "<log-message>"`  
+```shell
+$ git reset --soft HEAD~<n>
+$ git stash
+$ git switch <branch>
+$ git stash pop
+$ git add .
+$ git status
+$ git commit -m "<log-message>"
+```
 
 - Or:
 
-$ `git log --oneline`                   # write the hash of the one you wanna keep  
-$ `git reset --hard HEAD~<n>`  
-$ `git switch <branch>`  
-$ `git reset --hard <commit>`  
+```shell
+$ git log --oneline               # write the hash of the one you wanna keep
+$ git reset --hard HEAD~<n>
+$ git switch <branch>
+$ git reset --hard <commit>
+```  
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1476,10 +1821,14 @@ $ `git reset --hard <commit>`
 - Change Author of older Commits.
   See [Identity](#identity) section for how to configure identity.
 
-$ `git rebase -i <commit>`  
+```shell
+$ git rebase -i <commit>  
+```
 Change command on the Commit from ´pick´ to ´edit´.  Save and Exit. Then:  
-$ `git commit --amend --reset-author --no-edit`  
-$ `git rebase --continue`
+```shell
+$ git commit --amend --reset-author --no-edit
+$ git rebase --continue
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1495,27 +1844,38 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 ### CONFIGS
 
 - Global config file:
-`~/.gitconfig`
+
+```
+~/.gitconfig
+```
 <!-- --><br/>
 
 
 - Check personal configurations:
 
-$ `git config --list`
+```shell
+$ git config --list
+```
 <!-- --><br/>
 
 
 - View all settings and where they are coming from:
 
-$ `git config --list --show-origin`
+```shell
+$ git config --list --show-origin
+```
 <!-- --><br/>
 
 
 - Reset some configuration:
 
-$ `git config --global --unset-all <config>`
+```shell
+$ git config --global --unset-all <config>
+```
 
-$ `git config --unset-all <config>`
+```shell
+$ git config --unset-all <config>
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1529,35 +1889,52 @@ The author of the commits.
 
 - Configure Global User name:
 
-$ `git config --global user.name '<name>'`
+```shell
+$ git config --global user.name '<name>'
+```
 <!-- --><br/>
 
 
 - Configure Global User e-mail:
 
-$ `git config --global user.email <email>`
+```shell
+$ git config --global user.email <email>
+```
 <!-- --><br/>
 
 
 - Configure username for a URL:
 
-$ `git config --global credential.<url>.username <username>`
+```shell
+$ git config --global credential.<url>.username <username>
+```
 Eg.:
-$ `git config --global credential.https://github.com.username <username>`
+```shell
+$ git config --global credential.https://github.com.username <username>
+```
 <!-- --><br/>
 
 
 - Configure User name and e-mail for a specific repo:
 
-$ `git config user.name '<name>'`
+```shell
+$ git config user.name '<name>'
+```
 
-$ `git config user.email <email>`
+```shell
+$ git config user.email <email>
+```
 <!-- --><br/>
 
 
 - Fix identity of previous commit:
 
-$ `git commit --amend --reset-author`
+```shell
+$ git commit --amend --reset-author
+```
+<!-- --><br/>
+
+- To verify identity on Github, follow [these steps][gpg-signature].
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1573,37 +1950,57 @@ $ `git commit --amend --reset-author`
 
 - Configure Global default text editor:
 
-$ `git config --global core.editor <text-editor>`
+```shell
+$ git config --global core.editor <text-editor>
+```
 
-$ `git config --global core.editor vim`
+```shell
+$ git config --global core.editor vim
+```
 
-$ `git config --global core.editor 'nano -w'`
+```shell
+$ git config --global core.editor 'nano -w'
+```
 
-$ `git config --global core.editor 'kate -b'`
+```shell
+$ git config --global core.editor 'kate -b'
+```
 <!-- --><br/>
 
 
 - Configure diff tool:
 
-$ `git config --global diff.tool <diff-tool>`
+```shell
+$ git config --global diff.tool <diff-tool>
+```
 <!-- --><br/>
 
 
 - Configure Merge conflict diff tool:
 
-$ `git config --global merge.tool <diff-tool>`
+```shell
+$ git config --global merge.tool <diff-tool>
+```
 <!-- --><br/>
 
 
 - For Meld:
 
-$ `git config --global diff.tool meld`
+```shell
+$ git config --global diff.tool meld
+```
 
-$ `git config --global difftool.prompt false`
+```shell
+$ git config --global difftool.prompt false
+```
 
-$ `git config --global merge.tool meld`
+```shell
+$ git config --global merge.tool meld
+```
 
-$ `git config --global mergetool.prompt false`
+```shell
+$ git config --global mergetool.prompt false
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1614,23 +2011,30 @@ $ `git config --global mergetool.prompt false`
 - Using the package 'libsecret' to store credentials:
   - On Arch:  
   
-  $ `git config --global credential.helper /usr/lib/git-core/git-credential-libsecret`  
+  ```shell
+  $ git config --global credential.helper /usr/lib/git-core/git-credential-libsecret`  
+  ```
   
   - On Fedora:  
   
-  $ `dnf install git-credential-libsecret`  
-  $ `git config --global credential.helper /usr/libexec/git-core/git-credential-libsecret`  
+  ```shell
+  $ dnf install git-credential-libsecret
+  $ git config --global credential.helper /usr/libexec/git-core/git-credential-libsecret
+  ```
   
   - On Ubuntu:  
   
-  $ `cd /usr/share/git/credential/libsecret`  
-  $ `sudo make`  
-  $ `git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret`
+  ```shell
+  $ cd /usr/share/git/credential/libsecret
+  $ sudo make
+  $ git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+  ```
   <!-- --><br/>
   <!-- --><br/>
 
 
 - To make it so the keyring-daemon starts on login (**for SDDM**) make sure the following lines are on `/etc/pam.d/sddm` (at the end of the ´auth´, ´session´ and ´password´ sections):
+
 ```
 auth       optional     pam_gnome_keyring.so
 session    optional     pam_gnome_keyring.so auto_start
@@ -1645,19 +2049,94 @@ password   optional     pam_gnome_keyring.so use_authtok
 
 - Store password on cache (default: 15 min):
 
-$ `git config --global credential.helper cache`
+```shell
+$ git config --global credential.helper cache
+```
 <!-- --><br/>
 
 
 - Display time limit of credentials cache:
 
-$ `git config --global credential.helper`
+```shell
+$ git config --global credential.helper
+```
 <!-- --><br/>
 
 
 - Change time limit of credentials cache ('time' in seconds):
 
-$ `git config --global credential.helper 'cache --timeout=<time>'`
+```shell
+$ git config --global credential.helper 'cache --timeout=<time>'
+```
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+Go back to [TABLE OF CONTENT](#table-of-content).
+<!-- --><br/>
+
+
+
+------------------------------------
+
+# GITHUB COMMAND-LINE INTERFACE
+
+- Authenticate with your GitHub account:
+
+```shell
+$ gh auth login
+```
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+Go back to [TABLE OF CONTENT](#table-of-content).
+<!-- --><br/>
+
+
+
+------------------------------------
+
+### ISSUES
+
+- List and filter issues in this repository:
+
+```shell
+$ gh issue list
+```
+```shell
+$ gh issue list -l "<label>"
+```
+```shell
+$ gh issue list -l "<label>" -l "<label>"
+```
+```shell
+$ gh issue list --search "<search-term>"
+```
+```shell
+$ gh issue list --state <state>
+```
+<!-- --><br/>
+
+
+- Display the title, body, and other information about an issue:
+
+```shell
+$ gh issue view <number>
+```
+<!-- --><br/>
+
+
+- Quickly open an item in the browser:
+
+```shell
+$ gh issue view <number> --web
+```
+```shell
+$ gh issue view <number> -w
+```
 <!-- --><br/>
 <!-- --><br/>
 
