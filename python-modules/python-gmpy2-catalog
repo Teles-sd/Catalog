@@ -24,6 +24,13 @@ url: (https://github.com/aleaxit/gmpy)
 url: (https://gmpy2.readthedocs.io/en/latest/mpfr.html)
 
 
+- **gmpy2** is a C-coded Python extension module that supports multiple-precision arithmetic. gmpy2 is the successor to the original gmpy module.
+
+- **gmpy** is a C-coded Python extension module that provides access to the GMP
+
+- The **GNU Multiple Precision (GMP)** library is a portable library written in C (with some routines written in assembly code) for arbitrary precision arithmetic
+
+
 ----------------------------------
 
 	IMPORTS
@@ -40,6 +47,8 @@ url: (https://gmpy2.readthedocs.io/en/latest/mpfr.html)
 >>> from gmpy2 import sqrt
 
 >>> from gmpy2 import mpc
+
+>>> from gmpy2 import mpq
 
 
 ----------------------------------
@@ -124,7 +133,7 @@ allow_complex -
 
 ----------------------------------
 
-	MULTIPLE-PRECISION REALS (MPFR)
+	MULTIPLE-PRECISION FLOATING-POINT ROUNDING (MPFR)
 
 
 - The default precision of an mpfr is 53 bits.
@@ -193,7 +202,7 @@ FUNCTIONS
 
 ----------------------------------
 
-	MY FUNCTIONS (MPFR)
+	MY FUNCTIONS (for MPFR)
 
 - Some short-hand functions I made to make life easier:
 
@@ -274,7 +283,7 @@ FUNCTIONS
 
 ----------------------------------
 
-	ATTRIBUTES (MPFR & MPC)
+	ATTRIBUTES (for MPFR & MPC)
 
 - Get an atrribute value:
 >>> <mpfr>.<attribute>
@@ -298,6 +307,98 @@ rc:
 
 
 ----------------------------------
+
+### MULTIPLE-PRECISION RATIONALS (mpq)
+
+- Provides a rational type `mpq`.  
+  It should be a replacement for Python’s fractions.
+
+<!-- --><br/>
+
+
+
+#### Usage
+
+
+- Import:
+
+```python
+import gmpy2 as gmp
+from gmpy2 import mpq
+```
+<!-- --><br/>
+
+
+- Create a mpq-object:
+
+```python
+mpq(<numerator>, <denominator>)
+```
+```python
+mpq(<number>)
+```
+```python
+mpq(<string>)
+```
+```python
+mpq(<string>, <base>)
+```
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+#### Methods
+
+
+- Returns a string representing value in the given base (2 to 62, default is 10):
+
+```python
+<mpq>.digits()
+```
+```python
+<mpq>.digits(2)
+```
+```python
+<mpq>.digits(16)
+```
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+#### Attributes
+
+
+```python
+<mpq>.numerator
+```
+```python
+<mpq>.denominator
+```
+
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+#### Functions
+
+
+- Convert Float (or mpfr) to mpq quotient.  
+  Return the 'best' mpq approximating within relative error 'err' (optional, default is the precision of the object).  
+
+```python
+gmp.f2q(<float>)
+```
+```python
+gmp.f2q(<mpfr>)
+```
+<!-- --><br/>
+<!-- --><br/>
+
+
+
 
 
 
