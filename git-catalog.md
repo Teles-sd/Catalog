@@ -21,9 +21,10 @@ This is a guide for **git** commands and the Github CLI **gh**.
 
 ------------------------------------
 
-### TABLE OF CONTENT <!-- omit in toc -->
+### TABLE OF CONTENT
 
 - [GIT](#git)
+    - [TABLE OF CONTENT](#table-of-content)
     - [GLOSSARY](#glossary)
     - [TERMINOLOGY](#terminology)
     - [PACKAGES](#packages)
@@ -32,6 +33,7 @@ This is a guide for **git** commands and the Github CLI **gh**.
     - [QUICK START (BASICS)](#quick-start-basics)
     - [WORK-TREE, INDEX & COMMITS](#work-tree-index--commits)
       - [Work-Tree -> Index](#work-tree---index)
+      - [GitIgnore](#gitignore)
       - [Index -> Revision](#index---revision)
     - [LOGS & REFLOG](#logs--reflog)
       - [Log](#log)
@@ -56,7 +58,9 @@ This is a guide for **git** commands and the Github CLI **gh**.
       - [Tools config](#tools-config)
       - [Save credentials](#save-credentials)
       - [Credentials cache](#credentials-cache)
+    - [GIT LARGE FILE STORAGE](#git-large-file-storage)
 - [GITHUB COMMAND-LINE INTERFACE](#github-command-line-interface)
+    - [Authentication with `gh` & Verification with `git`.](#authentication-with-gh--verification-with-git)
     - [ISSUES](#issues)
 	<!-- --><br/>
 
@@ -81,6 +85,7 @@ This is a guide for **git** commands and the Github CLI **gh**.
   Directories and subdirectories inside the Work-tree that lead to a file.
   <!-- --><br/>
 
+<a name="path_name"></a>
 
 - **Path-name**:  
   Any file inside the Commits (inside the Repository) have a Path-name.  
@@ -201,7 +206,7 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 | Term/Expression | Meaning |
 | --------------: | :------ |
-| `<description>` | To replace, or that will be replaced, according to description. |
+| `<description>` | To replace, or that will be replaced, according to description (without the `<` and `>`). |
 |           `...` | Possible to repeated pattern.                                   |
 |             `$` | Some command to be used on the Terminal (shell).                |
 <!-- --><br/>
@@ -219,10 +224,11 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 ### PACKAGES
 
 
-| Source |    Package    | Description |
-| :----: | :-----------: | ----------- |
-| pacman | git           | The fast distributed version control system. (pacman) <br/> The stupid content tracker. (man-page) |
-| pacman | gigithub-clit | The GitHub CLI |
+| Source |  Package   | Description |
+| :----: | :--------: | ----------- |
+| pacman | git        | The fast distributed version control system. (pacman) <br/> The stupid content tracker. (man-page) |
+| pacman | github-cli | The GitHub CLI |
+| pacman | git-lfs    | Git extension for versioning large files |
 <!-- --><br/>
 <!-- --><br/>
 
@@ -243,9 +249,6 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 - [Documentation][doc]
 
 
-- [Atlassian Tutorials][atlassian]
-
-
 - [Git Cheatsheet][cheat]
 
 
@@ -256,6 +259,14 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 
 - [Github CLI][gh]
+
+
+- [Atlassian Tutorials][atlassian]
+
+  - [Merging vs. Rebasing][Merge Rebase]
+  
+  - [Git LFS][git-lfs]
+
 <!-- --><br/>
 <!-- --><br/>
 
@@ -269,15 +280,18 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 [git]:https://git-scm.com/ "Git Home Page"
 [doc]:https://git-scm.com/doc "Git Documentation"
 
-[atlassian]:https://www.atlassian.com/git/tutorials "Atlassian Tutorials"
 [cheat]:https://ndpsoftware.com/git-cheatsheet.html#loc=index "Git Cheatsheet"
 
 [guides]:https://guides.github.com/ "Github Guides"
 [issues]:https://guides.github.com/features/issues/ "Mastering Issues"
 [gh]:https://cli.github.com/ "Github CLI"
 
-[Merge Rebase]:https://www.atlassian.com/git/tutorials/merging-vs-rebasing "Merging vs. Rebasing"
+[atlassian]:https://www.atlassian.com/git/tutorials "Atlassian Tutorials"
+[Merge Rebase]:https://www.atlassian.com/git/tutorials/merging-vs-rebasing "Merging vs. Rebasing - Atlassian"
+[git-lfs]:https://www.atlassian.com/git/tutorials/git-lfs "Git LFS - Atlassian"
+
 [gpg-signature]:https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification "GPG commit signature verification"
+[pinentry]:https://wiki.archlinux.org/title/GnuPG#pinentry "GPG - ArchWiki - pinentry"
 
 [tree1]:./imgs/git_commits_horiz.png
 [tree2]:./imgs/git_commits_vert.png
@@ -356,7 +370,6 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 > **Tip:**
 > 
 > See [Identity](#identity) section for how to configure identity.
->
 
 <!-- --><br/>
 
@@ -379,7 +392,7 @@ $ git init
 ```shell
 $ git remote add <name> <url>`  
 Eg.:  
-```shell
+​```shell
 $ git remote add origin https://github.com/<user>/<repo>
 ```
 <!-- --><br/>
@@ -399,7 +412,7 @@ $ git remote -v
 ```shell
 $ git pull <remote> <branch>`  
 Eg.:  
-```shell
+​```shell
 $ git pull origin master
 ```
 <!-- --><br/>
@@ -434,7 +447,7 @@ $ git commit -m '<log-message>'
 ```shell
 $ git push <remote> <branch>`  
 Eg.:  
-```shell
+​```shell
 $ git push origin master
 ```
 <!-- --><br/>
@@ -476,9 +489,13 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 ------------------------------------
 
 ### WORK-TREE, INDEX & COMMITS
+
 <!-- --><br/>
 
+
+
 #### Work-Tree -> Index
+
 
 - Display current Branch's Index (staged and untracked files):
 
@@ -546,13 +563,50 @@ $ git mv <file> <destination>
 
 
 
+#### GitIgnore
+
+- To make a file or directory be ignored by git, make a file called `.gitignore` and write the file/directory's [_Path-name_](#path_name).  
+  One each line. Like so:
+
+```
+<path-name>
+<path-name>
+...
+```
+<!-- --><br/>
+
+
+- To make any file with a specific extension to always be ignored by git, include on the `.gitignore`:
+
+```
+*.<extension>
+```
+<!-- --><br/>
+
+
+- To ignore a directory recursively:
+
+```
+<directory>/**
+```
+<!-- --><br/>
+
+
+- Display Index including Ignored files:
+
+```shell
+$ git status --ignored
+```
+<!-- --><br/>
+<!-- --><br/>
+
+
 
 #### Index -> Revision
 
 > **Tip:**
 >
 > It is a good practice ~~(that I do not have :smile: )~~ to not mix different topics in the same commit.
->
 
 <!-- --><br/>
 
@@ -569,6 +623,7 @@ $ git commit -m '<log-message>'
 > 
 > See more on [Mastering Issues - Github Guides][issues].
 > 
+> Or check the [Github CLI Issues](#issues) section of this guide.
 
 <!-- --><br/>
 
@@ -1288,7 +1343,6 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 > 
 > Never `git rebase` a public Branch.
 > Also, avoid rebasing the master Branch.
-> 
 
 <!-- --><br/>
 <!-- --><br/>
@@ -1813,7 +1867,7 @@ $ git log --oneline               # write the hash of the one you wanna keep
 $ git reset --hard HEAD~<n>
 $ git switch <branch>
 $ git reset --hard <commit>
-```  
+```
 <!-- --><br/>
 <!-- --><br/>
 
@@ -1932,9 +1986,6 @@ $ git config user.email <email>
 ```shell
 $ git commit --amend --reset-author
 ```
-<!-- --><br/>
-
-- To verify identity on Github, follow [these steps][gpg-signature].
 <!-- --><br/>
 <!-- --><br/>
 
@@ -2080,13 +2131,104 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 ------------------------------------
 
+### GIT LARGE FILE STORAGE
+
+
+- Look here for explanations on [Git LFS][git-lfs].
+
+
+- To use the Git Large File Storage is necessary to install the `git-lfs` package.
+
+
+- Set up Git LFS for your user account by running the following.
+  It is only needed to run this once per user account.
+
+```shell
+$ git lfs install
+```
+<!-- --><br/>
+
+
+- To track a file using Git LFS use the following command.  
+  Alternatively, you can directly edit the `.gitattributes` file.
+
+```shell
+$ git lfs track <file>
+```
+```shell
+$ git lfs track "*.<extension>"
+```
+<!-- --><br/>
+
+>
+> **Note**:
+>
+> Make sure the `gitattributes` is tracked.
+
+<!-- --><br/>
+
+
+- To track directory recursively:
+
+```shell
+$ git lfs track "<directory>/**"
+```
+<!-- --><br/>
+
+
+- To display a list of all patterns currently tracked:
+
+```shell
+$ git lfs track
+```
+<!-- --><br/>
+
+
+- Display tracked Git LFS files:
+
+```shell
+$ git lfs ls-files
+```
+<!-- --><br/>
+
+
+- To stop tracking a particular patterns:
+
+```shell
+$ git lfs untrack "<pattern>"
+```
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+Go back to [TABLE OF CONTENT](#table-of-content).
+<!-- --><br/>
+
+
+
+------------------------------------
+
 # GITHUB COMMAND-LINE INTERFACE
+
+------------------------------------
+
+### Authentication with `gh` & Verification with `git`.
+
 
 - Authenticate with your GitHub account:
 
 ```shell
 $ gh auth login
 ```
+<!-- --><br/>
+
+
+- To *verify* identity on Github making commits from git, follow [these steps][gpg-signature].
+
+- To make kwallet store your passphrase use `pinentry-kwallet`.  
+  See how [here][pinentry].
+
 <!-- --><br/>
 <!-- --><br/>
 
@@ -2101,22 +2243,57 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 ### ISSUES
 
+
 - List and filter issues in this repository:
 
 ```shell
 $ gh issue list
 ```
 ```shell
-$ gh issue list -l "<label>"
+$ gh issue list --label <label>
 ```
 ```shell
-$ gh issue list -l "<label>" -l "<label>"
+$ gh issue list -l <label>
+```
+```shell
+$ gh issue list -l "<label>, ..., <label>"
 ```
 ```shell
 $ gh issue list --search "<search-term>"
 ```
 ```shell
 $ gh issue list --state <state>
+```
+<!-- --><br/>
+
+
+- Labels:
+  - 'good first issue'
+  - bug
+  - documentation
+  - duplicate               # issue already exist
+  - enhancement
+  - 'help wanted'
+  - invalid                 # this doesn't seems right
+  - wontfix                 # this won't be right
+
+<!-- --><br/>
+
+
+- Create an issue.  
+  Suppress the `--title` and `--body` options to do it interactively.
+
+```shell
+$ gh issue create
+```
+```shell
+$ gh issue create -t "<text>" -b "<text>"
+```
+```shell
+$ gh issue create --title "<text>" --body "<text>"
+```
+```shell
+$ gh issue create -l <label>
 ```
 <!-- --><br/>
 

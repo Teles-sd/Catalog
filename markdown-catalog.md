@@ -3,13 +3,20 @@
 
 ------------------------------------
 
-### TABLE OF CONTENT <!-- omit in toc -->
+### TABLE OF CONTENT
 
+- [TABLE OF CONTENT](#table-of-content)
 - [REFERENCES](#references)
 - [HEADERS](#headers)
 - [LISTS & PARAGRAPHS](#lists--paragraphs)
 - [CODE](#code)
 - [LINKS](#links)
+  - [URLs](#urls)
+  - [Inline](#inline)
+  - [References](#references-1)
+  - [Headers](#headers-1)
+  - [Anchors](#anchors)
+  - [Images](#images)
 - [EMPHASIS](#emphasis)
 - [BLOCK-QUOTES](#block-quotes)
 - [TABLES](#tables)
@@ -230,6 +237,10 @@ Go back to [TABLE OF CONTENT](#table-of-content).
 
 ### LINKS
 
+
+#### URLs
+
+
 - URL and URL in angle brackets will automatically get turned into links:
 
 ```markdown
@@ -239,6 +250,11 @@ https://url.com
 <url>
 ```
 <!-- --><br/>
+<!-- --><br/>
+
+
+
+#### Inline
 
 
 - Make a inline text link (without the angle brackets):
@@ -259,6 +275,11 @@ https://url.com
 [ text ](path "title")
 ```
 <!-- --><br/>
+<!-- --><br/>
+
+
+
+#### References
 
 
 - Define a Link Reference.  
@@ -290,6 +311,11 @@ https://url.com
 [ text ][ reference ]
 ```
 <!-- --><br/>
+<!-- --><br/>
+
+
+
+#### Headers
 
 
 - Make a link to a Header on the file.  
@@ -311,6 +337,31 @@ https://url.com
 [ text ](#name-of-the-header-2)
 ```
 <!-- --><br/>
+<!-- --><br/>
+
+
+
+#### Anchors
+
+- To make a link to a point on the document where there is no Header, is necessary to define a anchor:
+
+```html
+<a name="anchor_name"></a>
+```
+<!-- --><br/>
+
+
+- To make a link to the anchor use the `anchor_name`:
+
+```markdown
+[ text ](#anchor_name)
+```
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+#### Images
 
 
 - Display a Image on the file:
@@ -328,10 +379,6 @@ https://url.com
 ![](path "title")
 ```
 <!-- --><br/>
-
-
-- Generate a Table of Content from a Markdown file:  
-  [Table of Content](https://ecotrust-canada.github.io/markdown-toc/ "Table of contents generated with markdown-toc")
 <!-- --><br/>
 
 

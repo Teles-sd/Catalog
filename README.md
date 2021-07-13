@@ -3,7 +3,7 @@ Catalog of my programming and script languages, useful commands, tips&tricks and
 
 Currently:
 
-- [Python](./python-catalog)
+- [Python](./python-catalog.md)
 - [Python Modules](./python-modules/):
   - [Numpy](./python-modules/python-numpy-catalog)
   - [Pandas](./python-modules/python-pandas-catalog.md)

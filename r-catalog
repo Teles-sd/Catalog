@@ -114,7 +114,7 @@ HISTORY
 
 ------------------------------------
 
-	BASICS
+### BASICS
 
 - Make comments with '#'.
 
@@ -126,6 +126,21 @@ HISTORY
 - Access names (hint: you don't even need to write the full name):
 > <object>$<name>
 
+
+- Clear Terminal:
+
+```R
+cat("\014")
+```
+<!-- --><br/>
+
+
+- Clear all objects from workspace:
+
+```R
+rm(list=ls())
+```
+<!-- --><br/>
 
 
 - Quit R:
@@ -523,6 +538,17 @@ url: (https://cran.r-project.org/web/packages/matlib/vignettes/linear-equations.
 	CODE FLOW CONTROL STRUCTURES
 
 
+if (<logical>){
+    <instruction>
+}
+
+
+if (<logical>){
+    <instruction>
+} else {
+    <instruction>
+}
+
 ifelse (<logical>, <instruction>, <instruction>)
 
 for (<index> in <vec>){
@@ -821,16 +847,16 @@ PLOT: BAR, BOX, SPINE
 	- Using Factor Variables on the 'plot' function will yeld different types of graphs:
 
 - Bar Plot:
-> plot(<fac-vec>)
-> plot(x= <fac-vec>)
+> plot(<factor-vec>)
+> plot(x= <factor-vec>)
 
 - Box Plot:
-> plot(<fac-vec>, <num-vec>)
-> plot(x= <fac-vec>, y= <num-vec>)
+> plot(<factor-vec>, <num-vec>)
+> plot(x= <factor-vec>, y= <num-vec>)
 
 - Spine Plot:
-> plot(<fac-vec>, <fac-vec>)
-> plot(x= <fac-vec>, y= <fac-vec>)
+> plot(<factor-vec>, <factor-vec>)
+> plot(x= <factor-vec>, y= <factor-vec>)
 
 
 
@@ -880,25 +906,65 @@ SCATTERPLOT MATRIX (PAIR PLOT)
 
 ------------------------------------
 
-	FILES: READING AND WRITING DATA
+### FILES: READING AND WRITING DATA
+
+
+#### Paths
 
 
 - Get the Working Directory:
-> getwd()
+
+```R
+getwd()
+```
+<!-- --><br/>
+
 
 - Set Working Directory:
-> setwd("<path>")
+
+```R
+setwd("<path>")
+```
+<!-- --><br/>
+
+
+- Get the path from a Script File:
+
+```R
+dirname(sys.frame(1)$ofile)
+```
+<!-- --><br/>
+
+
+- To construct file correct paths, independent of OS, use:
+
+```R
+file.path(<path>, <path>)
+```
+<!-- --><br/>
+
 
 
 
 
 
 - Send some data to a file:
-> write.table(<data>, file= '<filepath>.data')
+
+```R
+write.table(<data>, file= '<filepath>.data')
+```
+<!-- --><br/>
+
 
 - Send some data to a CSV file:
-> write.csv(<data>, file= '<filepath>.csv')
 
+```R
+write.csv(<data>, file= '<filepath>.csv')
+```
+```R
+write.table(<data>, file= '<filepath>.csv', row.names = FALSE, dec = ".", sep = ",", quote = FALSE)
+```
+<!-- --><br/>
 
 
 
@@ -1056,6 +1122,7 @@ url: (https://cran.r-project.org/web/packages/gridExtra/vignettes/tableGrob.html
 - Formulas have all sorts of uses:
 	- regression
 	- neural networks
+	- ...
 
 
 
@@ -1165,7 +1232,7 @@ QUALITATIVE PREDICTORS
 
 
 - Get the coding that R uses for the dummy variables:
-> contrasts(<fac-predictor>)
+> contrasts(<factor-predictor>)
 
 
 
@@ -1176,13 +1243,13 @@ QUALITATIVE PREDICTORS
 COMPONENTS
 
 
+- Display detailed information (p-values, coefficient's SE, model's R2 statistic, model's F-statistic):
+> summary(lm.fit)
+
 - Get model coefficients fit (returns a vector):
 > coef(lm.fit)
 > summary(lm.fit)$coe
 > summary(lm.fit)$coefficients
-
-- Display detailed information (p-values, coefficient's SE, model's R2 statistic, model's F-statistic):
-> summary(lm.fit)
 
 - Get R2:
 > summary(lm.fit)$r.sq
@@ -1306,18 +1373,23 @@ threshold= <value>				(default= 0.01)
 		Threshold for error as stop criteria.
 
 stepmax= <value>				(default= 1e+05)
+        Epochs (I think)
+
+rep= <value>
+        "the number of repetitions for the neural network’s training"
+        How many nn's are created (with random weights).
 
 learningrate= <value>
 		Learning rate used only for traditional backpropagation.
 
-linear.output= <logical>
-		(default= TRUE)
-		Uses a linear function as Activation function.
-		Overides 'act.fct'.
-
 act.fct=
 			'logistic'			(default)
 			'tanh'
+
+linear.output= <logical>
+		(default= TRUE)
+		Defines if the neurons on the output layer will have a linear activation function.
+		If FALSE uses the same as 'act.fct'.
 
 algorithm=
 			'backprop'	- Backpropagation
@@ -1337,7 +1409,7 @@ algorithm=
 - Diplay visual representations of nn:
 > plot(<nn>)
 
-- Display info of error, reached threshold and steps taken:
+- Display info of: error, reached threshold and steps taken:
 > <nn>$result.matrix[1:3,]
 
 

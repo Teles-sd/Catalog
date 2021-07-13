@@ -13,56 +13,59 @@ This is a guide for the Python Module **Pandas**´s commands.
 
 ------------------------------------
 
-### TABLE OF CONTENT <!-- omit in toc -->
+### TABLE OF CONTENT
 
 
+- [TABLE OF CONTENT](#table-of-content)
 - [TERMINOLOGY](#terminology)
 - [PACKAGES](#packages)
 - [REFERENCES](#references)
 - [SERIES](#series)
 - [DATAFRAMES](#dataframes)
-    - [Creating and Adding data](#creating-and-adding-data)
-    - [Indexing & Slicing](#indexing--slicing)
-    - [Removing Lines and Columns](#removing-lines-and-columns)
+  - [Creating and Adding data](#creating-and-adding-data)
+  - [Indexing & Slicing](#indexing--slicing)
+  - [Removing Lines and Columns](#removing-lines-and-columns)
 - [METHODS & PARAMETERS](#methods--parameters)
-    - [Methods for Info](#methods-for-info)
-    - [Methods to modify Index](#methods-to-modify-index)
-    - [Methods for Operations over Index and Columns](#methods-for-operations-over-index-and-columns)
-    - [Methods for Operations over Values](#methods-for-operations-over-values)
-    - [Map and Apply](#map-and-apply)
-    - [Misc Methods](#misc-methods)
-    - [Parameters](#parameters)
+  - [Methods for Info](#methods-for-info)
+  - [Methods to modify Index](#methods-to-modify-index)
+  - [Methods over Index and Columns](#methods-over-index-and-columns)
+  - [Methods over Values](#methods-over-values)
+  - [Map and Apply](#map-and-apply)
+  - [Datetime](#datetime)
+  - [Misc Methods](#misc-methods)
+  - [Parameters](#parameters)
 - [BOOLEAN OPERATIONS & FILTERS](#boolean-operations--filters)
-    - [Filter](#filter)
-    - [Multiple Filters](#multiple-filters)
+  - [Filter](#filter)
+  - [Multiple Filters](#multiple-filters)
 - [MULTIINDEX (HIERARCHICAL INDEX) & NAMES](#multiindex-hierarchical-index--names)
-    - [Hierarchical Index](#hierarchical-index)
-    - [Name](#name)
-    - [Cross-Sections](#cross-sections)
+  - [Hierarchical Index](#hierarchical-index)
+  - [Name](#name)
+  - [Cross-Sections](#cross-sections)
 - [PIVOT TABLE](#pivot-table)
+- [MELT](#melt)
 - [MISSING DATA](#missing-data)
 - [GROUP BY](#group-by)
-    - [Methods](#methods)
-    - [Unstack](#unstack)
+  - [Methods](#methods)
+  - [Unstack](#unstack)
 - [CONCATENATE, MERGE & JOIN](#concatenate-merge--join)
-    - [Concatenate](#concatenate)
-    - [Merge](#merge)
-    - [Join](#join)
+  - [Concatenate](#concatenate)
+  - [Merge](#merge)
+  - [Join](#join)
 - [INPUT & OUTPUT DATA](#input--output-data)
-    - [File '.csv'](#file-csv)
-    - [File '.xlsx'](#file-xlsx)
-    - [File '.html'](#file-html)
-    - [Cool Image](#cool-image)
+  - [File '.csv'](#file-csv)
+  - [File '.xlsx'](#file-xlsx)
+  - [File '.html'](#file-html)
+  - [Cool Image](#cool-image)
 - [DATA VISUALIZATION](#data-visualization)
-    - [Simple Plot](#simple-plot)
-    - [Histogram](#histogram)
-    - [Lines](#lines)
-    - [Stacked Area Plot](#stacked-area-plot)
-    - [Bars](#bars)
-    - [Scatter](#scatter)
-    - [Box Plot](#box-plot)
-    - [Hexagon Plot](#hexagon-plot)
-    - [Kernel Density Estimation](#kernel-density-estimation)
+  - [Simple Plot](#simple-plot)
+  - [Histogram](#histogram)
+  - [Lines](#lines)
+  - [Stacked Area Plot](#stacked-area-plot)
+  - [Bars](#bars)
+  - [Scatter](#scatter)
+  - [Box Plot](#box-plot)
+  - [Hexagon Plot](#hexagon-plot)
+  - [Kernel Density Estimation](#kernel-density-estimation)
 - [DATAREADER](#datareader)
 
 <!-- --><br/>
@@ -80,7 +83,7 @@ This is a guide for the Python Module **Pandas**´s commands.
 
 | Term/Expression | Meaning |
 | --------------: | :------ |
-| `<description>` | To replace, or that will be replaced, according to description. |
+| `<description>` | To replace, or that will be replaced, according to description (without the `<` and `>`). |
 | `...`           | Possible to repeated pattern. |
 | `$`             | Some command to be used on the Terminal (shell). |
 | `>>>`           | Some IPython (Interactive Python) command. |
@@ -231,7 +234,7 @@ pd.Series(data=<data-list>, index=<index-list>)
 
 ### DATAFRAMES
 
-##### Creating and Adding data
+#### Creating and Adding data
 
 DataFrames hold and manipulate Series.
 <!-- --><br/>
@@ -293,16 +296,16 @@ pd.DataFrame(data=<data>, index=<index>, columns=['<column>', ..., '<column>'])
 
 
 
-##### Indexing & Slicing
+#### Indexing & Slicing
 
-- Access a column on a DataFrame (returns a Series):
+- Access a **column** on a DataFrame (returns a Series):
 ```python
 <dataframe>[ '<column>' ]
 ```
 <!-- --><br/>
 
 
-- Access multiple columns on a DataFrame (returns a DataFrame):
+- Access **multiple columns** on a DataFrame (returns a DataFrame):
 
 ```python
 <dataframe>[ ['<column>', ...] ]
@@ -310,7 +313,7 @@ pd.DataFrame(data=<data>, index=<index>, columns=['<column>', ..., '<column>'])
 <!-- --><br/>
 
 
-- Locate elements:
+- Locate **elements**:
     - Get all line:
     ```python
     <dataframe>.loc[ <index> ]
@@ -326,7 +329,7 @@ pd.DataFrame(data=<data>, index=<index>, columns=['<column>', ..., '<column>'])
     <!-- --><br/>
 
 
-- Locate using Numpy index (i.e. numbers) notation:
+- **Locate** using Numpy **index** (i.e. numbers) notation:
 
 ```python
 <dataframe>.iloc[ <index> ]
@@ -368,7 +371,7 @@ pd.DataFrame(data=<data>, index=<index>, columns=['<column>', ..., '<column>'])
 
 
 
-##### Removing Lines and Columns
+#### Removing Lines and Columns
 
 - Return a DataFrame without a specific line:
 ```python
@@ -433,7 +436,7 @@ also, if warnings, take a look at this: https://www.dataquest.io/blog/settingwit
 
 ### METHODS & PARAMETERS
 
-##### Methods for Info
+#### Methods for Info
 
 - Get info about the DataFrame:
 
@@ -456,7 +459,7 @@ also, if warnings, take a look at this: https://www.dataquest.io/blog/settingwit
 
 
 
-##### Methods to modify Index
+#### Methods to modify Index
 
 - Resetting a DataFrame Index to default (numbers) and adding the current as a column:
 
@@ -490,7 +493,7 @@ also, if warnings, take a look at this: https://www.dataquest.io/blog/settingwit
 
 
 
-##### Methods for Operations over Index and Columns
+#### Methods over Index and Columns
 
 - Find the **mean** of the values of a column:
 
@@ -616,6 +619,8 @@ sum(<dataframe>.['<column>'] == <value>)
 ```python
 <dataframe>['<column>'].value_counts()
 ```
+<!-- --><br/>
+
 
 - **Sort** the lines of a DataFrame by some column:
 
@@ -623,7 +628,10 @@ sum(<dataframe>.['<column>'] == <value>)
 <dataframe>.sort_values(by='<column>')
 ```
 ```python
-<dataframe>.sort_values(by='<column>', ascending=False)
+<dataframe>.sort_values(by='<column>', ascending=<bool>)
+```
+```python
+<dataframe>.sort_values(by=['<column>', ..., '<column>'], ascending=[<bool>, ..., <bool>])
 ```
 <!-- --><br/>
 
@@ -634,11 +642,19 @@ sum(<dataframe>.['<column>'] == <value>)
 <dataframe>.isnull()
 ```
 <!-- --><br/>
+
+
+- Return the elements not present in the time Period:
+
+```python
+pd.date_range(start = '<datetime-like-string>', end = '<datetime-like-string>').difference(<dataframe>.index)
+```
+<!-- --><br/>
 <!-- --><br/>
 
 
 
-##### Methods for Operations over Values
+#### Methods over Values
 
 - Percentage change between the current and a prior element on every column:
 
@@ -702,7 +718,7 @@ sum(<dataframe>.['<column>'] == <value>)
 
 
 
-##### Map and Apply
+#### Map and Apply
 
 - Apply a function to all of the elements (similar to Python's map):
 
@@ -735,11 +751,21 @@ sum(<dataframe>.['<column>'] == <value>)
 <dataframe>['<column>'].map(<map>)
 ```
 <!-- --><br/>
+
+
+- Convert a column of booleans to a column of integers0 (1 or 0):
+```python
+<series>.astype(int)
+```
+```python
+<dataframe>['<column>'].astype(int)
+```
+<!-- --><br/>
 <!-- --><br/>
 
 
 
-##### Misc Methods
+#### Datetime
 
 - Convert a datetime-like object (datetime, List, Array-like, ...), or a Series with it, to Timestamp:
 
@@ -768,7 +794,11 @@ pd.to_datetime(<datetime-like-obj>)
 <timestamp>.nanosecond
 ```
 <!-- --><br/>
+<!-- --><br/>
 
+
+
+#### Misc Methods
 
 - Get a generator which yields both the Index and Row (as a Series):
 
@@ -810,7 +840,7 @@ pd.to_datetime(<datetime-like-obj>)
 
 
 
-##### Parameters
+#### Parameters
 
 - Diplay a Series Index:
 
@@ -883,7 +913,7 @@ pd.to_datetime(<datetime-like-obj>)
 
 
 
-##### Filter
+#### Filter
 
 - It is possible to use this DataFrame of Booleans to Filter a DataFrame of same shape.  
   Instead of being removed (like on Numpy Arrays), values filtered by this method are substituted by `NaN` (Not a Number).
@@ -992,7 +1022,7 @@ pd.to_datetime(<datetime-like-obj>)
 
 
 
-##### Multiple Filters
+#### Multiple Filters
 
 - It is also possible to use multiple conditions by putting the expressions in parenthesis and using the operators:
 
@@ -1056,7 +1086,7 @@ pd.to_datetime(<datetime-like-obj>)
 ### MULTIINDEX (HIERARCHICAL INDEX) & NAMES
 
 
-##### Hierarchical Index
+#### Hierarchical Index
 
 - Both Series and DataFrame can have multiple 'levels', having different Index for different levels.  
   For that, a MultiIndex object must be used as Index.
@@ -1143,7 +1173,7 @@ pd.DataFrame(<data>, <index>, columns=<multiindex>)
 
 
 
-##### Name
+#### Name
 
 - The Index of DataFrames have 'names' to identify them.  
   Using the Names, it is possible make cross-section (`xs`) to select lines with same index on a specific level.
@@ -1194,7 +1224,7 @@ pd.MultiIndex.from_frame (<dataframe>,  names=['<name>', ..., '<name>'])
 
 
 
-##### Cross-Sections
+#### Cross-Sections
 
 - Cross-section all Index labels of a level:
 
@@ -1286,7 +1316,7 @@ df.xs(<index>, axis=1, level='<name>')
   - the values of a column as **columns**.
 
 ```python
-<dataframe>.pivot_table(values=<colums>, index=['<column>', ...], columns=['<column>', ...])
+<dataframe>.pivot_table(values='<colums>', index=['<column>', ...], columns=['<column>', ...])
 ```
 <!-- --><br/>
 
@@ -1320,13 +1350,64 @@ df.xs(<index>, axis=1, level='<name>')
 > 
 > Output:
 > ```
->      A    B  C  D
-> 0  foo  one  x  1
-> 1  foo  one  y  3
-> 2  foo  two  x  2
-> 3  bar  two  y  5
-> 4  bar  one  x  4
-> 5  bar  one  y  1
+> C          x    y
+> A   B            
+> bar one  4.0  1.0
+>     two  NaN  5.0
+> foo one  1.0  3.0
+>     two  2.0  NaN
+> ```
+> ---
+
+<!-- --><br/>
+<!-- --><br/>
+
+
+- Go back to [TABLE OF CONTENT](#table-of-content).
+<!-- --><br/>
+
+
+
+------------------------------------
+
+### MELT
+
+- Transforms multiple Columns into Rows:
+
+```python
+<dataframe>.melt(id_vars=["<colums>", ..., "<colums>"], 
+                 var_name="<string>", 
+                 value_name="<string>")
+```
+<!-- --><br/>
+
+
+> **Examples**
+>
+> Dataframe:
+>
+> ```
+> location    name    Jan-2010    Feb-2010    March-2010
+> A           "test"  12          20          30
+> B           "foo"   18          20          25
+> ```
+> ---
+>
+> ```python
+> df.melt(id_vars=["location", "name"], 
+>         var_name="Date", 
+>         value_name="Value")
+> ```
+>
+> Output:
+> ```
+>   location    name        Date  Value
+> 0        A  "test"    Jan-2010     12
+> 1        B   "foo"    Jan-2010     18
+> 2        A  "test"    Feb-2010     20
+> 3        B   "foo"    Feb-2010     20
+> 4        A  "test"  March-2010     30
+> 5        B   "foo"  March-2010     25
 > ```
 > ---
 
@@ -1417,7 +1498,7 @@ df.xs(<index>, axis=1, level='<name>')
 
 
 
-##### Methods
+#### Methods
 
 - Only after Applying one of those methods on the Group object a DataFrame is returned.
 
@@ -1479,8 +1560,8 @@ df.xs(<index>, axis=1, level='<name>')
 >
 > ```python
 > codata = {'Empresa':['GOOG','GOOG','MSFT','MSFT','FB','FB'],
->          'Nome':['Sam','Charlie','Amy','Vanessa','Carl','Sarah'],
->          'Venda':[200,120,340,124,243,350]}
+>           'Nome':['Sam','Charlie','Amy','Vanessa','Carl','Sarah'],
+>           'Venda':[200,120,340,124,243,350]}
 > 
 > df = pd.DataFrame(data)de
 > ```
@@ -1532,7 +1613,7 @@ df.xs(<index>, axis=1, level='<name>')
 
 
 
-##### Unstack
+#### Unstack
 
 - A Series with MultiIndex can be Unstacked into a DataFrame:
 
@@ -1550,7 +1631,9 @@ df.xs(<index>, axis=1, level='<name>')
 > **Examples**
 >
 > ```python
-> df = pd.read_csv('./../misc/files/911.csv')
+> url='https://drive.google.com/file/d/1jsSS2uAhhnruvgS3T3kYMFewQ6GRa8RC/view'
+> url='https://drive.google.com/uc?id=' + url.split('/')[-2]
+> df = pd.read_csv(url)
 > 
 > df['department'] = df['title'].apply(lambda ttl: ttl.split(': ')[0])
 > 
@@ -1560,7 +1643,7 @@ df.xs(<index>, axis=1, level='<name>')
 > 
 > df.groupby(by=['dWeek','hour']).count()['department'].unstack().head()
 > ```
-> 
+>
 > Output: 
 > ```python
 > hour    0    1    2    3    4    5    6    7    8    9    10  ...   13   14   15    16    17   18   19   20   21   22   23
@@ -1587,7 +1670,7 @@ df.xs(<index>, axis=1, level='<name>')
 ### CONCATENATE, MERGE & JOIN
 
 
-##### Concatenate
+#### Concatenate
 
 - To Concatenate DataFrames, the axis referent to the operation must have same size.  
   If the DataFrames don't have the same index on the axis of operation they will be added to the resulting DataFrame.
@@ -1627,7 +1710,7 @@ pd.concat([<dataframe>, ...], <keys>, <names>)
 > df1 = pd.DataFrame({'A': ['A0', 'A1'],
 >                     'B': ['B0', 'B1'],})
 > ```
-> 
+>
 > Output:
 > ```
 >     A   B
@@ -1639,9 +1722,9 @@ pd.concat([<dataframe>, ...], <keys>, <names>)
 > ```python
 > df2 = pd.DataFrame({'A': ['A2', 'A3'],
 >                     'B': ['B2', 'B3'],},
-> 					index=[2,3])
+>                     index=[2,3])
 > ```
-> 
+>
 > Output:
 > ```
 >     A   B
@@ -1653,7 +1736,7 @@ pd.concat([<dataframe>, ...], <keys>, <names>)
 > ```python
 > pd.concat([df1,df2])
 > ```
-> 
+>
 > Output:
 > ```
 >     A   B
@@ -1667,7 +1750,7 @@ pd.concat([<dataframe>, ...], <keys>, <names>)
 > ```python
 > pd.concat([df1,df2], axis=1)
 > ```
-> 
+>
 > Output:
 > ```
 >      A    B    A    B
@@ -1682,7 +1765,7 @@ pd.concat([<dataframe>, ...], <keys>, <names>)
 > df2.reset_index(drop=True)
 > pd.concat([df1,df2], axis=1)
 > ```
-> 
+>
 > Output:
 > ```
 >     A   B   A   B
@@ -1694,7 +1777,7 @@ pd.concat([<dataframe>, ...], <keys>, <names>)
 > ```python
 > pd.concat([df1,df2], axis=1, keys=['df1', 'df2'], names=['DataFrames','columns'])
 > ```
-> 
+>
 > Output:
 > ```
 > DataFrames df1     df2    
@@ -1709,7 +1792,7 @@ pd.concat([<dataframe>, ...], <keys>, <names>)
 
 
 
-##### Merge
+#### Merge
 
 - The Merge method joins TWO DataFrames given they have some equal values on some column(s).
 - The Merge method have a `how` parameter that specifies the type of merge performed:
@@ -1748,7 +1831,7 @@ pd.merge(<dataframe>, <dataframe>, on=['<column>', ...])
 
 
 
-##### Join
+#### Join
 
 - The Join method (unlike the previous two) is a DataFrame's method.  
   It tries to join DataFrame that have possibly different index.  
@@ -1795,7 +1878,7 @@ pd.merge(<dataframe>, <dataframe>, on=['<column>', ...])
 
 
 
-##### File '.csv'
+#### File '.csv'
 
 
 - Create a DataFrame from a CSV file:
@@ -1810,6 +1893,17 @@ pd.read_csv('<filepath>')
 
 ```python
 pd.read_csv('<filepath>', index_col='<column>')
+```
+<!-- --><br/>
+
+
+- Get rid of "Unnamed: 0":
+
+```python
+pd.read_csv('<filepath>', index_col=[0])
+```
+```python
+pd.read_csv('<filepath>', index_col=False)
 ```
 <!-- --><br/>
 
@@ -1833,7 +1927,27 @@ pd.read_csv('<filepath>', decimal='<decimal>')
 - Export DataFrame to a CSV file:
 
 ```python
+<dataframe>.to_csv('<filepath>', index=False)
+```
+```python
 <dataframe>.to_csv('<filepath>', sep='<separator>', decimal='<decimal>')
+```
+```python
+<dataframe>.to_csv('<filepath>')
+```
+<!-- --><br/>
+
+
+- For reading a file from a Google Drive public file do the following:
+  - Open the file.
+  - Go to more options (the '...').
+  - Open in a new window, so the url has a format of `https://drive.google.com/file/d/<file-id>/view`. If it already has, thats the url needed.
+  - Copy that url, than:
+
+```python
+url='<copied-url>'
+url='https://drive.google.com/uc?id=' + url.split('/')[-2]
+df = pd.read_csv(url)
 ```
 <!-- --><br/>
 <!-- --><br/>
@@ -1887,7 +2001,7 @@ pd.read_csv('<filepath>', decimal='<decimal>')
 
 
 
-##### File '.xlsx'
+#### File '.xlsx'
 
 
 - Import a Sheet from a Excel (.xlsx) file:
@@ -1908,7 +2022,7 @@ pd.read_excel('<filepath>', sheetname='<sheet>')
 
 
 
-##### File '.html'
+#### File '.html'
 
 
 - Import a Table on HTML in a url (returns a list where the DataFrame(s) will be elements of it):
@@ -1921,7 +2035,7 @@ pd.read_html('<url>')
 
 
 
-##### Cool Image
+#### Cool Image
 
 
 - Export a really cool image (png) of the DataFrame:
@@ -1962,7 +2076,7 @@ import matplotlib.pyplot as plt
 
 
 
-##### Simple Plot
+#### Simple Plot
 
 
 - Simple graph:
@@ -1983,7 +2097,7 @@ import matplotlib.pyplot as plt
 
 
 
-##### Histogram
+#### Histogram
 
 
 - Plot a Histogram of a column:
@@ -1999,7 +2113,7 @@ import matplotlib.pyplot as plt
 
 
 
-##### Lines
+#### Lines
 
 
 - Plot Lines:
@@ -2020,15 +2134,18 @@ import matplotlib.pyplot as plt
 > **Examples**
 >
 > ```python
-> df1 = pd.read_csv('./../misc/files/df1.csv', index_col=0)
+> url='https://drive.google.com/file/d/1iUf89myu9cJ5v_J-C57oWjdH7xqtT59_/view'
+> url='https://drive.google.com/uc?id=' + url.split('/')[-2]
+> df1 = pd.read_csv(url, index_col=0)
+> 
 > df1.plot.line(y='B', lw=1, figsize=(12,5))
 > plt.show()
 > ```
-> 
+>
 > Output:
-> 
+>
 > ![][lines]
-> 
+>
 > ---
 
 <!-- --><br/>
@@ -2036,7 +2153,7 @@ import matplotlib.pyplot as plt
 
 
 
-##### Stacked Area Plot
+#### Stacked Area Plot
 
 
 - Plot a Stacked Area:
@@ -2057,15 +2174,18 @@ import matplotlib.pyplot as plt
 > plt.style.use('bmh')
 > plt.style.use('dark_background')
 > 
-> df2 = pd.read_csv('./../misc/files/df2.csv')
+> url='https://drive.google.com/file/d/1s-uwms4G5X8S4o-HY1JHSpZ-MQ1QFTu5/view'
+> url='https://drive.google.com/uc?id=' + url.split('/')[-2]
+> df2 = pd.read_csv(url)
+> 
 > df2.plot.area(alpha=.5)
 > plt.show()
 > ```
-> 
+>
 > Output:
-> 
+>
 > ![][stacked_area]
-> 
+>
 > ---
 
 <!-- --><br/>
@@ -2073,7 +2193,7 @@ import matplotlib.pyplot as plt
 
 
 
-##### Bars
+#### Bars
 
 
 - Plot Bars:
@@ -2094,7 +2214,7 @@ import matplotlib.pyplot as plt
 
 
 
-##### Scatter
+#### Scatter
 
 
 - Make a Scatter Plot:
@@ -2141,7 +2261,7 @@ import matplotlib.pyplot as plt
 
 
 
-##### Box Plot
+#### Box Plot
 
 
 - Make Box Plot:
@@ -2154,7 +2274,7 @@ import matplotlib.pyplot as plt
 
 
 
-##### Hexagon Plot
+#### Hexagon Plot
 
 
 - Make Hexagon Plot:
@@ -2192,7 +2312,7 @@ import matplotlib.pyplot as plt
 
 
 
-##### Kernel Density Estimation
+#### Kernel Density Estimation
 
 
 - Make KDE Plot:
@@ -2225,8 +2345,8 @@ import matplotlib.pyplot as plt
   - St. Louis FED (FRED),
   - Kenneth French's data library,
   - ...
-<!-- --><br/>
-<!-- --><br/>
+  <!-- --><br/>
+  <!-- --><br/>
 
 
 
@@ -2331,82 +2451,6 @@ data.DataReader(name='<ticker>', <data_source>, start=<datetime>, end=<datetime>
 
 
 ------------------------------------
-
-
-
-------------------------------------
-
-### TOPIC <!-- omit in toc -->
-
-> **Note**
-> 
-> note
-> 
-> ---
->
-> :warning: **WARNING :**
->
-> Warning
-
-<!-- --><br/>
-<!-- --><br/>
-
-
-
-##### Subtopic <!-- omit in toc -->
-
-
-- Command Explanation:
-
-```python
-command
-```
-```python
-alternative command
-```
-<!-- --><br/>
-
-
-- Command Explanation:
-
-```python
-command
-```
-<!-- --><br/>
-<!-- --><br/>
-
-
-
-##### Subtopic <!-- omit in toc -->
-
-
-- Command Explanation:
-
-```python
-command
-```
-<!-- --><br/>
-<!-- --><br/>
-
-
-> **Examples**
->
-> ```python
-> code
-> ```
-> 
-> Output:
-> ```
-> code
-> ```
-> ---
-
-<!-- --><br/>
-<!-- --><br/>
-
-
-- Go back to [TABLE OF CONTENT](#table-of-content).
-<!-- --><br/>
 
 
 

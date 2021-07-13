@@ -276,6 +276,9 @@ __________________________________
 
 ### AUR
 
+
+#### Git & Makepkg
+
 - The tools from ´base-devel´ group are needed.  
   If not installed use:
 
@@ -285,34 +288,38 @@ $ pacman -S --needed base-devel
 <!-- --><\br>
 
 
-- Locate the package at [AUR home page][aur].  
-  Enter a _build directory_ (`~/Coding/AUR/`) and clone the package:
+- Locate the package at the [AUR home page][aur].  
+  Enter a _build directory_ (eg. `~/Coding/AUR/`) and clone the package:
 
 ```shell
-$ git clone https://aur.archlinux.org/package_name.git
+$ git clone https://aur.archlinux.org/<package_name>.git
 ```
+<!-- --><\br>
+
 [aur]:https://aur.archlinux.org/
+
+> 
+> :warning: **Warning:**
+> 
+> Verify that the `PKGBUILD` and accompanying files are not malicious or untrustworthy.
+> 
+
 <!-- --><\br>
 
 
-:warning:
-- Verify that the PKGBUILD and accompanying files are not malicious or untrustworthy.
-<!-- --><\br>
-
-
-- In the directory where the files are saved, run ([build]):
+- Enter the directory where the files are saved, then run ([build]):
 
 ```shell
-$ makepkg -rcs
+$ makepkg -src
 ```
-[build]:https://wiki.archlinux.org/title/Arch_User_Repository#Build_the_package
 <!-- --><\br>
 
+[build]:https://wiki.archlinux.org/title/Arch_User_Repository#Build_the_package
 
 - Install:
 
 ```shell
-# pacman -U <package_file.pkg.tar.zst>
+# pacman -U <package_file>.pkg.tar.zst
 ```
 <!-- --><\br>
 
@@ -321,17 +328,15 @@ $ makepkg -rcs
 
 ```shell
 $ git pull
-$ makepkg -rc
-# pacman -U <package_file.pkg.tar.zst>
+$ makepkg -src
+# pacman -U <package_file>.pkg.tar.zst
 ```
+<!-- --><\br>
 <!-- --><\br>
 
 
 
-
-##### YAY
-
-- Managing the AUR.
+#### Yay
 
 !!! WARNING:
              DO NOT use ´sudo´ with the yay command. If Yay needs premission, it will ask for it.
@@ -370,6 +375,20 @@ $ yay -P --stats
 $ yay -Yc
 $ yay -Y --clean
 
+<!-- --><\br>
+<!-- --><\br>
+
+
+
+#### Pamac
+
+
+- Pamac
+
+```shell
+$ 
+```
+<!-- --><\br>
 
 
 

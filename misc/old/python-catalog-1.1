@@ -1,9 +1,9 @@
 
-		PYTHON
+        PYTHON
 
 ------------------------------------
 
-	TERMINOLOGY
+    TERMINOLOGY
 
 $	: Some command to be used on the Terminal (shell).
 >>>	: Some python command.
@@ -14,15 +14,15 @@ $	: Some command to be used on the Terminal (shell).
 
 ------------------------------------
 
-	JUPYTER/CONDA
+    JUPYTER/CONDA
 
 
-- List enviroments:
+- List environments:
 $ conda env list
 
-- Activate/deactivate enviroment (conda>=4.6):
-$ conda activate <enviroment>
-$ conda deactivate <enviroment>
+- Activate/deactivate environment (conda>=4.6):
+$ conda activate <environment>
+$ conda deactivate <environment>
 
 
 - Open jupyter:
@@ -41,11 +41,11 @@ $ conda deactivate <enviroment>
 
 - Jupyter shortcuts:
 
-	[shift] + [Enter]	: run cell & go next
-	[ctrl] + [Enter]	: run cell & DON´T go next
-	[alt] + [Enter]		: run cell & add one cell
+    [shift] + [Enter]	: run cell & go next
+    [ctrl] + [Enter]	: run cell & DON´T go next
+    [alt] + [Enter]		: run cell & add one cell
 
-	[d] + [d]			: Delete selected cell
+    [d] + [d]			: Delete selected cell
 
 
 
@@ -60,7 +60,7 @@ $ which conda
 
 ------------------------------------
 
-	PYTHON HELP
+    PYTHON HELP
 
 - Show possible Methods for the object (on jupyter):
 <py-object>. + [tab]
@@ -84,39 +84,27 @@ print(<py-object>.__doc__)		# equivalent
 ------------------------------------
 
 
-	NUMBERS, OPERATORS PREDECEDENCE & RESERVED WORDS
+    NUMBERS, OPERATORS PRECEDENCE & RESERVED WORDS
 
 - Order of operations (Operator Precedence):
 
-	**					Exponential.
-	~	+	-			Complement (all bits reversed), unary plus and minus.
-	*	/	%	//		Multiply, devide, modulo, floor division.
-	+	-				Addition and subtraction.
-	>>	<<				Right and left bitwise shift.
-	&					Bitwise AND.
-	^  |				Bitwise XOR and OR.
-	<=	<	>	>=		Logical operators.
-	=	%=	/=	//=		Assignment operators.
-	-=	+=	*=	**=		Assignment operators.
-	is	is not			Identity operators.
-	in	not in			Membreship operators.
-	not	or	and			Logical operators.
+    **					Exponential.
+    ~	+	-			Complement (all bits reversed), unary plus and minus.
+    *	/	%	//		Multiply, divide, modulo, floor division.
+    +	-				Addition and subtraction.
+    >>	<<				Right and left bitwise shift.
+    &					Bitwise AND.
+    ^  |				Bitwise XOR and OR.
+    <=	<	>	>=		Logical operators.
+    =	%=	/=	//=		Assignment operators.
+    -=	+=	*=	**=		Assignment operators.
+    is	is not			Identity operators.
+    in	not in			Membership operators.
+    not	or	and			Logical operators.
 
 
 
 NUMBERS
-
-- Hexadecimal:
-hex(<number>)
-
-- Binary:
-bin(<number>)
-
-- Pow (equivalent to x**y ):
-pow(<num>, <num>)
-
-- Pow (equivalent to (x**y)%z ):
-pow(<num>, <num>, <num>)
 
 - Absolute Value:
 abs(<num>)
@@ -127,53 +115,65 @@ round(<num>, <precision>)
 - Returns a 2-tuple containing the numerator and denominator:
 <float>.as_integer_ratio()
 
+- Binary:
+bin(<number>)
+
+- Hexadecimal:
+hex(<number>)
+
+- Pow (equivalent to x**y ):
+pow(<num>, <num>)
+
+- Pow (equivalent to (x**y)%z ):
+pow(<num>, <num>, <num>)
+
 
 
 
 
 RESERVED WORDS
 
-	False
-	None
-	True
-	and
-	as
-	assert
-	break
-	class
-	if
-	def
-	del
-	elif
-	else
-	except
-	return
-	for
-	from
-	global
-	try
-	import
-	in
-	is
-	lambda
-	while
-	not
-	or
-	pass
-	raise
-	finally
-	continue
-	nonlocal
-	with
-	yield
+    False
+    None
+    True
+    and
+    as
+    assert
+    break
+    class
+    if
+    def
+    del
+    elif
+    else
+    except
+    return
+    for
+    from
+    global
+    try
+    import
+    in
+    is
+    lambda
+    while
+    not
+    or
+    pass
+    raise
+    finally
+    continue
+    nonlocal
+    with
+    yield
 
 
 
 
-	## Examples ##
+    ## Examples ##
 
-		9 | 4
-		  |---
+        9 | 4
+          |---
 Mod ->	1 | 2	<- Floor division
 
 - Division:
@@ -189,12 +189,12 @@ Mod ->	1 | 2	<- Floor division
 []	1
 
 
-	## - ##
+    ## - ##
 
 
 ------------------------------------
 
-	STRINGS
+    STRINGS
 
 - Simple or double quotation marks can be used to define a String.
 - Examples:
@@ -203,15 +203,15 @@ Mod ->	1 | 2	<- Floor division
 ' Citação: "A". '
 
 - Scape Characters:
-	\t		Tab
-	\n		New Line
+    \t		Tab
+    \n		New Line
 
 
 - Print string:
-print (<str>)
+print (<string>)
 
 - Print raw string (any escape sequence interpretation will be ignored):
-print (r <str>)
+print (r <string>)
 
 - Size:
 len(<string>)
@@ -230,7 +230,7 @@ len(<string>)
 <string> * <integer-number>
 
 - Print message and return String from console input;
-input(<str>)
+input(<string>)
 
 
 
@@ -248,12 +248,12 @@ METHODS
 - Make string centered on a specific size using some character:
 <string>.center(<size>, '<char>') 
 
-	## Example ##
+    ## Example ##
 
 'hellooo'.center(20,'~')
 []	'~~~~~~hellooo~~~~~~~'
 
-	## - ##
+    ## - ##
 
 - Check if there are only AlphaNumeric characters:
 <string>.isalnum()
@@ -282,7 +282,7 @@ METHODS
 - Returns a List including the divisor:
 <string>.partition(<divisor>)
 
-- Replace any appearence of a pattern by other:
+- Replace any appearance of a pattern by other:
 <string>.replace('<pattern>', '<replacement>')
 
 - Get a String from a List, adding a divisor between each element:
@@ -293,7 +293,7 @@ METHODS
 
 
 
-	## Examples ##
+    ## Examples ##
 
 someString = 'FUCKING HELP ME'
 someString[::2]
@@ -308,37 +308,37 @@ someString[::-1]
 '! '.join(['FUCKING', 'HELP', 'ME'])
 []	'FUCKING! HELP! ME'
 
-	## - ##
+    ## - ##
 
 
 ------------------------------------
 
-	STRING FORMATING
+    STRING FORMATTING
 
-OLD FORMATING METHOD
+OLD FORMATtING METHOD
 
-- Formating Strings:
+- Formatting Strings:
 
 ' %<form-op> ' % <obj>
 ' %<form-op>  ...  %<form-op> ' % (<obj>, ..., <obj>)
 
 
-- Formating Operators:
+- Formatting Operators:
 ' %<padding>.<decimal><format> '
 
 padding :	Minimum padding width.
-			Negative number to align to the left, default to right.
-			Zero on front to fill remaning space with zeros.
+            Negative number to align to the left, default to right.
+            Zero on front to fill remaining space with zeros.
 
 decimal :	Number of decimal cases (default=6).
-			Can also be a truncate index for strings.
+            Can also be a truncate index for strings.
 
-formats :	Type of format aplied:
-	s		- String (or any object with string representation, like numbers).
-	d		- Integers (decimal system).
-	f		- Floating point numbers.
-	x		- Integers in hex representation (lowercase).
-	X		- Integers in hex representation (uppercase).
+formats :	Type of format applied:
+    s		- String (or any object with string representation, like numbers).
+    d		- Integers (decimal system).
+    f		- Floating point numbers.
+    x		- Integers in hex representation (lowercase).
+    X		- Integers in hex representation (uppercase).
 
 
 
@@ -356,41 +356,41 @@ NEW FORMATING METHOD
 
 
 
-- Formating Operators:
+- Formatting Operators:
 ' {<spec-op>:<form-op>} '
 
 - Specifiers Operators:
-	{} - strings will be aplied in the order passed on 'format()'
-	{<position>} - positional argument for strings given to 'format()'
-	{<key>} - keyword argument; must be defined on 'format()' arguments
+    {} - strings will be applied in the order passed on 'format()'
+    {<position>} - positional argument (number) for strings given to 'format()'
+    {<key>} - keyword argument; must be defined on 'format()' arguments
 
 
-- Formating Operators (groups in the order they must be placed or not):
+- Formatting Operators (groups in the order they must be placed or not):
 
-	{:*} - fill remaning space with '*'
-	{:0} - fill remaning space with zeros
+    {:*} - fill remaining space with '*'
+    {:0} - fill remaining space with zeros
 
-	{:<} - align left (default for strings)
-	{:^} - align center
-	{:>} - align right (default for numbers)
+    {:<} - align left (default for strings)
+    {:^} - align center
+    {:>} - align right (default for numbers)
 
-	{:-} - only prints sign for negative values (default)
-	{:+} - prints '+' for positive values
-	{: } - prints ' ' for positive and '-' for negative values
+    {:-} - only prints sign for negative values (default)
+    {:+} - prints '+' for positive values
+    {: } - prints ' ' for positive and '-' for negative values
 
-	{:<padding>.<decimal>}
-	{:<padding>} - minimum padding width of string format
-	{:.<decimal>} - number of decimal cases (default=6), or truncate index for strings
+    {:<padding>.<decimal>}
+    {:<padding>} - minimum padding width of string format
+    {:.<decimal>} - number of decimal cases (default=6), or truncate index for strings
 
-	{:d} - Integers (decimal system)
-	{:f} - Floating point numbers
-	{:b} - Binary
-	{:e} - exponent representation (scientific)
-	{:E} - Exponent representation (uppercase E)
-	{:%} - faction to percentage
+    {:d} - Integers (decimal system)
+    {:f} - Floating point numbers
+    {:b} - Binary
+    {:e} - exponent representation (scientific)
+    {:E} - Exponent representation (uppercase E)
+    {:%} - faction to percentage
 
 
-	## Examples ##
+    ## Examples ##
 
 ' {2} {0} {3} {1} '.format( 'one', 'three', 'zero', 'two' )
 []	' zero one two three '
@@ -403,11 +403,11 @@ C='see'
 "Binary representation of {0} is {0:b}".format(12)
 []	'Binary representation of 12 is 1100'
 
-	## - ##
+    ## - ##
 
 
-- Dynamic Formating:
-' {:{fill}{align}{width}} '.format(<str>, fill='<*/0>', align='< </^/> >', width=<padding>))
+- Dynamic Formatting:
+' {:{fill}{align}{width}} '.format(<string>, fill='<*/0>', align='< </^/> >', width=<padding>))
 
 
 
@@ -430,7 +430,7 @@ C='see'
 
 
 
-OTHER (weird) WAY OF FORMATING
+OTHER (weird) WAY OF FORMATTING
 
 - Format with local variables:
 
@@ -444,7 +444,7 @@ f' {<dict>[<key>]}  ...  {<dict>[<key>]} '
 
 
 
-	## Examples ##
+    ## Examples ##
 
 numerooo = 69.69
 otro_num = 27
@@ -487,24 +487,20 @@ print(aurelio)
 
 
 
-	## - ##
+    ## - ##
 
 ------------------------------------
 
-	LISTS
+    LISTS
 
 - In Python, Lists allow multiple types of data and don´t have a fixed size.
 - The same ways of accessing and indexing Strings works for Lists.
 
 - Defining a List:
-<lsit> = [<element>, ..., <element>]
+<list> = [<element>, ..., <element>]
 
 - Append element to the end of a List:
 <list>.append(<element>)
-
-- Add Lists (extend)
-<list> + <list>
-<list>.extend(<list>)
 
 - Insert a element on a specific index:
 <list>.insert(<index>, <element>)
@@ -514,6 +510,10 @@ print(aurelio)
 
 - Remove the first occurrence of a element:
 <list>.remove(<element>)
+
+- Add Lists (extend)
+<list> + <list>
+<list>.extend(<list>)
 
 - Check if an element is in a List (boolean):
 <element> in <list>
@@ -554,13 +554,15 @@ LIST COMPREHENSION
 
 
 
-	## Examples ##
+    ## Examples ##
 
 asdf = [1,2,'minha juda']
 print(asdf[::-1])
-	['minha juda', 2, 1]
+    ['minha juda', 2, 1]
+print(asdf[-1])
+    minha juda
 print(asdf[-1][::-1])
-	aduj ahnim
+    aduj ahnim
 
 
 l_1 = [1,2,3]
@@ -569,9 +571,8 @@ l_3 = [7,8,9]
 mat = [l_1, l_2, l_3]
 
 first_col = [row[0] for row in mat]
-[]	[1, 4, 7]
 first_col = list(list(zip(*mat))[0])
-[]	[1, 4, 7]
+
 diag = [mat[ind][ind] for ind in [0,1,2] ]
 []	[1, 5, 9]
 diag2 = [mat[ind][2-ind] for ind in [0,1,2] 
@@ -584,8 +585,7 @@ fulllist = [ mat[i][j]  for i in range(len(mat)) for j in range(len(mat[i]))]
 
 
 celsius = [0, 10, 15, 20, 30, 50, 100]
-fahrenheit = [ temp*(9/5)+32  for temp in  celsius ]
-[int(f) for f in fahrenheit]
+fahrenheit = [ int(temp*(9/5)+32)  for temp in  celsius ]
 []	[32, 50, 59, 68, 86, 122, 212]
 
 
@@ -596,12 +596,12 @@ fahrenheit = [ temp*(9/5)+32  for temp in  celsius ]
 - Multiply matrix using list comprehension:
 
 X = [[12,7,3],
-	[4 ,5,6],
-	[7 ,8,9]]
+    [4 ,5,6],
+    [7 ,8,9]]
 
 Y = [[5,8,1,2],
-	[6,7,3,0],
-	[4,5,9,1]]
+    [6,7,3,0],
+    [4,5,9,1]]
 
 result = [[sum(a*b for a,b in zip(X_row,Y_col)) for Y_col in zip(*Y)] for X_row in X]
 for r in result: print(r)
@@ -611,11 +611,11 @@ for r in result: print(r)
 
 
 
-	## - ##
+    ## - ##
 
 ------------------------------------
 
-	DICTIONARIES
+    DICTIONARIES
 
 - Defining dictionary:
 <dict> = {'<key>':<object> , ...}
@@ -653,7 +653,7 @@ list(<dict>.items())
 
 ------------------------------------
 
-	TUPLES
+    TUPLES
 
 - A tupla é imutável
 - Os únicos dois métodos são count e index
@@ -678,7 +678,7 @@ list(<dict>.items())
 
 ------------------------------------
 
-	FILES
+    FILES
 
 - To read or write to a file, it needs to be opened. 
 - When the work is done, it needs to be closed, so the resources tied with the file are freed.
@@ -695,14 +695,13 @@ pwd
 <file> = open('<file-path>', mode='<mode>')
 
 Operations Mode:
-	r - read (default), error if the file does not exist.
-	w - write, creates the file if it does not exist. Overwrite if it does.
-	a - append, creates the file if it does not exist.
-	x - exclusive creation, creates the file, returns an error if the file exists.
-
-Mode:
-	t - text (default)
-	b - binary
+    r - read (default), error if the file does not exist.
+    w - write, creates the file if it does not exist. Overwrite if it does.
+    `+` - open for updating (reading and writing)
+    x - exclusive creation, creates the file, returns an error if the file exists.
+    a - append, creates the file if it does not exist.
+    t - text mode (default)
+    b - binary mode
 
 
 - When working with files in text mode, it is highly recommended to specify the encoding type.
@@ -737,7 +736,7 @@ Mode:
 
 - Print each line:
 for line in <file>:
-	print(line)
+    print(line)
 
 
 
@@ -759,7 +758,7 @@ SAFETY
 
 
 with open('<file-path>', <encoding>) as <file>:
-	<instructions>
+    <instructions>
 
 
 
@@ -779,8 +778,8 @@ import io
 
 ------------------------------------
 
-	SETS
-	
+    SETS
+    
 - Sets only allow ordered non repeating values or elements.
 
 - Defining a set:
@@ -790,7 +789,7 @@ import io
 - Add elements to set:
 <set>.add(<element>)
 
-- Discart element of a set:
+- Discard element of a set:
 <set>.discard(<element>)
 
 
@@ -800,26 +799,26 @@ METHODS
 <set>.clear()
 
 - Create a copy of a set:
->> <copy-set> = <set>.copy()
+<copy-set> = <set>.copy()
 
 - Return a set with the Difference between a set and another:
 <set>.difference(<another-set>)
 
-- Update a set to be the Difference between anoter set:
+- Update a set to be the Difference between another set:
 <set>.difference_update(<another-set>)
 
 - Return a set with Intersection between a set and another:
-<set>.intersection(<anoter-set>)
+<set>.intersection(<another-set>)
 
-- Update a set to be the Intersection with anoter set:
+- Update a set to be the Intersection with another set:
 <set>.intersection_update(<another-set>)
 
 - Return a set as Union of a set and another:
-<set>.union(<anoter-set>)
+<set>.union(<another-set>)
 
 
 
-	## Examples ##
+    ## Examples ##
 
 - Get all values on a list, without repeating:
 l = [1,2,2,33,4,4,11,22,3,3,2]
@@ -827,13 +826,13 @@ shit = list(set(l))
 print(shit)
 []	[1, 2, 33, 4, 3, 11, 22]
 
-	## - ##
+    ## - ##
 
 
 
 ------------------------------------
 
-	CODE FLOW CONTROL STRUCTURES
+    CODE FLOW CONTROL STRUCTURES
 
 
 - Return True if an object is an instance of a given type or tuple of types:
@@ -847,11 +846,11 @@ isinstance(<object>, <type-tuple>)
 
 
 if <boolean>:
-	<instructions>
+    <instructions>
 elif <boolean>:
-	<instructions>
+    <instructions>
 else:
-	<instructions>
+    <instructions>
 
 
 ```python
@@ -870,24 +869,24 @@ else:
 
 
 for <element> in <iterable>:
-	<instructions>
+    <instructions>
 
 - Iterables are: lists, dictionary keys, dictionary values, dictionary items, tuples, strings, iterators.
 
 for _ in <iterable>:
-	<instructions>
+    <instructions>
 
 
 
 - For/else/break (executes the else after the loop only if it didn´t find a break):
 
 for <element> in <iterable>:
-	<instructions>
-	if <boolean>:
-		<instructions>
-		break
+    <instructions>
+    if <boolean>:
+        <instructions>
+        break
 else:
-<instructions>
+    <instructions>
 
 
 
@@ -899,13 +898,13 @@ else:
 
 
 while <boolean>:
-	<instructions>
+    <instructions>
 
 
 while <boolean>:
-	<instructions>
+    <instructions>
 else:
-	<instructions>
+    <instructions>
 
 
 
@@ -924,18 +923,18 @@ range(<included-start>, <excluded-stop>, <step>)
 
 
 
-	## Examples ##
+    ## Examples ##
 
 for (um, dois) in [ (1, 2), (3, 4), (5, 6) ]:
-	print("%d x %d = %d" %(um,dois,um * dois))
+    print("%d x %d = %d" %(um,dois,um * dois))
 []	1 x 2 = 2
 []	3 x 4 = 12
 []	5 x 6 = 30
 
 for (key, value) in <dict>.items():
-	print(key, ':', value)
+    print(key, ':', value)
 
-	## - ##
+    ## - ##
 
 
 
@@ -949,27 +948,27 @@ STOP REPETITIONS (BREAK & CONTINUE)
 
 
 - Stop repetition:
-	
+    
 while True:
-	<instructions>
-	if <boolean>:
-		break	# works on for and while
+    <instructions>
+    if <boolean>:
+        break	# works on for and while
 
 
 
 - Stop current iteration and continue repetition:
-	
+    
 while <boolean>:
-	<instruction>
-	if <boolean>:
-		continue
-	<instruction>
+    <instruction>
+    if <boolean>:
+        continue
+    <instruction>
 
 for <element> in <iterable>:
-	<instruction>
-	if <boolean>:
-		continue
-	<instruction>
+    <instruction>
+    if <boolean>:
+        continue
+    <instruction>
 
 
 
@@ -989,7 +988,7 @@ LIST COMPREHENSION
 
 
 
-	## Examples ##
+    ## Examples ##
 
 range(0,10)
 []	range(0, 10)
@@ -1003,10 +1002,10 @@ list(range())
 
 x = 0
 while x <= 10:
-	x += 1
-	if (x % 2) == 1:
-		continue
-	print (x, 'is even')
+    x += 1
+    if (x % 2) == 1:
+        continue
+    print (x, 'is even')
 []	2 is even
 []	4 is even
 []	6 is even
@@ -1029,43 +1028,43 @@ print (dois, um)
 for n in range(1,101): print('FizzBuzz') if (n%3==0 and n%5==0) else (print('Fizz') if n%3==0 else (print('Buzz') if n%5==0 else print(n)))
 
 
-	## - ##
+    ## - ##
 
 ------------------------------------
 
-	FUNCTIONS
+    FUNCTIONS
 
 - Defining simple function:
 def <function>():
-	<instructions>
+    <instructions>
 
 - Call function:
 <function>()
 
 - Add Docstring (a type of description) to a function:
 def <function>():
-	"""
-	<Docstring>
-	"""
-	<instructions>
+    """
+    <Docstring>
+    """
+    <instructions>
 
 
 - Function with arguments:
 def <function>(<args>, ...):
-	<instructions>
+    <instructions>
 
 
 - Return:
 def <function>():
-	<instructions>
-	return <object>
+    <instructions>
+    return <object>
 
 
 - Recursive function:
 
 def <func_A>(<args>):
-	<instructions>
-	<func_A>(<args>)
+    <instructions>
+    <func_A>(<args>)
 
 
 
@@ -1078,10 +1077,10 @@ ARGS & KWARGS
 - The extra keyword-arguments go to a 'kwargs' Dictionary.
 
 def <function>(*args, ...):
-	<instructions>
+    <instructions>
 
 def <function>(**kwargs, ...):
-	<instructions>
+    <instructions>
 
 
 
@@ -1094,13 +1093,13 @@ def <function>(**kwargs, ...):
 
 
 
-	## Examples ##
+    ## Examples ##
 
 def isprime(num):
     """
     Método pra checar se é primo
     """
-	for ind in range(2,num):
+    for ind in range(2,num):
         if num%ind == 0 :
             print("Not prime")
             break
@@ -1113,8 +1112,8 @@ isprime(104729)
 
 
 def func():
-	a = 1
-	print(locals())
+    a = 1
+    print(locals())
 
 sameFunc = func()
 []	{'a': 1}
@@ -1122,18 +1121,18 @@ type(sameFunc)		# func() returned nothing
 []	NoneType
 sameFunc = func
 def otherFunc(function):
-	function()
+    function()
 otherFunc(sameFunc)
 []	{'a': 1}
 
 
 
-	## - ##
+    ## - ##
 
 
 ------------------------------------
 
-	UNPACKING (aka STARRED EXPRESSIONS)
+    UNPACKING (aka STARRED EXPRESSIONS)
 
 - Unpacking can be done with lists, tuples and dictionaries.
 
@@ -1147,9 +1146,9 @@ otherFunc(sameFunc)
 
 
 
-	## Examples ##
+    ## Examples ##
 
-args = [5, 27, 3]
+args = [5, 27, 2]
 list(range(*args))
 []	[5, 8, 11, 14, 17, 20, 23, 26]
 
@@ -1157,11 +1156,11 @@ d = {'word':'butt' , 'l':'t'}
 print( ' {word} {l} {var}'.format( **d, var='shit' ))
 []	butt t shit
 
-	## - ##
+    ## - ##
 
 ------------------------------------
 
-	LAMBDA
+    LAMBDA
 
 - Função definida em uma única linha.
 - Função ´anônima´.
@@ -1177,17 +1176,17 @@ lambda <args>, ... : <instruction>
 
 ------------------------------------
 
-	NESTED STATEMENTS AND SCOPE
+    NESTED STATEMENTS AND SCOPE
 
 - Scopes order:
 
-	1- local - inside functions
+    1- local - inside functions
 
-	2- enclosing functions locals - on local scope of any nested functions, from insideout
+    2- enclosing functions locals - on local scope of any nested functions, from insideout
 
-	3- global - in the top level of a file or declared as global in a function
+    3- global - in the top level of a file or declared as global in a function
 
-	4- built-in (python) - pre-assigned
+    4- built-in (python) - pre-assigned
 
 
 
@@ -1203,14 +1202,14 @@ globals()['<variable-label>']
 
 
 
-	## Examples ##
+    ## Examples ##
 
 - Locals (x):
 
 x = 'global'
 def func():
-	x = 'local'
-	print(x)
+    x = 'local'
+    print(x)
 
 print(x)
 []	global
@@ -1223,15 +1222,15 @@ func()
 - Enclosing functions locals:
 
 def outterFunc():
-	x = 'local'
-	def innerFunc1():
-		x = 'nested local'
-		print (x)
-	def innerFunc2():
-		nonlocal x
-		print (x)
-	innerFunc1()
-	innerFunc2()
+    x = 'local'
+    def innerFunc1():
+        x = 'nested local'
+        print (x)
+    def innerFunc2():
+        nonlocal x
+        print (x)
+    innerFunc1()
+    innerFunc2()
 outterFunc()
 []	nested local
 []	local
@@ -1240,10 +1239,10 @@ outterFunc()
 
 name = 'global'
 def greet():
-	name = 'local'
-	def hello():
-		print(name)
-	hello()
+    name = 'local'
+    def hello():
+        print(name)
+    hello()
 greet()
 []	local
 
@@ -1253,10 +1252,10 @@ greet()
 
 name = 'global'
 def greet():
-	# now without the enclosing function local
-	def hello():
-		print(name)
-	hello()
+    # now without the enclosing function local
+    def hello():
+        print(name)
+    hello()
 greet()
 []	global
 
@@ -1266,24 +1265,24 @@ greet()
 
 x = 'global'
 def func():
-	global x
-	x = 'not local, global'
-	print(x)
+    global x
+    x = 'not local, global'
+    print(x)
 
 func()
-	not local, global
+    not local, global
 print(x)
-	not local, global
+    not local, global
 
 
 
 
-	## - ##
+    ## - ##
 
 
 ------------------------------------
 
-	OBJECT ORIENTED: CLASSES, PROPERTIES AND METHODS, INHERITANCE, SPECIAL METHODS
+    OBJECT ORIENTED: CLASSES, PROPERTIES AND METHODS, INHERITANCE, SPECIAL METHODS
 
 
 - Classes have a Initialization Function, aka Constructors (__init__). Used to assign values to attributes and do operations necessary when the object is being created.
@@ -1294,14 +1293,14 @@ print(x)
 - Create a Class:
 
 class <Class>:
-	
-	<attributes_1>
-	
-	def __init__(self, <parameters>, ...):
-		self.<attributes_2> = <parameter>
-	
-	def <methods>(self, <parameters>, ...):
-		<instructions>
+    
+    <attributes_1>
+    
+    def __init__(self, <parameters>, ...):
+        self.<attributes_2> = <parameter>
+    
+    def <methods>(self, <parameters>, ...):
+        <instructions>
 
 
 
@@ -1329,19 +1328,19 @@ INHERITANCE
 - Create a Class that inherit the properties and methods from other Class:
 
 class <Class> (<parent-Class>):
-	
-	<attributes>
-	<__init__>
-	<methods>
-	
-	# Overwriting a parent method:
-	
-	def <parent-method>(self, <parameters>, ...):
-		<new-instructions>
-	
-	# Using a overwriten parent method:
-	
-	<parent-Class>.<parent-method>()
+    
+    <attributes>
+    <__init__>
+    <methods>
+    
+    # Overwriting a parent method:
+    
+    def <parent-method>(self, <parameters>, ...):
+        <new-instructions>
+    
+    # Using a overwritten parent method:
+    
+    <parent-Class>.<parent-method>()
 
 
 
@@ -1353,41 +1352,41 @@ SPECIAL METHODS
 - Special methods:
 
 class <Class>:
-	
-	# Constructor. Behavior of '<object> = <class>()'
-	
-	def __init__(self, <parameters>, ...):
-		self.<property> = <parameter>
-	
-	
-	# Behavior when using '<object> + <other-object>'
-	
-	def __add__(self, <other-object>):
-		<instructions>
-	
-	
-	# Return when used the 'len(<object>)' function
-	
-	def __len__(self):
-		return <attribute/method>
-	
-	
-	# Behavior of '<object>[<key>]
-	
-	def __getitem__(self, key):
-		return <attribute/method>
-	
-	
-	# Return when 'str(<object>)' or 'print(<object>)'
-	
-	def __str__(self):
-		return <str>
-	
-	
-	# Behavior when object deleted by del(<object>)
-	
-	def __del__(self):
-		<instructions>
+    
+    # Constructor. Behavior of '<object> = <class>()'
+    
+    def __init__(self, <parameters>, ...):
+        self.<property> = <parameter>
+    
+    
+    # Behavior when using '<object> + <other-object>'
+    
+    def __add__(self, <other-object>):
+        <instructions>
+    
+    
+    # Return when used the 'len(<object>)' function
+    
+    def __len__(self):
+        return <attribute/method>
+    
+    
+    # Behavior of '<object>[<key>]
+    
+    def __getitem__(self, key):
+        return <attribute/method>
+    
+    
+    # Return when 'str(<object>)' or 'print(<object>)'
+    
+    def __str__(self):
+        return <string>
+    
+    
+    # Behavior when object deleted by del(<object>)
+    
+    def __del__(self):
+        <instructions>
 
 
 
@@ -1414,7 +1413,7 @@ https://stackoverflow.com/questions/4529815/saving-an-object-data-persistence
 
 ------------------------------------
 
-	ERRORS: TRY & EXCEPT
+    ERRORS: TRY & EXCEPT
 
 - Try code with possible errors.
 - In case of a specific Exception, treat as specified on the except block. If the Exception is not specified, any error will be treated.
@@ -1423,53 +1422,53 @@ https://stackoverflow.com/questions/4529815/saving-an-object-data-persistence
 - The 'finally' block runs independent of  what happens ( useful in case of: a return on the except block, if a Exception is thrown in the except block, if a Exception is thrown on the try block, but is not treated on any except block in which case finally is executed before the Exception is propagated).
 
 try:
-	<instructions>
-	
+    <instructions>
+    
 except <exception>:
-	<instructions>
-	
+    <instructions>
+    
 except ...
-	...
-	
+    ...
+    
 except Exception as <object>:
-	<instructions>
-	
+    <instructions>
+    
 else:
-	<instructions>
-	
+    <instructions>
+    
 finally:
-	<instructions>
+    <instructions>
 
 
 - Throw an Exception:
 
 raise <exception>
-raise NameError(<str>)
+raise NameError(<string>)
 
 
 
 ------------------------------------
 
-	PACKAGES AND MODULES
+    PACKAGES AND MODULES
 
 - Some built-in libraries:
-math
-ramdom
 os
 time
 pickle
-line_profiler
 numpy
+math
+random
+line_profiler
 
 
 - Available:
 [pacman]	python-gmpy2
-			Provides C-coded Python modules for fast multiple-precision arithmetic.
-			(https://github.com/aleaxit/gmpy)
-			(https://gmpy2.readthedocs.io/en/latest/mpfr.html)
-			
+            Provides C-coded Python modules for fast multiple-precision arithmetic.
+            (https://github.com/aleaxit/gmpy)
+            (https://gmpy2.readthedocs.io/en/latest/mpfr.html)
+            
 [conda]		gmpy2
-			GMP/MPIR, MPFR (Multiple Precision Floating-point Rounding), and MPC interface to Python 2.6+ and 3.x
+            GMP/MPIR, MPFR (Multiple Precision Floating-point Rounding), and MPC interface to Python 2.6+ and 3.x
 
 
 
@@ -1484,23 +1483,23 @@ numpy
 
 <project>/
 |
-|	<main>.py
-|	<module-a>.py
-|	...
-|	
-|	<package>/
-|	|
-|	|	__init__.py
-|	|	<module-b>.py
-|	|	...
-|	|	
-|	|	<sub-package>/
-|	|	|
-|	|	|	__init__.py
-|	|	|	<module-c>.py
-|	|	|	...
-|	|	|
-|	|
+|   <main>.py
+|   <module-a>.py
+|   ...
+|   
+|   <package>/
+|   |
+|   |   __init__.py
+|   |   <module-b>.py
+|   |   ...
+|   |   
+|   |   <sub-package>/
+|   |   |
+|   |   |   __init__.py
+|   |   |   <module-c>.py
+|   |   |   ...
+|   |   |
+|   |
 |
 
 
@@ -1527,14 +1526,14 @@ from <package>.<sub-package>.<module> import <function>
 
 
 
-	(basically, never use pip)
-	(conda on Virtual Enviroment)
-	(pacman on the system)
+    (basically, never use pip)
+    (conda on Virtual Enviroment)
+    (pacman on the system)
 
-	WARNING: NEVER run 'pip install <module>' on the TERMINAL. You should never make any changes to '/usr', except through pacman. If you need to install with pip do it in a Virtual Enviroment (like conda).
+    WARNING: NEVER run 'pip install <module>' on the TERMINAL. You should never make any changes to '/usr', except through pacman. If you need to install with pip do it in a Virtual Enviroment (like conda).
 
-	(if a package isn´t available by conda, try conda-forge before even thinking on pip)
-	(https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#installing-non-conda-packages)
+    (if a package isn´t available by conda, try conda-forge before even thinking on pip)
+    (https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#installing-non-conda-packages)
 
 
 - Install packages on current env:
@@ -1612,7 +1611,7 @@ imp.find_module('<module>')
 
 
 
-	## Examples ##
+    ## Examples ##
 
 
 
@@ -1625,13 +1624,6 @@ from <package>.<module> import <function>
 
 
 
-
-
-'__init__.py'
-from .<module> import *
-
-'<main>.py'
-from <package> import <function>
 
 
 
@@ -1653,14 +1645,14 @@ from <file> import <function>
 os.chdir(cwd)
 
 
-	## - ##
+    ## - ##
 
 ------------------------------------
 
-	MAP, REDUCE, FILTER, ZIP, ENUMERATE, ALL & ANY
+    MAP, REDUCE, FILTER, ZIP, ENUMERATE, ALL & ANY
 
 - MAP
-- Aply a function to all of a iterable´s elements.
+- Apply a function to all of a iterable´s elements.
 - Returns a memory instruction (map type object).
 - Do not use the paranthesis on the function.
 - You can define a lambda right on the map() argument.
@@ -1675,7 +1667,7 @@ list(map(<function>, <iterable>))
 
 
 - REDUCE
-- Aply a function to all of a iterable´s elements, two by two.
+- Apply a function to all of a iterable´s elements, two by two.
 - Initially with the first two, and then, with it´s result and the next from the iterable.
 - Goes until it is reduced to a single element which is returned.
 
@@ -1734,7 +1726,7 @@ any(<iterable>)
 
 
 
-	## Examples ##
+    ## Examples ##
 
 celsius = [0, 9, 10, 15, 20, 22, 30, 40, 50, 90, 100, 120]
 fahrenheit = list(map(lambda temp: temp * (9/5) + 32, celsius))
@@ -1768,32 +1760,32 @@ foo = ['This', 'That', 'Those4423', '42', '13b', 'Yes', '2']
 [word for word in foo if not any(letter.isdigit() for letter in word)]
 
 
-	## - ##
+    ## - ##
 
 
 
 ------------------------------------
 
-	DECORATORS & CLOSURE
+    DECORATORS & CLOSURE
 
 - Make a Function that add other functionalities (Decorate) to a (existing or new) function:
 
 def <decorator> (<in-func>):
 
-	def <out-func>( <parameters> ):
-		<instructions>
-		return <in-func>( <parameters> )
-	
-	return <out-func>
+    def <out-func>( <parameters> ):
+        <instructions>
+        return <in-func>( <parameters> )
+    
+    return <out-func>
 
 def <decorator> (<in-func>):
 
-	def <out-func>( <parameters> ):
-		<instructions>
-		<in-func>( <parameters> )
-		<instructions>
-	
-	return <out-func>
+    def <out-func>( <parameters> ):
+        <instructions>
+        <in-func>( <parameters> )
+        <instructions>
+    
+    return <out-func>
 
 
 
@@ -1808,7 +1800,7 @@ def <decorator> (<in-func>):
 
 @<decorator>
 def <func> ():
-	<instructions>
+    <instructions>
 
 
 
@@ -1820,7 +1812,7 @@ def <func> ():
 @<decorator2>
 ...
 def <func> ():
-	<instructions>
+    <instructions>
 
 
 
@@ -1832,20 +1824,20 @@ def <func> ():
 
 def <decorator> (<in-func>):
 
-	def <out-func>( *args, **kwargs ):
-		<instructions>
-		return <in-func>( *args, **kwargs )
-	
-	return <out-func>
+    def <out-func>( *args, **kwargs ):
+        <instructions>
+        return <in-func>( *args, **kwargs )
+    
+    return <out-func>
 
 def <decorator> (<in-func>):
 
-	def <out-func>( *args, **kwargs ):
-		<instructions>
-		<in-func>( *args, **kwargs )
-		<instructions>
-	
-	return <out-func>
+    def <out-func>( *args, **kwargs ):
+        <instructions>
+        <in-func>( *args, **kwargs )
+        <instructions>
+    
+    return <out-func>
 
 
 
@@ -1854,14 +1846,14 @@ CLOSURE
 
 - Get some data attached (Closure) to a function.
 - By using this, once defined, the function will hold a "hidden" data.
-- Can be used to create objects storing data withou the need to make a Class.
+- Can be used to create objects storing data without the need to make a Class.
 
 def <closure>( <variables> ):
 
-	def <out-func>():
-		<instructions>( <variables> )
-	
-	return <out-func>
+    def <out-func>():
+        <instructions>( <variables> )
+    
+    return <out-func>
 
 <func> = <closure>( <data> )
 
@@ -1883,14 +1875,14 @@ def <closure>( <variables> ):
 
 
 
-	## Examples ##
+    ## Examples ##
 
 def make_multiplier(n):
-	
-	def multiplier(x):
-		return x * n
-	
-	return multiplier
+    
+    def multiplier(x):
+        return x * n
+    
+    return multiplier
 
 times3 = make_multiplier(3)
 times3(9)
@@ -1901,23 +1893,23 @@ times5(9)
 []	45
 
 def addExplaning(func):
-	
-	def outFunc(x):
-		print("I´m a function that multiplies %d by the given number %d:" %( func.__closure__[0].cell_contents, x))
-		return func(x)
-	
-	return outFunc
+    
+    def outFunc(x):
+        print("I´m a function that multiplies %d by the given number %d:" %( func.__closure__[0].cell_contents, x))
+        return func(x)
+    
+    return outFunc
 
 times5 = addExplaning(times5)
 print(times5(9))
 []	I´m a function that multiplies 5 by the given number 9:
 []	45
 
-	## - ##
+    ## - ##
 
 ------------------------------------
 
-	ITERATORS & GENERATORS
+    ITERATORS & GENERATORS
 
 - A Python Iterator Object must implement the methods '__iter__()' and '__next__()' (iterator protocol).
 - The 'next()' and 'iter()' functions call the '__next__()' and '__iter__()' methods.
@@ -1930,21 +1922,21 @@ print(times5(9))
 next (<iterator>)
 
 class <custom-iterator>:
-	
-	def __init___(self, max=0):
-		self.n = 0
-		self.max = max
-	
-	def __iter__(self):
-		return self
-	
-	def __next__(self):
-		if self.n > self.max:
-			raise StopIteration
-		
-		<instruction>
-		self.n += 1
-		return <value>
+    
+    def __init___(self, max=0):
+        self.n = 0
+        self.max = max
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.n > self.max:
+            raise StopIteration
+        
+        <instruction>
+        self.n += 1
+        return <value>
 
 <obj> = <custom-iterator>(<max>)
 <iterator> = iter(<obj>)
@@ -1962,8 +1954,8 @@ GENERATOR
 - Can be used to represent an infinite stream of data.
 
 def <gerenator>():
-	<instructions>
-	yield <value>
+    <instructions>
+    yield <value>
 
 <iterator> = <gerenator>()
 
@@ -1984,43 +1976,44 @@ next (<iterator>)
 
 
 
-	## Examples ##
+
+    ## Examples ##
 
 def PowTwo(max=0):
-	n = 0
-	
-	while n < max:
-		yield 2 ** n
-		n += 1
+    n = 0
+    
+    while n < max:
+        yield 2 ** n
+        n += 1
 
 numbers = PowTwo(3)		# object
 i = iter(numbers)		# iterator
 
 for i in PowTwo(3):
-	print(i, end=' ')
+    print(i, end=' ')
 []	1 2 4 8 
 
 
 # Sum of the squares of the numbers in the Fibonacci Sequence
 def fibonacci_numbers(nums):
-	x, y = 0, 1
-	for _ in range(nums):
-		x, y = y, x+y
-		yield x
+    x, y = 0, 1
+    for _ in range(nums):
+        x, y = y, x+y
+        yield x
 
 def square(nums):
-	for num in nums:
-		yield num**2
+    for num in nums:
+        yield num**2
 
 print(sum(square(fibonacci_numbers(100))))
 []	203023208030065646654504166904697594722575
 
 
-	## - ##
+    ## - ##
 
 ------------------------------------
 
-	DEBUGGING
+    DEBUGGING
 
 - Evaluate a boolean and throw a 'AssertionError' (and message) if False:
 assert <boolean>
@@ -2041,8 +2034,8 @@ import pdb
 pdb.set_trace()
 
 Commands:
-	h	help		- Print available commands.
-	c	continue	- Continue execution.
+    h	help		- Print available commands.
+    c	continue	- Continue execution.
 
 More Commands:
 (https://docs.python.org/dev/library/pdb.html#debugger-commands)
@@ -2050,7 +2043,7 @@ More Commands:
 
 ------------------------------------
 
-	COLLECTIONS MODULE
+    COLLECTIONS MODULE
 
 
 
@@ -2094,7 +2087,7 @@ from collections import defaultdict
 
 
 
-	## Examples ##
+    ## Examples ##
 
 from collections import defaultdict
 
@@ -2108,7 +2101,7 @@ d['non-existent']
 str = 'mississippi'
 d = defaultdict(int)
 for letter in str:
-	d[letter] += 1
+    d[letter] += 1
 
 d.items()
 []	dict_items([('m', 1), ('i', 4), ('s', 4), ('p', 2)])
@@ -2117,12 +2110,12 @@ d.items()
 s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
 d = defaultdict(list)
 for color, value in s:
-	d[color].append(value)
+    d[color].append(value)
 
 d.items()
 []	dict_items([('yellow', [1, 3]), ('blue', [2, 4]), ('red', [1])])
 
-	## - ##
+    ## - ##
 
 
 
@@ -2145,7 +2138,7 @@ from collections import namedtuple
 - Access the value from a Named Tuple´s parameter:
 <instance>.<parameter>
 
-	## Examples ##
+    ## Examples ##
 
 from collections import namedtuple
 Point = namedtuple('Point', 'x y')
@@ -2156,14 +2149,14 @@ from math import sqrt
 line_length = sqrt((pt1.x - pt2.x)**2 + (pt1.y - pt2.y)**2)
 []	3.8078865529319543
 
-	## - ##
+    ## - ##
 
 
 
 
 ------------------------------------
 
-	DATETIME
+    DATETIME
 
 
 - Import:
@@ -2172,7 +2165,7 @@ from datetime import datetime
 - Create a Time Stamp with time info:
 <time-stamp> = datetime.time(<hour>,<minute>,<second>)
 
-- Access parameters:
+- Access parameters of Time Stamp with time info:
 <time-stamp>.hour
 <time-stamp>.minute
 <time-stamp>.second
@@ -2194,7 +2187,6 @@ datetime.time.resolution
 
 
 - Create a Time Stamp with both time and date info:
-<time-stamp> = datetime.datetime(<year>,<month>,<day>)
 <time-stamp> = datetime.datetime(<year>,<month>,<day>,<hour>,<minute>,<second>)
 
 
@@ -2203,18 +2195,18 @@ datetime.time.resolution
 <time-stamp>.ctime()
 
 
-	## Example ##
+    ## Example ##
 
 today = datetime.datetime(2020,11,25,11,9,25)
 today.ctime()
 []	'Wed Nov 25 11:09:25 2020'
 
-	## - ##
+    ## - ##
 
 
-	
-	
-- Convert DateTime Objects to String (Formating):
+    
+    
+- Convert DateTime Objects to String (Formatting):
 <time-stamp>.strftime(<format>)
 
 - Convert String to DateTime Objects (Parsing):
@@ -2222,10 +2214,13 @@ today.ctime()
 
 
 Formats:
-	%Y	-	Year
-	%y	-	Year without century as a decimal number [00,99].
-	%m	-	Month as a decimal number [01,12].
-	%d	-	Day as a decimal number [01,31].
+    %y  -   Year without century as a decimal number [01,99].
+    %Y  -   Year with century as a decimal number [0001,9999].
+    %m  -   Month as a decimal number [01,12].
+    %d  -   Day as a decimal number [01,31].
+    %H  -   Hour (24-hour clock) as a decimal number [00,23].
+    %I  -   Hour (12-hour clock) as a decimal number [01,12].
+    %M  -   Minute as a decimal number [00,59].
 
 More Formats:
 (https://docs.python.org/dev/library/time.html#time.strftime)
@@ -2234,7 +2229,7 @@ More Formats:
 
 ------------------------------------
 
-	EXECUTION TIME
+    EXECUTION TIME
 
 - Import:
 import timeit
@@ -2242,7 +2237,7 @@ import timeit
 - Measure and sum execution time of a single-line code, for a number of executions:
 timeit.timeit('<instruction>', number=<executions-times>)
 
-	## Examples ##
+    ## Examples ##
 
 "-".join(str(n) for n in range (10))
 []	'0-1-2-3-4-5-6-7-8-9'
@@ -2253,21 +2248,21 @@ timeit.timeit('"-".join(str(n) for n in range (100))', number=100000)
 timeit.timeit('"-".join(map(str, range (100)))', number=100000)
 []	2.6763063040007182
 
-	## - ##
+    ## - ##
 
 
 - On Jupyter notebook, is possible to use Timeit to get statistics about the execution:
 %timeit <instruction>
 
 
-	## Examples ##
+    ## Examples ##
 
 %timeit "-".join(str(n) for n in range (100))
 []	35.1 µs ± 2.09 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 %timeit "-".join(map(str, range (100)))
 []	24.4 µs ± 918 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 
-	## - ##
+    ## - ##
 
 
 LINE PROFILER
@@ -2281,32 +2276,32 @@ LINE PROFILER
 
 - Set up:
 
-	try:
-		from line_profiler import LineProfiler
+try:
+    from line_profiler import LineProfiler
 
-		def do_profile(follow=[]):
-			def inner(func):
-				def profiled_func(*args, **kwargs):
-					try:
-						profiler = LineProfiler()
-						profiler.add_function(func)
-						for f in follow:
-							profiler.add_function(f)
-						profiler.enable_by_count()
-						return func(*args, **kwargs)
-					finally:
-						profiler.print_stats()
-				return profiled_func
-			return inner
+    def do_profile(follow=[]):
+        def inner(func):
+            def profiled_func(*args, **kwargs):
+                try:
+                    profiler = LineProfiler()
+                    profiler.add_function(func)
+                    for f in follow:
+                        profiler.add_function(f)
+                    profiler.enable_by_count()
+                    return func(*args, **kwargs)
+                finally:
+                    profiler.print_stats()
+            return profiled_func
+        return inner
 
-	except ImportError:
-		def do_profile(follow=[]):
-			"Helpful if you accidentally leave in production!"
-			def inner(func):
-				def nothing(*args, **kwargs):
-					return func(*args, **kwargs)
-				return nothing
-			return inner
+except ImportError:
+    def do_profile(follow=[]):
+        "Helpful if you accidentally leave in production!"
+        def inner(func):
+            def nothing(*args, **kwargs):
+                return func(*args, **kwargs)
+            return nothing
+        return inner
 
 
 
@@ -2314,23 +2309,23 @@ LINE PROFILER
 - Example of usage:
 
 
-	def get_number():
-		for x in xrange(5000000):
-			yield x
+def get_number():
+    for x in range(5000000):
+        yield x
 
-	@do_profile(follow=[get_number])
-	def expensive_function():
-		for x in get_number():
-			i = x ^ x ^ x
-		return 'some result!'
+@do_profile(follow=[get_number])
+def expensive_function():
+    for x in get_number():
+        i = x ^ x ^ x
+    return 'some result!'
 
-	result = expensive_function()
+result = expensive_function()
 
 
 
 ------------------------------------
 
-	REGULAR EXPRESSIONS
+    REGULAR EXPRESSIONS
 
 - Info: (https://docs.python.org/dev/library/re.html)
 
@@ -2352,24 +2347,24 @@ re.search(<pattern>, <string>)
 
 
 - Pattern Repetition Syntax:
-	\		Escapes special characters.
-	*		Match 0 or more repetitions of the preceding RE.
-	+		Match 1 or more repetitions of the preceding RE.
-	?		Match 0 or 1 repetitions of the preceding RE.
-	{m}		Exactly m copies of the previous RE should be matched.
-	{m,n}	Match from m to n repetitions of the preceding RE.
-			Omitting m specifies a lower bound of zero, and omitting n specifies an infinite upper bound (comma may not be omitted).
-	A|B		Match either A or B
-	[]		Indicate a set of possible characters.
-			[-]		Range of possible characters. Examples:
-					[a-z]			From a to z.
-					[0-9A-Fa-f]		Any hexadecimal digit.
-					[0-5][0-9] 		All two-digits numbers from 00 to 59.
-			[^]		Complementing the set.
-					'^' has no special meaning if it’s not the first character in the set.
-					Example:
-					[^5]		Any character except '5'.
-					[^^]		Any character except '^'.
+    \		Escapes special characters.
+    *		Match 0 or more repetitions of the preceding RE.
+    +		Match 1 or more repetitions of the preceding RE.
+    ?		Match 0 or 1 repetitions of the preceding RE.
+    {m}		Exactly m copies of the previous RE should be matched.
+    {m,n}	Match from m to n repetitions of the preceding RE.
+            Omitting m specifies a lower bound of zero, and omitting n specifies an infinite upper bound (comma may not be omitted).
+    A|B		Match either A or B
+    []		Indicate a set of possible characters.
+            [-]		Range of possible characters. Examples:
+                    [a-z]			From a to z.
+                    [0-9A-Fa-f]		Any hexadecimal digit.
+                    [0-5][0-9] 		All two-digits numbers from 00 to 59.
+            [^]		Complementing the set.
+                    '^' has no special meaning if it’s not the first character in the set.
+                    Example:
+                    [^5]		Any character except '5'.
+                    [^^]		Any character except '^'.
 
 
 
@@ -2386,41 +2381,41 @@ re.findall(<pattern>, <string>)
 
 
 
-	## Examples ##
+    ## Examples ##
 
 import re
 patterns = ['term1', 'term2']
-text = 'String with term1. Another with term2.'
+text = 'String with term1 and term1 again. Another with term2.'
 re.search(patterns[0], text)
 []	<re.Match object; span=(12, 17), match='term1'>
 
 for patt in patterns:
-	if re.search(patt, text[:18]):
-		print('Found "%s" in "%s".' % (patt, text[:18]))
-	else:
-		print('Didn´t found "%s" in "%s".' % (patt, text[:18]))
+    if re.search(patt, text[:18]):
+        print('Found "%s" in "%s".' % (patt, text[:18]))
+    else:
+        print('Didn´t found "%s" in "%s".' % (patt, text[:18]))
 []	Found "term1" in "String with term1.".
 []	Didn´t found "term2" in "String with term1.".
 
-	## - ##
+    ## - ##
 
 
 ------------------------------------
 
-	GUI
+    GUI
 
 - List of common frameworks for GUI:
 (https://wiki.python.org/moin/GuiProgramming)
 
 - Recommended:
-	PyQt		- Because
-	PyGame		- For graphic games
-	ipywidgets	- For Jupyter
+    PyQt		- Because
+    PyGame		- For graphic games
+    ipywidgets	- For Jupyter
 
 
 
 - Tip:
-	"Se você quer construir aplicativos web, provavelmente vai querer evitar o Python como GUI e usá-lo para o trabalho de back-end usando Flask ou Django. Com os aplicativos da Web, você desejará explorar HTML, CSS e Javascript para fornecer a GUI para seu usuário."
+    "Se você quer construir aplicativos web, provavelmente vai querer evitar o Python como GUI e usá-lo para o trabalho de back-end usando Flask ou Django. Com os aplicativos da Web, você desejará explorar HTML, CSS e Javascript para fornecer a GUI para seu usuário."
 
 
 
@@ -2539,7 +2534,7 @@ display(<button>)
 
 ------------------------------------
 
-	TITTLE
+    TITTLE
 
 - 
 
@@ -2547,11 +2542,11 @@ display(<button>)
 
 
 
-	## Examples ##
+    ## Examples ##
 
 
 
-	## - ##
+    ## - ##
 
 
 ------------------------------------

@@ -13,8 +13,9 @@ This is a guide for ![][latex] commands.
 
 ------------------------------------
 
-### TABLE OF CONTENT <!-- omit in toc -->
+### TABLE OF CONTENT
 
+- [TABLE OF CONTENT](#table-of-content)
 - [TERMINOLOGY](#terminology)
 - [PACKAGES](#packages)
 - [REFERENCES](#references)
@@ -33,6 +34,7 @@ This is a guide for ![][latex] commands.
 - [BASIC FORMATING](#basic-formating)
   - [Fonts](#fonts)
   - [Align](#align)
+- [CODE](#code)
 - [MATH](#math)
   - [Equations Delimiters](#equations-delimiters)
   - [Text within Equations](#text-within-equations)
@@ -44,7 +46,8 @@ This is a guide for ![][latex] commands.
   - [Crossed Reference](#crossed-reference)
   - [Math Fonts](#math-fonts)
   - [Operators](#operators)
-  - [Greek and Common Symbols](#greek-and-common-symbols)
+  - [Greek Letters](#greek-letters)
+  - [Common Math Symbols](#common-math-symbols)
 - [LINKS](#links)
 - [IMAGES](#images)
   - [Figure Environment](#figure-environment)
@@ -65,7 +68,7 @@ This is a guide for ![][latex] commands.
 
 | Term/Expression | Meaning                                                         |
 | --------------: | :-------------------------------------------------------------- |
-| `<description>` | To replace, or that will be replaced, according to description. |
+| `<description>` | To replace, or that will be replaced, according to description (without the `<` and `>`). |
 |           `...` | Possible to repeated pattern.                                   |
 |             `$` | Some command to be used on the Terminal (shell).                |
 <!-- --><br/>
@@ -160,7 +163,7 @@ The packages **I** use.
 [cool]:https://pt.slideshare.net/smarzaro/latex-bsico-i " LaTeX Básico I "
 [kbibtex]:https://apps.kde.org/en/kbibtex "KBibTeX"
 
-[latex]:https://latex.codecogs.com/gif.latex?\text{\LaTeX}
+[latex]:./imgs/latex_latex.png
 
 ------------------------------------
 
@@ -386,6 +389,9 @@ To do that, use the ´document´ _environment_.
 
 ```latex
 \bibliography{<file>}
+```
+```latex
+\bibliography{<file>, ..., <file>}
 ```
 
 <!-- --><br/>
@@ -954,16 +960,71 @@ $, &, #, _, {, }, %
 
 ------------------------------------
 
+### CODE
+
+
+- Use the package ´listings´:
+
+```latex
+\usepackage{listings}
+```
+<!-- --><br/>
+
+
+- Include a code with syntax highlighting:
+
+```latex
+\begin{lstlisting}[language=<language>]
+
+<code>
+
+\end{lstlisting}
+```
+```latex
+\begin{lstlisting}[language=<language>, frame=single]
+
+<code>
+
+\end{lstlisting}
+```
+<!-- --><br/>
+
+
+- Import code from file:
+
+```latex
+\lstinputlisting[language=<language>]{<path>}
+```
+```latex
+\lstinputlisting[language=<language>, frame=single]{<path>}
+```
+```latex
+\lstinputlisting[language=<language>, firstline=<number>, lastline=<number>]{<path>}
+```
+```latex
+\lstinputlisting[language=<language>, linerange={<number>-<number>, ..., <number>-<number>}]{<path>}
+```
+<!-- --><br/>
+<!-- --><br/>
+
+
+
+- Go back to [TABLE OF CONTENT](#table-of-content).
+<!-- --><br/>
+
+
+
+------------------------------------
+
 ### MATH
 
 - [LaTeX Mathematics Wiki][math]
 
 
-- Many commands in this section use the package ´amsmath´ and, for the fonts section, ´amssymb´:
+- Many commands in this section use the package ´amsmath´:
 
 ```latex
 \usepackage{amsmath}
-\usepackage{amssymb}
 ```
 <!-- --><br/>
 <!-- --><br/>
@@ -1203,18 +1264,18 @@ $, &, #, _, {, }, %
 
 |          Code          |                        Rendered Symbol                         |
 | :--------------------: | :------------------------------------------------------------: |
-|       `\hat{x}`        |       ![](https://latex.codecogs.com/gif.latex?\hat{x})        |
-|    `\widehat{xxx}`     |    ![](https://latex.codecogs.com/gif.latex?\widehat{xxx})     |
-|       `\vec{x}`        |       ![](https://latex.codecogs.com/gif.latex?\vec{x})        |
-| `\overrightarrow{xxx}` | ![](https://latex.codecogs.com/gif.latex?\overrightarrow{xxx}) |
-|       `\dot{x}`        |       ![](https://latex.codecogs.com/gif.latex?\dot{x})        |
-|       `\ddot{x}`       |       ![](https://latex.codecogs.com/gif.latex?\ddot{x})       |
-|      `\acute{x}`       |      ![](https://latex.codecogs.com/gif.latex?\acute{x})       |
-|      `\grave{x}`       |      ![](https://latex.codecogs.com/gif.latex?\grave{x})       |
-|       `\bar{x}`        |       ![](https://latex.codecogs.com/gif.latex?\bar{x})        |
-|      `\tilde{x}`       |      ![](https://latex.codecogs.com/gif.latex?\tilde{x})       |
-|      `\check{x}`       |      ![](https://latex.codecogs.com/gif.latex?\check{x})       |
-|      `\breve{x}`       |      ![](https://latex.codecogs.com/gif.latex?\breve{x})       |
+|       `\hat{x}`        |       ![](./imgs/latex_hat.png)        |
+|    `\widehat{xxx}`     |    ![](./imgs/latex_widehat.png)     |
+|       `\vec{x}`        |       ![](./imgs/latex_vec.png)        |
+| `\overrightarrow{xxx}` | ![](./imgs/latex_overrightarrow.png) |
+|       `\dot{x}`        |       ![](./imgs/latex_dot.png)        |
+|       `\ddot{x}`       |       ![](./imgs/latex_ddot.png)       |
+|      `\acute{x}`       |      ![](./imgs/latex_acute.png)       |
+|      `\grave{x}`       |      ![](./imgs/latex_grave.png)       |
+|       `\bar{x}`        |       ![](./imgs/latex_bar.png)        |
+|      `\tilde{x}`       |      ![](./imgs/latex_tildepng)       |
+|      `\check{x}`       |      ![](./imgs/latex_check.png)       |
+|      `\breve{x}`       |      ![](./imgs/latex_breve.png)       |
 <!-- --><br/>
 
 
@@ -1416,9 +1477,7 @@ $, &, #, _, {, }, %
 
 
 
-#### Greek and Common Symbols
-
-- List of Greek Letters:
+#### Greek Letters
 
 |     Code      | Symbol |     |   Code    | Symbol |     |    Code    | Symbol |
 | :-----------: | :----: | --- | :-------: | :----: | --- | :--------: | :----: |
@@ -1440,7 +1499,7 @@ $, &, #, _, {, }, %
 
 
 
-- List of Common Symbols:
+#### Common Math Symbols
 
 |   Code    | Symbol |      |    Code    | Symbol |      |     Code     | Symbol  |
 | :-------: | :----: | ---- | :--------: | :----: | ---- | :----------: | :-----: |

@@ -155,7 +155,7 @@ SOLVE LINEAR SYSTEM
 
 ### RANDOM
 
-- Create an Array with a number of random Integers:
+- Create an Array with a number of random Integers from a included minimum to not-included maximum value:
 
 ```python
 np.random.randint(<min>, <max>, <number>)

@@ -13,13 +13,15 @@ This is a guide for **conda** commands.
 
 ------------------------------------
 
-### TABLE OF CONTENT <!-- omit in toc -->
+### TABLE OF CONTENT
 
+- [TABLE OF CONTENT](#table-of-content)
 - [TERMINOLOGY](#terminology)
 - [REFERENCE](#reference)
 - [HELP](#help)
 - [ENVIRONMENTS](#environments)
 - [PACKAGES](#packages)
+  - [Conda-forge](#conda-forge)
 - [UPDATES](#updates)
 - [JUPYTER](#jupyter)
 - [MISC](#misc)
@@ -40,7 +42,7 @@ This is a guide for **conda** commands.
 
 | Term/Expression | Meaning |
 | --------------: | :------ |
-| `<description>` | To replace, or that will be replaced, according to description |
+| `<description>` | To replace, or that will be replaced, according to description (without the `<` and `>`). |
 | `$`             | Some command to be used on the Terminal (shell) |
 | `(<env>)$`      | Some Terminal command to be used on a specific environment |
 
@@ -188,12 +190,12 @@ $ conda env create -f environment.yml -n <env-name>
 
 ### PACKAGES
 
-> :warning: **WARNING** *(for Arch)* **:**
+> :warning: **WARNING** _(for Arch Linux)_ **:**
 >
 >> DO NOT run `pip install <module>` on TERMINAL.
 >> You should never make any changes to `/usr`, except through `pacman`.
 >> If a package isn´t available by conda, try [Conda Forge][conda-forge] before even thinking on pip.
->> If you need to install with `pip` do it in a Virtual environment.
+>> If you need to install with `pip` do it in a Virtual environment or use `pip install --user <package>` to install on the user install directory (typically `~/.local/lib/`).
 >> For more info see [this][non-conda-forge].
 >
 > **TL;DR :**
@@ -250,6 +252,22 @@ $ conda search <package> --info
 <!-- --><br/>
 
 
+- List installed package:
+
+```shell
+(<env>)$ conda list
+```
+
+```shell
+(<env>)$ conda list <package>
+```
+<!-- --><br/>
+<!-- --><br/>
+
+
+#### Conda-forge
+
+
 - Search package on the channel conda-forge:
 
 ```shell
@@ -266,18 +284,6 @@ $ conda search <package> -c conda-forge
 
 ```shell
 (<env>)$ conda install <package> -c conda-forge
-```
-<!-- --><br/>
-
-
-- List installed package:
-
-```shell
-(<env>)$ conda list
-```
-
-```shell
-(<env>)$ conda list <package>
 ```
 <!-- --><br/>
 
